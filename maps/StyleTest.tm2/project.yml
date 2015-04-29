@@ -1,0 +1,38 @@
+_prefs: 
+  mapid: jorditost.f2408cbf
+  saveCenter: true
+_properties: 
+  bridge: 
+    "group-by": layer
+attribution: "<a href='https://www.mapbox.com/about/maps/' target='_blank'>&copy; Mapbox &copy; OpenStreetMap</a> <a class='mapbox-improve-map' href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a>"
+bounds: 
+  - -180
+  - -85.0511
+  - 180
+  - 85.0511
+center: 
+  - -73.9794
+  - 40.782
+  - 17
+description: ''
+format: "png8:m=h"
+interactivity_layer: poi_label
+layers: null
+maxzoom: 22
+minzoom: 0
+name: Style Test
+source: "mapbox:///mapbox.mapbox-streets-v5"
+styles: 
+  - style.mss
+  - custom.mss
+template: |-
+  <strong>{{name}}</strong>
+  {{#type}}
+  <br /><small>{{type}}</small>
+  {{/type}}
+  {{#address}}
+  <br /><small>{{address}}</small>
+  {{/address}}
+  {{#website}}
+  <br /><small><a href='{{website}}'>Website</a></small>
+  {{/website}}
