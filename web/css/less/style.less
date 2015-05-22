@@ -1,6 +1,6 @@
 /*   
-Theme Name: HTML5 Reset Wordpress Theme
-Theme URI: https://github.com/jorditost/wp-reset-theme
+Resilient Design Interactive Poster
+Repository URL: https://github.com/FH-Potsdam/ResilientDesign
 Author: Jordi Tost
 Author URI: https://github.com/jorditost/
 Version: 1.0
@@ -21,6 +21,7 @@ Version: 1.0
 body {
 	font: 13px @font-reg;
 	line-height: 1.4;
+	background: @bg-color;
 }
 
 html {
@@ -63,7 +64,7 @@ a {
 		outline: none;
 	}
 
-	.transition(all, 0.1s, ease);
+	.transition(all, 0.2s, ease);
 }
 
 // Bold fonts when using web-fonts
@@ -104,32 +105,71 @@ h1, h2, h3, h4, h5, h6 {
 	.inside-block(@wrap-width);
 }
 
-.more-link {
 
+/////////////
+// HEADER
+/////////////
+
+header {
+	position: relative;
+	height: 240px;
+
+	.inside {
+		//padding:45px 0 30px;
+	}
 }
 
-// Main Nav
-.nav-menu {
+nav {
+	position: absolute;
+	bottom: 0;
+	//.block(100%, 50px);
+	width: 100%;
 
-	// ul { 
-	// 	font-size:0; // removes space created by inline-block
-	// }
+	.rgba(@nav-color, 0.3);
+	
+	ul { 
+		height: 100%;
+		font-size:0; // removes space created by inline-block
+	}
 
 	li {
-		margin-left:15px;
-		text-align:right;
-		
+		.size(190px, 100%);
+		border-right: 2px solid @bg-color;
+		text-align: center;
+
 		.inline-block();
 
 		&:first-child {
-			margin-left:0;
+			border-left: 2px solid @bg-color; 
 		}
 
 		// Text styles
 		a {
-			padding:5px 0;
-			display: block;
+			width: 100%;
+			padding: 13px 0 12px;
 			.optimize-text();
+			.inline-block;
+
+			font-size: 13px;
+			line-height: 25px;
+			
+			&:before {
+				content: "";
+				.inline-block();
+				.size(25px, 25px);
+				background-size: 25px 25px;
+				background-position: left center;
+				background-repeat: no-repeat;
+				margin-right: 10px;
+			}
+
+			&.intro-view:before { background-image: url('../images/icons/ResilientDesign_icons_introScreenIcon.png'); }
+			&.map-view:before 	{ background-image: url('../images/icons/ResilientDesign_icons-02.png'); }
+			&.house-view:before { background-image: url('../images/icons/ResilientDesign_icons-03.png'); }
+
+			&:hover {
+				.rgba(@nav-color, 0.3);
+			}
 		}
 
 		// Active / hover styles
@@ -143,74 +183,23 @@ h1, h2, h3, h4, h5, h6 {
 	}
 }
 
-#menu-button {
-	display: none;
-	&:link {-webkit-tap-highlight-color: transparent;}
-}
 
-// Backgrounds
-// Separators
-// Text classes
+///////////
+// VIEWS
+///////////
 
+@import "map-view";
+@import "house-view";
 
-/////////////
-// HEADER
-/////////////
-
-#header {
-	
-	.inside {
-		//padding:45px 0 30px;
-	}
-}
-
-#logo {
-	//.background-image('images/logo.png');
-	//.background-image-devices('images/logo', 'png', 137px 24px);
-	//.block(137px, 24px);
-	//.no-text();
-}
-
-#nav {
-	position: absolute;
-	bottom:24px;
-	right:0;
-}
-
-/////////////////////
-// MAIN STRUCTURE
-/////////////////////
-
-#content {
-	float: left;
-	display: block;
-	width: @content-width;
-	margin-right: @content-margin;
-}
-
-#sidebar {
-	float: left;
-	display: block;
-	width: @sidebar-width;
-}
 
 /////////////
 // FOOTER
 /////////////
 
-#footer {
+footer {
 
 }
 
-#footer-nav {
-	
-}
-
-///////////////////
-// Sticky Footer
-///////////////////
-
-//.sticky-footer(@footer-height);
 
 ///////////////////
 // Media Queries
