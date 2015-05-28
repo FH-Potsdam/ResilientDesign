@@ -355,18 +355,18 @@ header {
   position: relative;
   height: 240px;
 }
-nav {
+#view-nav {
   position: absolute;
   bottom: 0;
   width: 100%;
   background-color: #4962a2;
   background-color: rgba(73, 98, 162, 0.3);
 }
-nav ul {
+#view-nav ul {
   height: 100%;
   font-size: 0;
 }
-nav li {
+#view-nav li {
   width: 190px;
   height: 100%;
   border-right: 2px solid #12161f;
@@ -377,10 +377,10 @@ nav li {
   zoom: 1;
   *display: inline;
 }
-nav li:first-child {
+#view-nav li:first-child {
   border-left: 2px solid #12161f;
 }
-nav li a {
+#view-nav li a {
   width: 100%;
   padding: 13px 0 12px;
   text-rendering: optimizeLegibility;
@@ -392,7 +392,7 @@ nav li a {
   font-size: 13px;
   line-height: 25px;
 }
-nav li a:before {
+#view-nav li a:before {
   content: "";
   display: -moz-inline-stack;
   display: inline-block;
@@ -406,20 +406,75 @@ nav li a:before {
   background-repeat: no-repeat;
   margin-right: 10px;
 }
-nav li a.intro-view:before {
+#view-nav li a.intro-view:before {
   background-image: url('../images/icons/ResilientDesign_icons_introScreenIcon.png');
 }
-nav li a.map-view:before {
+#view-nav li a.map-view:before {
   background-image: url('../images/icons/ResilientDesign_icons-02.png');
 }
-nav li a.house-view:before {
+#view-nav li a.house-view:before {
   background-image: url('../images/icons/ResilientDesign_icons-03.png');
 }
-nav li a:hover {
+#view-nav li.active > a,
+#view-nav li a:hover {
   background-color: #4962a2;
   background-color: rgba(73, 98, 162, 0.3);
 }
+#container {
+  position: relative;
+}
+#viewport {
+  overflow: hidden;
+}
+#view-slider {
+  position: relative;
+  zoom: 1;
+  display: block;
+  width: 2910px;
+  -moz-transition: left 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition: left 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition: left 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -ms-transition: left 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: left 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+#view-slider:before,
+#view-slider:after {
+  content: "";
+  display: table;
+}
+#view-slider:after {
+  clear: both;
+}
+#view-slider section {
+  float: left;
+  width: 970px;
+  height: 794px;
+  display: block;
+  min-height: 50px;
+}
+#view-slider.intro-view-active {
+  left: 0;
+}
+#view-slider.map-view-active {
+  left: -970px;
+}
+#view-slider.house-view-active {
+  left: -1940px;
+}
 #map {
   width: 100%;
-  height: 500px;
+  height: 100%;
+  display: block;
+}
+#house {
+  background-image: url('../images/dummy/HouseView_DUMMY.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  display: block;
+  -moz-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
+  background-size: 100% 100%;
 }

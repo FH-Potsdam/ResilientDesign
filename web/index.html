@@ -21,27 +21,49 @@
 				</div>
 			</div>
 			
-			<nav>
+			<nav id="view-nav">
 				<div class="inside">
 					<ul>
 						<li><a class="intro-view" href="#intro-view">Intro</a></li>
-						<li><a class="map-view" href="#map-view">Map view</a></li>
+						<li class="active"><a class="map-view" href="#map-view">Map view</a></li>
 						<li><a class="house-view" href="#house-view">House view</a></li>
 					</ul>
 				</div>
 			</nav>
 
 		</header>
+		
+		<!-- PAGES NAVIGATION  -->
+		<main id="container">
+			
+			<div id="viewport" class="inside">
+				<div id="view-slider" class="map-view-active">
 
-		<main>
-			<div id="map"></div>
-		</main>
+					<!-- Pages View  -->
+					<section id="intro-view">
+						Intro screen
+					</section>
+					
+					<!-- Map View  -->
+					<section id="map-view">
+						<div id="map"></div>
+					</section>
+					
+					<!-- House View  -->
+					<section id="house-view">
+						<div id="house"></div>
+					</section>
+				</div>
+			</div>
+			
+			<div id="timeline"></div>
+		</div>
 
 		<footer>
 			<div class="inside">
 				<div id="logo"></div>
 				<div class="credits">
-					An Interflex project of the University of Applied Science Potsdam 
+					An Interflex project of the University of Applied Sciences Potsdam 
 					created as a cooperation between Design and Sociology students.
 				</div>
 			</div>

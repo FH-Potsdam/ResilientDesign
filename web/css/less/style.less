@@ -119,7 +119,9 @@ header {
 	}
 }
 
-nav {
+// View navigation
+#view-nav {
+
 	position: absolute;
 	bottom: 0;
 	//.block(100%, 50px);
@@ -166,23 +168,47 @@ nav {
 			&.intro-view:before { background-image: url('../images/icons/ResilientDesign_icons_introScreenIcon.png'); }
 			&.map-view:before 	{ background-image: url('../images/icons/ResilientDesign_icons-02.png'); }
 			&.house-view:before { background-image: url('../images/icons/ResilientDesign_icons-03.png'); }
-
-			&:hover {
-				.rgba(@nav-color, 0.3);
-			}
 		}
 
 		// Active / hover styles
-		&.active > a, 
-		&.current-menu-item > a,
-		&.current-cat > a,
+		&.active > a,
 		a:hover {
-
-			// current item styles
+			.rgba(@nav-color, 0.3);
 		}
 	}
 }
 
+///////////////
+// Structure
+///////////////
+
+#container {
+	position: relative;
+}
+
+#viewport {
+	overflow: hidden;
+}
+
+#view-slider {
+	position: relative;
+	.group;
+	display: block;
+	width: 3*@wrap-width;
+
+	.transition(left, 1.2s, @easeInOutCubic);
+	//.transition(left, 1.5s, cubic-bezier(.57,.22,.45,.83));
+
+	section {
+		float: left;
+		.block(@section-width, @section-height);
+		min-height: 50px;
+	}
+
+	&.intro-view-active { left: 0; }
+	&.map-view-active   { left: -@wrap-width; }
+	&.house-view-active { left: -2*@wrap-width; }
+}
 
 ///////////
 // VIEWS
