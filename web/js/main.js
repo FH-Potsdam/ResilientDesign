@@ -9,7 +9,8 @@ var $window,
     $container,
     $viewSlider,
     $views,
-    $timeline,
+
+    $contentBox,
 
     currentView = '',
     lastView = '',
@@ -92,7 +93,7 @@ $(document).ready(function (){
     $container      = $('#container');
     $viewSlider     = $container.find('#view-slider');
     $views          = $viewSlider.find('section');
-    $timeline       = $container.find('#timeline');
+    $contentBox     = $container.find('#content-box');
 
     // Resize
     resizeSite();

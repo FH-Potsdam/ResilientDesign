@@ -8,66 +8,172 @@
 		<link rel="stylesheet" type="text/css" href="lib/leaflet.css"/>
 		
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+
+		<meta charset="UTF-8">
 	</head>
 	
 	<body>
 
-		<header>
-			<div class="inside">
-				<h1>Blackout</h1>
-				<div class="description">
-					Consequences of a long lasting urban
-					power outtage and possible solutions
-				</div>
-			</div>
+		<div id="wrap">
 			
-			<nav id="view-nav">
+			<header>
 				<div class="inside">
-					<ul>
-						<li><a class="intro-view" href="#intro-view">Intro</a></li>
-						<li class="active"><a class="map-view" href="#map-view">Map view</a></li>
-						<li><a class="house-view" href="#house-view">House view</a></li>
-					</ul>
+					<h1>Blackout</h1>
+					<summary>
+						Consequences of a long lasting urban 
+						power outtage and possible solutions
+					</summary>
 				</div>
-			</nav>
+				
+				<nav id="view-nav">
+					<div class="inside">
+						<ul>
+							<li><a class="intro-view" href="#intro-view">Intro</a></li>
+							<li class="active"><a class="map-view" href="#map-view">Map view</a></li>
+							<li><a class="house-view" href="#house-view">House view</a></li>
+						</ul>
+					</div>
+				</nav>
 
-		</header>
-		
-		<!-- PAGES NAVIGATION  -->
-		<main id="container">
+			</header>
 			
-			<div id="viewport" class="inside">
-				<div id="view-slider" class="map-view-active">
+			<!-- PAGES NAVIGATION  -->
+			<main id="container">
+				
+				<div id="viewport">
+					<div id="view-slider" class="map-view-active">
 
-					<!-- Pages View  -->
-					<section id="intro-view">
-						Intro screen
-					</section>
-					
-					<!-- Map View  -->
-					<section id="map-view">
-						<div id="map"></div>
-					</section>
-					
-					<!-- House View  -->
-					<section id="house-view">
-						<div id="house"></div>
-					</section>
+						<!-- Pages View  -->
+						<section id="intro-view">
+							Intro screen
+						</section>
+						
+						<!-- Map View  -->
+						<section id="map-view">
+							<div id="map"></div>
+						</section>
+						
+						<!-- House View  -->
+						<section id="house-view">
+							<div id="house"></div>
+						</section>
+					</div>
 				</div>
-			</div>
-			
-			<div id="timeline"></div>
+				
+				<div id="content-box">
+					<div id="timeline"></div>
+					
+					<div id="content">
+						
+						<article class="problems">
+							<h2>3 Stunden ohne Strom - Chaos auf den Straßen</h2>
+							<p>
+								In den ersten Stunden des Schwarzfalls sind vor allem die <strong>Transportwege</strong> der Stadt betroffen. Ampeln fallen aus, Züge stehen still und viele Bürger sitzen in U- und S-Bahnen oder Aufzügen fest. Durch den Ausfall der Verkehrsleitsysteme und dem vermehrten aufkommen von PKWs und Taxis steigt die <strong>Unfallgefahr</strong> auf den Straßen deutlich an.
+							</p>
+							<p>
+								Rettungskräfte sind zu dieser Zeit hauptsächlich mit dem Befreien von in Transportmitteln und Aufzügen <strong>feststeckenden Fahrgästen</strong> beschäftigt und sichern potentielle Gefahrenstellen.
+							</p>
+							<p>
+								Krankenhäuser und Rettungsleitzentralen funktionieren weiterhin mit <strong>Notstrom</strong>, allerdings ist durch die begrenzte Kapazität der Systeme die Einsatzfähigkeit beschränkt Unfallopfer und 
+							</p>
+							<p>
+								Die <strong>Kommunikationssysteme</strong> funktionieren großteils weiterhin mit Notstromaggregaten sind durch die erhöhte Auslastung (Notrufe, Telefonate) allerdings stark belastet.
+							</p>
+							<p>
+								Das allgemeine Chaos und ausfallende Alarmsysteme erhöhen das Risiko von <strong>Diebstählen und Einbrüchen</strong> deutlich. Vielerorts sind erste Einbrüche in ungesicherte Ladengeschäfte zu erkennen. 
+							</p>
+							<p>
+								Das allgemeine Chaos und ausfallende Alarmsysteme erhöhen das Risiko von <strong>Diebstählen und Einbrüchen</strong> deutlich. Vielerorts sind erste Einbrüche in ungesicherte Ladengeschäfte zu erkennen. 
+							</p>
+						</article>
+
+						<aside>
+							
+							<div class="problem-bars">
+
+								<h3>Verkehrschaos</h3>
+								<div class="progress-bar">
+									<div style="width: 60%;"></div>
+								</div>
+
+								<h3>Verkehrschaos</h3>
+								<div class="progress-bar">
+									<div style="width: 60%;"></div>
+								</div>
+
+								<h3>Verkehrschaos</h3>
+								<div class="progress-bar">
+									<div style="width: 60%;"></div>
+								</div>
+
+								<h3>Verkehrschaos</h3>
+								<div class="progress-bar">
+									<div style="width: 60%;"></div>
+								</div>
+
+							</div>
+
+							<div class="solution-bars">
+								
+								<h3>Verkehrschaos</h3>
+								<div class="progress-bar">
+									<div style="width: 60%;"></div>
+								</div>
+
+								<h3>Verkehrschaos</h3>
+								<div class="progress-bar">
+									<div style="width: 60%;"></div>
+								</div>
+
+								<h3>Verkehrschaos</h3>
+								<div class="progress-bar">
+									<div style="width: 60%;"></div>
+								</div>
+
+								<h3>Verkehrschaos</h3>
+								<div class="progress-bar">
+									<div style="width: 60%;"></div>
+								</div>
+							</div>
+
+						</aside>
+
+						<article class="solutions">
+							<h2>3 Stunden ohne Strom - Chaos auf den Straßen</h2>
+							<p>
+								In den ersten Stunden des Schwarzfalls sind vor allem die <strong>Transportwege</strong> der Stadt betroffen. Ampeln fallen aus, Züge stehen still und viele Bürger sitzen in U- und S-Bahnen oder Aufzügen fest. Durch den Ausfall der Verkehrsleitsysteme und dem vermehrten aufkommen von PKWs und Taxis steigt die <strong>Unfallgefahr</strong> auf den Straßen deutlich an.
+							</p>
+							<p>
+								Rettungskräfte sind zu dieser Zeit hauptsächlich mit dem Befreien von in Transportmitteln und Aufzügen <strong>feststeckenden Fahrgästen</strong> beschäftigt und sichern potentielle Gefahrenstellen.
+							</p>
+							<p>
+								Krankenhäuser und Rettungsleitzentralen funktionieren weiterhin mit <strong>Notstrom</strong>, allerdings ist durch die begrenzte Kapazität der Systeme die Einsatzfähigkeit beschränkt Unfallopfer und 
+							</p>
+							<p>
+								Die <strong>Kommunikationssysteme</strong> funktionieren großteils weiterhin mit Notstromaggregaten sind durch die erhöhte Auslastung (Notrufe, Telefonate) allerdings stark belastet.
+							</p>
+							<p>
+								Das allgemeine Chaos und ausfallende Alarmsysteme erhöhen das Risiko von <strong>Diebstählen und Einbrüchen</strong> deutlich. Vielerorts sind erste Einbrüche in ungesicherte Ladengeschäfte zu erkennen. 
+							</p>
+							<p>
+								Das allgemeine Chaos und ausfallende Alarmsysteme erhöhen das Risiko von <strong>Diebstählen und Einbrüchen</strong> deutlich. Vielerorts sind erste Einbrüche in ungesicherte Ladengeschäfte zu erkennen. 
+							</p>
+						</article>
+					</div>
+				</div>
+			</main>
+
+			<footer>
+				<div class="inside">
+					<div id="logo"></div>
+					<div class="credits">
+						An Interflex project of the University of Applied Sciences Potsdam <br>
+						created as a cooperation between Design and Sociology students.
+					</div>
+				</div>
+			</footer>
+
 		</div>
-
-		<footer>
-			<div class="inside">
-				<div id="logo"></div>
-				<div class="credits">
-					An Interflex project of the University of Applied Sciences Potsdam 
-					created as a cooperation between Design and Sociology students.
-				</div>
-			</div>
-		</footer>
 
 		<script type="text/javascript" src="js/main.js"></script>
 		<script type="text/javascript" src="js/map.js"></script>

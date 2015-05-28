@@ -19,9 +19,9 @@ Version: 1.0
 ---------------------------------------*/
 
 body {
-	font: 13px @font-reg;
-	line-height: 1.4;
-	background: @bg-color;
+	font: 12px @font-reg;
+	line-height: 1.5;
+	background: #333;
 }
 
 html {
@@ -112,10 +112,32 @@ h1, h2, h3, h4, h5, h6 {
 
 header {
 	position: relative;
-	height: 240px;
+	height: @header-height;
 
-	.inside {
+	& > .inside {
+		height: @header-height - @bar-height;
+		//padding-top: 130px;
 		//padding:45px 0 30px;
+	}
+	
+	@bottom: 5px;
+
+	h1 {
+		position: absolute;
+		bottom: @bottom;
+
+		font: 60px @font-light;
+	}
+
+	summary {
+		position: absolute;
+		bottom: @bottom + 7px;
+		left: 275px;
+
+		width: 350px;
+		
+		font: 18px @font-light;
+		line-height: 25px;
 	}
 }
 
@@ -127,7 +149,7 @@ header {
 	//.block(100%, 50px);
 	width: 100%;
 
-	.rgba(@nav-color, 0.3);
+	.bar();
 	
 	ul { 
 		height: 100%;
@@ -148,17 +170,18 @@ header {
 		// Text styles
 		a {
 			width: 100%;
-			padding: 13px 0 12px;
+			height: 100%;
+			//padding: 13px 0 12px;
 			.optimize-text();
 			.inline-block;
 
 			font-size: 13px;
-			line-height: 25px;
+			line-height: @bar-height; //25px;
 			
 			&:before {
 				content: "";
 				.inline-block();
-				.size(25px, 25px);
+				.size(25px, 100%);
 				background-size: 25px 25px;
 				background-position: left center;
 				background-repeat: no-repeat;
@@ -182,6 +205,12 @@ header {
 // Structure
 ///////////////
 
+#wrap {
+	width: @screen-width;
+	margin: 0 auto;
+	background: @bg-color;
+}
+
 #container {
 	position: relative;
 }
@@ -194,20 +223,20 @@ header {
 	position: relative;
 	.group;
 	display: block;
-	width: 3*@wrap-width;
+	width: 3*@screen-width;
 
-	.transition(left, 1.2s, @easeInOutCubic);
+	.transition(left, 1s, @easeInOutCubic);
 	//.transition(left, 1.5s, cubic-bezier(.57,.22,.45,.83));
 
 	section {
 		float: left;
-		.block(@section-width, @section-height);
+		.block(@view-width, @view-height);
 		min-height: 50px;
 	}
 
 	&.intro-view-active { left: 0; }
-	&.map-view-active   { left: -@wrap-width; }
-	&.house-view-active { left: -2*@wrap-width; }
+	&.map-view-active   { left: -@screen-width; }
+	&.house-view-active { left: -2*@screen-width; }
 }
 
 ///////////
@@ -218,12 +247,161 @@ header {
 @import "house-view";
 
 
+/////////////////
+// CONTENT Box
+/////////////////
+
+#content-box {
+	width: 100%;
+	height: @content-box-height;
+}
+
+#timeline {
+	.bar();
+	border-bottom: 3px solid #4962a2;
+}
+
+#content {
+	height: @content-box-height - 70px - @bar-height;
+	.border-box();
+	.group();
+
+	// This 2 values should sum 55px (1080px-970px)
+	margin: 35px;
+	padding: 20px;
+
+	.bg-overlay();
+	
+	// Content columns
+	article, aside {
+		float: left;
+		display: block;
+		margin-right: 25px;
+		clear: right;
+	}
+	
+	article {
+		width: 375px;
+		min-height: 20px;
+
+		h2 {
+			font: 16px @font-med;
+			margin-bottom: 5px;
+			font-weight: bold;
+		}
+
+		p {
+			margin-bottom: 15px;
+		}
+	}
+
+	aside {
+		width: 166px;
+		height: 480px;
+		//background-color: @orange;
+		//.opacity(20);
+
+		h3 {
+			font: 12px @font-reg;
+			font-weight: bold;
+			margin-bottom: 2px;
+		}
+
+		.progress-bar {
+			margin-bottom: 33px;
+		}
+	}
+
+	.problems {
+		h2, strong {
+			color: @orange;
+		}
+	}
+
+	.solutions {
+		margin-right: 0;
+		h2, strong {
+			color: @green;
+		}
+	}
+}
+
+
+///////////////////
+// Progress bars
+///////////////////
+
+.progress-bar {
+	.border-box();
+	border: 1px solid;
+
+	height: 15px;
+	width: 100%;
+
+	& > div {
+
+		display: block;
+		height: 100%;
+	}
+}
+
+.problem-bars {
+	h3 {
+		color: @orange;
+	}
+
+	.progress-bar {
+		border-color: @orange;
+		& > div {
+			background-color: @orange;
+		}
+	}
+}
+
+.solution-bars {
+
+	text-align: right;
+
+	h3 {
+		color: @green;
+	}
+
+	.progress-bar {
+		border-color: @green;
+		& > div {
+			float: right;
+			background-color: @green;
+		}
+	}
+}
+
+
 /////////////
 // FOOTER
 /////////////
 
 footer {
+	
+	.inside {
+		padding: 15px 0 32px
+	}
+	
+	#logo {
+		position: absolute;
+		left: 0;
 
+		.background-image('../images/fhp-footer-logo.png');
+		.block(7px, 37px);
+	}
+
+	.credits {
+		font: 14px @font-extralight;
+		line-height: 25px;
+		color: @white; //darken(@white, 30%);
+
+		padding-left: 25px;
+		margin-top: -6px;
+	}
 }
 
 

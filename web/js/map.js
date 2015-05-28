@@ -1,15 +1,24 @@
 
 // Initialize map
 var map = L.map('map').setView([52.4619, 13.3825], 14);
-//var map = L.map('map').setView([52.4572683, 13.3848421], 14);
 
 // Add tile layer
 L.tileLayer('http://{s}.tiles.mapbox.com/v3/jorditost.2116a83e/{z}/{x}/{y}.png', {
-//L.tileLayer('http://{s}.tiles.mapbox.com/v3/jorditost.f2408cbf/{z}/{x}/{y}.png', {
 //L.tileLayer('http://{s}.tiles.mapbox.com/v3/cmuench.lehj4pcp/{z}/{x}/{y}.png', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery &copy; <a href="http://mapbox.com">Mapbox</a>',
-    maxZoom: 18
+    //attributionControl: false,
+    zoomControl: false
+    //maxZoom: 18
 }).addTo(map);
+
+// Disable drag and zoom handlers.
+map.dragging.disable();
+map.touchZoom.disable();
+map.doubleClickZoom.disable();
+map.scrollWheelZoom.disable();
+
+// Disable tap handler, if present.
+if (map.tap) map.tap.disable();
 
 // Simple Marker (Good for Performance)
 var marker = new L.Circle([52.459555,13.3820], 20, {

@@ -6,16 +6,20 @@
 // Usage:
 
 // @font-face {
-// 	.font-face('FontReg', 'font-reg-file');
+// 	.font-face('GothamBook', 'font-reg-file');
 // }
 // @font-face {
-// 	.font-face('FontReg', 'font-bold-file');
+// 	.font-face('GothamBold', 'font-bold-file');
 // }
 
-@font-reg: Helmet, Freesans, sans-serif;
-@font-bold: Helmet, Freesans, sans-serif;
-//@font-reg:   'FontReg', Helmet, Freesans, sans-serif;
-//@font-bold: 'FontBold', Helmet, Freesans, sans-serif;
+@font-reg:   	  Helmet, Freesans, sans-serif;
+@font-med:   	  Helmet, Freesans, sans-serif;
+@font-light: 	  Helmet, Freesans, sans-serif;
+@font-extralight: Helmet, Freesans, sans-serif;
+@font-bold:       Helmet, Freesans, sans-serif;
+//@font-reg:  'GothamBook', Helmet, Freesans, sans-serif;
+//@font-light: 'GothamLight', Helmet, Freesans, sans-serif;
+//@font-bold: 'GothamBold', Helmet, Freesans, sans-serif;
 
 
 ////////////
@@ -25,6 +29,9 @@
 // Template colors
 @bg-color: #12161f;
 @nav-color: #4962a2;
+
+@orange: #f7941d;
+@green: #3cb878;
 
 // General colors
 @text-color: 	#fff;
@@ -39,13 +46,16 @@
 // STRUCTURE
 ///////////////
 
-@wrap-width: 		 970px;
+@screen-width: 				1080px;
+@wrap-width: 		 		970px; //1080px;
 	
-	@section-width:  @wrap-width;
-	@section-height: 794px;
+	@header-height: 		240px;
 
-	@content-width: 725px;
-	@content-margin: 20px;
-	@sidebar-width: 225px;
+	@view-width:  			@screen-width;
+	@view-height: 			(884 / 1080)*@screen-width;
 
-@footer-height: 45px;
+	@content-box-height: 	650px;
+
+	@bar-height: 			50px;
+
+@footer-height: 			45px;

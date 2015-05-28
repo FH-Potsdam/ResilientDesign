@@ -264,9 +264,9 @@ button {
 /* Ok, this is where the fun starts.
 ---------------------------------------*/
 body {
-  font: 13px Helmet, Freesans, sans-serif;
-  line-height: 1.4;
-  background: #12161f;
+  font: 12px Helmet, Freesans, sans-serif;
+  line-height: 1.5;
+  background: #333;
 }
 html {
   overflow-x: hidden;
@@ -355,10 +355,28 @@ header {
   position: relative;
   height: 240px;
 }
+header > .inside {
+  height: 190px;
+}
+header h1 {
+  position: absolute;
+  bottom: 5px;
+  font: 60px Helmet, Freesans, sans-serif;
+}
+header summary {
+  position: absolute;
+  bottom: 12px;
+  left: 275px;
+  width: 350px;
+  font: 18px Helmet, Freesans, sans-serif;
+  line-height: 25px;
+}
 #view-nav {
   position: absolute;
   bottom: 0;
   width: 100%;
+  height: 50px;
+  display: block;
   background-color: #4962a2;
   background-color: rgba(73, 98, 162, 0.3);
 }
@@ -382,7 +400,7 @@ header {
 }
 #view-nav li a {
   width: 100%;
-  padding: 13px 0 12px;
+  height: 100%;
   text-rendering: optimizeLegibility;
   display: -moz-inline-stack;
   display: inline-block;
@@ -390,7 +408,7 @@ header {
   zoom: 1;
   *display: inline;
   font-size: 13px;
-  line-height: 25px;
+  line-height: 50px;
 }
 #view-nav li a:before {
   content: "";
@@ -400,7 +418,7 @@ header {
   zoom: 1;
   *display: inline;
   width: 25px;
-  height: 25px;
+  height: 100%;
   background-size: 25px 25px;
   background-position: left center;
   background-repeat: no-repeat;
@@ -420,6 +438,11 @@ header {
   background-color: #4962a2;
   background-color: rgba(73, 98, 162, 0.3);
 }
+#wrap {
+  width: 1080px;
+  margin: 0 auto;
+  background: #12161f;
+}
 #container {
   position: relative;
 }
@@ -430,12 +453,12 @@ header {
   position: relative;
   zoom: 1;
   display: block;
-  width: 2910px;
-  -moz-transition: left 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);
-  -webkit-transition: left 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);
-  -o-transition: left 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);
-  -ms-transition: left 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transition: left 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  width: 3240px;
+  -moz-transition: left 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition: left 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition: left 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -ms-transition: left 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: left 1s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 #view-slider:before,
 #view-slider:after {
@@ -447,8 +470,8 @@ header {
 }
 #view-slider section {
   float: left;
-  width: 970px;
-  height: 794px;
+  width: 1080px;
+  height: 884px;
   display: block;
   min-height: 50px;
 }
@@ -456,10 +479,10 @@ header {
   left: 0;
 }
 #view-slider.map-view-active {
-  left: -970px;
+  left: -1080px;
 }
 #view-slider.house-view-active {
-  left: -1940px;
+  left: -2160px;
 }
 #map {
   width: 100%;
@@ -477,4 +500,133 @@ header {
   -o-background-size: 100% 100%;
   -webkit-background-size: 100% 100%;
   background-size: 100% 100%;
+}
+#content-box {
+  width: 100%;
+  height: 650px;
+}
+#timeline {
+  width: 100%;
+  height: 50px;
+  display: block;
+  background-color: #4962a2;
+  background-color: rgba(73, 98, 162, 0.3);
+  border-bottom: 3px solid #4962a2;
+}
+#content {
+  height: 530px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  zoom: 1;
+  margin: 35px;
+  padding: 20px;
+  background-color: #4962a2;
+  background-color: rgba(73, 98, 162, 0.3);
+}
+#content:before,
+#content:after {
+  content: "";
+  display: table;
+}
+#content:after {
+  clear: both;
+}
+#content article,
+#content aside {
+  float: left;
+  display: block;
+  margin-right: 25px;
+  clear: right;
+}
+#content article {
+  width: 375px;
+  min-height: 20px;
+}
+#content article h2 {
+  font: 16px Helmet, Freesans, sans-serif;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+#content article p {
+  margin-bottom: 15px;
+}
+#content aside {
+  width: 166px;
+  height: 480px;
+}
+#content aside h3 {
+  font: 12px Helmet, Freesans, sans-serif;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+#content aside .progress-bar {
+  margin-bottom: 33px;
+}
+#content .problems h2,
+#content .problems strong {
+  color: #f7941d;
+}
+#content .solutions {
+  margin-right: 0;
+}
+#content .solutions h2,
+#content .solutions strong {
+  color: #3cb878;
+}
+.progress-bar {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 1px solid;
+  height: 15px;
+  width: 100%;
+}
+.progress-bar > div {
+  display: block;
+  height: 100%;
+}
+.problem-bars h3 {
+  color: #f7941d;
+}
+.problem-bars .progress-bar {
+  border-color: #f7941d;
+}
+.problem-bars .progress-bar > div {
+  background-color: #f7941d;
+}
+.solution-bars {
+  text-align: right;
+}
+.solution-bars h3 {
+  color: #3cb878;
+}
+.solution-bars .progress-bar {
+  border-color: #3cb878;
+}
+.solution-bars .progress-bar > div {
+  float: right;
+  background-color: #3cb878;
+}
+footer .inside {
+  padding: 15px 0 32px;
+}
+footer #logo {
+  position: absolute;
+  left: 0;
+  background-image: url('../images/fhp-footer-logo.png');
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  width: 7px;
+  height: 37px;
+  display: block;
+}
+footer .credits {
+  font: 14px Helmet, Freesans, sans-serif;
+  line-height: 25px;
+  color: #ffffff;
+  padding-left: 25px;
+  margin-top: -6px;
 }
