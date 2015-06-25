@@ -2,12 +2,20 @@
 	<head>
 		<title>Resilient Design | FHP</title>
 		<script type="text/javascript" src="lib/jquery-2.1.1.min.js"></script>
-		<script type="text/javascript" src="lib/d3.min.js"></script>
+		
 
 		<script type="text/javascript" src="lib/leaflet.js"></script>
 		<link rel="stylesheet" type="text/css" href="lib/leaflet.css"/>
 		
+		<!-- jQuery UI JS -->
+		<script type="text/javascript" src="lib/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+		
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+
+		<!-- jQuery UI styles -->
+		<link rel="stylesheet" type="text/css" href="lib/jquery-ui-1.11.4.custom/jquery-ui.min.css"/>
+		<!-- <link rel="stylesheet" type="text/css" href="lib/jquery-ui-1.11.4.custom/jquery-ui.structure.min.css"/> -->
+		<!-- <link rel="stylesheet" type="text/css" href="lib/jquery-ui-1.11.4.custom/jquery-ui.theme.min.css"/> -->
 
 		<meta charset="UTF-8">
 	</head>
@@ -60,8 +68,21 @@
 					</div>
 				</div>
 				
-				<div id="content-box">
-					<div id="timeline"></div>
+				<div id="content-wrap">
+					<div id="timeline">
+						<div id="slider">
+							<span class='ui-slider-handle ui-slider-handle-disabled'></span>
+							<span class='ui-slider-handle'></span>
+						</div>
+						<div id="guides">
+							<div class="g3 active"><span>3std.</span></div>
+							<div class="g6"><span>6std.</span></div>
+							<div class="g12"><span>12std.</span></div>
+							<div class="g24"><span>24std.</span></div>
+							<div class="g48"><span>48std.</span></div>
+						</div>
+						<div id="timeline-value"></div>
+					</div>
 					
 					<div id="content">
 						
