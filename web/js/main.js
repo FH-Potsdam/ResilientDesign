@@ -10,7 +10,8 @@ var $window,
     $viewSlider,
     $views,
 
-    $contentBox,
+    $contentWrap,
+    $content,
 
     currentView = '',
     lastView = '',
@@ -49,6 +50,33 @@ function initNavigation() {
     });
 }
 
+//////////
+// Data
+//////////
+
+var siteData = [];
+
+function loadData() {
+
+    // $.ajax({
+    //     dataType: "json",
+    //     url: "data/RD_contentTable_export01.json",
+    //     success: function(data) {
+    //         alert(data);
+    //     }
+    // });
+
+    $.getJSON( "data/RD_contentTable_export01.json", function(data) {
+
+        // Parse JSON
+        $.each( data, function( key, item ) {
+            siteData[item.id] = item;
+        });
+        //alert(siteData['std3'].problemtext);
+
+        console.log("JSON successfully loaded!")
+    });
+}
 
 //////////////
 // Timeline
@@ -80,9 +108,14 @@ function initTimeline() {
             else {
                 $slider.slider('values', 1, value);
             }
+
+            var activeValue = $slider.slider('values', 1);
             
             $guides.removeClass('active')
-                   .filter('.g' + $slider.slider('values', 1)).addClass('active');
+                   .filter('.g' + activeValue).addClass('active');
+
+            // Update content
+            updateContent(activeValue);
             
             //$timelineValue.html($slider.slider('values', 1) + " hours");
             //$("#amount").html(slider.slider('values', 0) + ' - ' + slider.slider('values', 1) + " hours");
@@ -161,6 +194,11 @@ function initTimeline() {
 }
 
 
+function updateContent(value) {
+
+    $content.find('.problems').html(siteData['std'+value].problemtext);
+    $content.find('.solutions').html(siteData['std'+value].solutionstext);
+}
 
 //////////////
 // onScroll
@@ -188,6 +226,7 @@ function resizeSite() {
 
 function onLoad() {
     initTimeline();
+    loadData();
 }
 
 /////////////
@@ -206,7 +245,8 @@ $(document).ready(function (){
     $container      = $('#container');
     $viewSlider     = $container.find('#view-slider');
     $views          = $viewSlider.find('section');
-    $contentBox     = $container.find('#content-box');
+    $contentWrap    = $container.find('#content-wrap');
+    $content        = $contentWrap.find('#content');
 
     // Resize
     resizeSite();
