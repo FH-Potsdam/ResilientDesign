@@ -563,15 +563,15 @@ header summary {
 #content aside .progress-bar {
   margin-bottom: 33px;
 }
-#content .problems h2,
-#content .problems strong {
+#content #problems-content h2,
+#content #problems-content strong {
   color: #f7941d;
 }
-#content .solutions {
+#content #solutions-content {
   margin-right: 0;
 }
-#content .solutions h2,
-#content .solutions strong {
+#content #solutions-content h2,
+#content #solutions-content strong {
   color: #3cb878;
 }
 #content:after {
@@ -715,28 +715,33 @@ header summary {
   width: 100%;
 }
 .progress-bar > div {
+  -moz-transition: width 0.5s ease-out;
+  -webkit-transition: width 0.5s ease-out;
+  -o-transition: width 0.5s ease-out;
+  -ms-transition: width 0.5s ease-out;
+  transition: width 0.5s ease-out;
   display: block;
   height: 100%;
 }
-.problem-bars h3 {
+#problems-bars h3 {
   color: #f7941d;
 }
-.problem-bars .progress-bar {
+#problems-bars .progress-bar {
   border-color: #f7941d;
 }
-.problem-bars .progress-bar > div {
+#problems-bars .progress-bar > div {
   background-color: #f7941d;
 }
-.solution-bars {
+#solutions-bars {
   text-align: right;
 }
-.solution-bars h3 {
+#solutions-bars h3 {
   color: #3cb878;
 }
-.solution-bars .progress-bar {
+#solutions-bars .progress-bar {
   border-color: #3cb878;
 }
-.solution-bars .progress-bar > div {
+#solutions-bars .progress-bar > div {
   float: right;
   background-color: #3cb878;
 }

@@ -283,6 +283,13 @@ header {
 		width: 375px;
 		min-height: 20px;
 
+		// .transition(opacity, 0.25s);
+		// .opacity(100);
+
+		// &.hidden {
+		// 	.opacity(0);
+		// }
+
 		h2 {
 			font: 16px @font-med;
 			margin-bottom: 5px;
@@ -311,13 +318,13 @@ header {
 		}
 	}
 
-	.problems {
+	#problems-content {
 		h2, strong {
 			color: @orange;
 		}
 	}
 
-	.solutions {
+	#solutions-content {
 		margin-right: 0;
 		h2, strong {
 			color: @green;
@@ -488,13 +495,13 @@ header {
 	width: 100%;
 
 	& > div {
-
+		.transition(width, 0.5s);
 		display: block;
 		height: 100%;
 	}
 }
 
-.problem-bars {
+#problems-bars {
 	h3 {
 		color: @orange;
 	}
@@ -507,7 +514,7 @@ header {
 	}
 }
 
-.solution-bars {
+#solutions-bars {
 
 	text-align: right;
 

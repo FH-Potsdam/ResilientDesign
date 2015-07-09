@@ -10,8 +10,14 @@ var $window,
     $viewSlider,
     $views,
 
+    $slider,
+    $guides,
+    $timelineValue,
+
     $contentWrap,
     $content,
+    $problemsContent,
+    $solutionsContent,
 
     currentView = '',
     lastView = '',
@@ -19,12 +25,17 @@ var $window,
     windowWidth,
     windowHeight;
 
+var siteContentMap   = [],
+    siteContentHouse = [];
+
+var siteContentMapFile   = "data/RD_contentTableMap_export01.json", //"data/RD_contentTable_export01.json";
+    siteContentHouseFile = "data/RD_contentTablePersona_export01.json" 
 
 ////////////////
 // Navigation
 ////////////////
 
-function initNavigation() {
+function initViewNavigation() {
     
     // Start view
     currentView = $viewSlider.attr('class').replace('-active', '');
@@ -54,8 +65,6 @@ function initNavigation() {
 // Data
 //////////
 
-var siteData = [];
-
 function loadData() {
 
     // $.ajax({
@@ -66,15 +75,17 @@ function loadData() {
     //     }
     // });
 
-    $.getJSON( "data/RD_contentTable_export01.json", function(data) {
+    $.getJSON( siteContentMapFile, function(data) {
 
         // Parse JSON
         $.each( data, function( key, item ) {
-            siteData[item.id] = item;
+            siteContentMap[item.id] = item;
         });
-        //alert(siteData['std3'].problemtext);
+        //alert(siteContentMap['std3'].problemtext);
 
-        console.log("JSON successfully loaded!")
+        console.log("Site data successfully loaded!")
+
+        onSiteDataLoaded();
     });
 }
 
@@ -84,11 +95,11 @@ function loadData() {
 
 function initTimeline() {
     
-    var $guides = $('#guides > div'),
-        $timelineValue = $("#timeline-value");
+    $guides = $('#guides > div'),
+    $timelineValue = $("#timeline-value");
 
     var values = [0, 3, 6, 12, 24, 48];
-    var $slider = $("#slider").slider({
+    $slider = $("#slider").slider({
         orientation: 'horizontal',
         range: true,
         min: 0,
@@ -100,7 +111,8 @@ function initTimeline() {
         slide: function(event, ui) {
             var includeLeft = event.keyCode != $.ui.keyCode.RIGHT;
             var includeRight = event.keyCode != $.ui.keyCode.LEFT;
-            console.log("left:  "+ includeLeft + ", right: "+ includeRight);
+            
+            // Update slider values
             var value = findNearest(includeLeft, includeRight, ui.value);
             if (ui.value == ui.values[0]) {
                 $slider.slider('values', 0, value);
@@ -108,22 +120,28 @@ function initTimeline() {
             else {
                 $slider.slider('values', 1, value);
             }
-
-            var activeValue = $slider.slider('values', 1);
-            
-            $guides.removeClass('active')
-                   .filter('.g' + activeValue).addClass('active');
-
-            // Update content
-            updateContent(activeValue);
             
             //$timelineValue.html($slider.slider('values', 1) + " hours");
             //$("#amount").html(slider.slider('values', 0) + ' - ' + slider.slider('values', 1) + " hours");
             return false;
-        }/*,
-        change: function(event, ui) { 
-            getHomeListings();
-        }*/
+        },
+        start: function(event, ui) { 
+            hideContent();
+        },
+        stop: function(event, ui) { 
+        //change: function(event, ui) { 
+
+            // Check active value
+            var activeValue = $slider.slider('values', 1);
+            
+            // Control active values
+            $guides.removeClass('active')
+                   .filter('.g' + activeValue).addClass('active');
+
+            // Update content
+            showNewContent(activeValue);
+            //updateContent(activeValue);
+        }
     });
 
     function findNearest(includeLeft, includeRight, value) {
@@ -193,11 +211,82 @@ function initTimeline() {
     // }
 }
 
+function initViewTimelineContent(time) {
+
+    hideContent();
+
+    var activeValue = time;
+    $slider.slider('values', 1, time);
+    
+    // Control active values
+    $guides.removeClass('active')
+           .filter('.g' + activeValue).addClass('active');
+
+    // Update content
+    showNewContent(activeValue);
+    //updateContent(activeValue);
+}
+
+function hideContent() {
+    
+    // $problemsContent.addClass('hidden');
+    // $solutionsContent.addClass('hidden');
+
+    $problemsContent.stop(true, true)
+                    .animate({opacity: 0}, 250);
+
+    $solutionsContent.stop(true, true)
+                     .animate({opacity: 0}, 250);
+
+    //$problemsBars.find('.progress-bar > div').css('width', 0);
+    //$solutionsBars.find('.progress-bar > div').css('width', 0);
+}
+
+function showNewContent(value) {
+
+    var siteContent = (currentView == 'map-view') ? siteContentMap : siteContentHouse;
+    
+    value = (value < 10) ? "0"+value : value;
+
+    $problemsContent.stop(true, true)
+                    .html(siteContent['STD'+value].problemtext)
+                    //.removeClass('hidden');
+                    .animate({opacity: 1}, 250);
+
+    $solutionsContent.stop(true, true)
+                     .html(siteContent['STD'+value].solutionstext)
+                     //.removeClass('hidden');
+                     .animate({opacity: 1}, 250);
+
+    // Update vars
+    $problemsBars.find('#probbarverkehrschaos .progress-bar > div').css('width', siteContent['STD'+value].probbarverkehrschaos + "%");
+    $problemsBars.find('#probbarmedizinischenotfaelle .progress-bar > div').css('width', siteContent['STD'+value].probbarmedizinischenotfaelle + "%");
+    $problemsBars.find('#probbarkriminalitaet .progress-bar > div').css('width', siteContent['STD'+value].probbarkriminalitaet + "%");
+    $problemsBars.find('#probbarpanik .progress-bar > div').css('width', siteContent['STD'+value].probbarpanik + "%");
+
+    $solutionsBars.find('#resbarkommunikation .progress-bar > div').css('width', siteContent['STD'+value].resbarkommunikation + "%");
+    $solutionsBars.find('#resbarversorgung .progress-bar > div').css('width', siteContent['STD'+value].resbarversorgung + "%");
+    $solutionsBars.find('#resbarwhatever .progress-bar > div').css('width', siteContent['STD'+value].resbarwhatever + "%");
+    $solutionsBars.find('#resbarsozialerzusammenhalt .progress-bar > div').css('width', siteContent['STD'+value].resbarsozialerzusammenhalt + "%");
+
+
+    //$solutionsBars.find('.progress-bar > div').css('width', 0);
+}
 
 function updateContent(value) {
 
-    $content.find('.problems').html(siteData['std'+value].problemtext);
-    $content.find('.solutions').html(siteData['std'+value].solutionstext);
+    hideContent();
+    showNewContent(value);
+
+    // $problemsContent.stop(true, true)
+    //                 .animate({opacity: 0}, 250)
+    //                 .html(siteContentMap['std'+value].problemtext)
+    //                 .animate({opacity: 1}, 250);
+
+    // $solutionsContent.stop(true, true)
+    //                  .animate({opacity: 0}, 250)
+    //                  .html(siteContentMap['std'+value].solutionstext)
+    //                  .animate({opacity: 1}, 250);
 }
 
 //////////////
@@ -225,8 +314,17 @@ function resizeSite() {
 ////////////
 
 function onLoad() {
+
+    initViewNavigation();
     initTimeline();
+    
     loadData();
+}
+
+function onSiteDataLoaded() {
+
+    // Load content for current page
+    initViewTimelineContent(3);
 }
 
 /////////////
@@ -248,6 +346,14 @@ $(document).ready(function (){
     $contentWrap    = $container.find('#content-wrap');
     $content        = $contentWrap.find('#content');
 
+    // Content
+    $problemsContent    = $content.find('#problems-content');
+    $solutionsContent   = $content.find('#solutions-content');
+
+    // Progress bars
+    $problemsBars       = $content.find('#problems-bars');
+    $solutionsBars      = $content.find('#solutions-bars');
+
     // Resize
     resizeSite();
 
@@ -258,8 +364,6 @@ $(document).ready(function (){
     // else {
     //     $(window).resize(resizeSite);
     // }
-
-    initNavigation();
 
     // // Init onScroll handler
     // $(window).scroll(onScroll).trigger("scroll");
@@ -288,7 +392,7 @@ function mapInRange(value, min, max, a, b) {
 // _mouseCapture function copied from jQuery UI v1.10.3
 $.widget("ui.slider", $.ui.slider, {
     _mouseCapture: function (event) {
-        console.log("hey hey hey");
+        
         var position, normValue, distance, closestHandle, index, allowed, offset, mouseOverHandle,
         that = this,
             o = this.options;
