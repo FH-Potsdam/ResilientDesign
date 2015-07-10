@@ -5,7 +5,24 @@
 // Not the map itself (this is edited in MapBox Studio) but the elements on the map
 
 #map { 
-	.block(100%, 103%);
+	.block(100%, 100%);
 	// width: 100%;
 	// height: 500px;
+}
+
+.leaflet-control-zoom,
+.leaflet-control-attribution {
+	display: none;
+}
+
+.leaflet-popup {
+
+}
+
+.leaflet-popup-content-wrapper {
+	.border-radius(0);
+}
+
+.leaflet-popup-content {
+	color: black;
 }

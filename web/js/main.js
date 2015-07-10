@@ -84,7 +84,6 @@ function loadData() {
         //alert(siteContentMap['std3'].problemtext);
 
         console.log("Site data successfully loaded!")
-
         onSiteDataLoaded();
     });
 }

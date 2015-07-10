@@ -1,3 +1,7 @@
+//////////
+// MASK
+//////////    
+
 // Polygon created with http://geojson.io/
 var tempelhof = {
   "type": "FeatureCollection",
@@ -100,9 +104,9 @@ var tempelhof = {
 L.Mask = L.Polygon.extend({
     options: {
         stroke: false,
-        color: '#333',
+        color: '#000',
         fillOpacity: 0.5,
-        clickable: true,
+        clickable: false,
 
         outerBounds: new L.LatLngBounds([-90, -360], [90, 360])
     },
@@ -124,8 +128,10 @@ L.mask = function (latLngs, options) {
 };
 
 
-
+////////////////////
 // Initialize map
+////////////////////
+
 var map = L.map('map').setView([52.4574, 13.3820], 16);
 
 // Add tile layer
@@ -133,9 +139,16 @@ L.tileLayer('http://{s}.tiles.mapbox.com/v3/jorditost.2116a83e/{z}/{x}/{y}.png',
 //L.tileLayer('http://{s}.tiles.mapbox.com/v3/cmuench.lehj4pcp/{z}/{x}/{y}.png', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery &copy; <a href="http://mapbox.com">Mapbox</a>',
     //attributionControl: false,
-    zoomControl: false
+    zoomControl: false,
+    maxZoom: 16,
+    minZoom: 16
     //maxZoom: 18
 }).addTo(map);
+
+
+////////////
+// Events
+////////////
 
 // Disable drag and zoom handlers.
 map.dragging.disable();
@@ -146,15 +159,10 @@ map.scrollWheelZoom.disable();
 // Disable tap handler, if present.
 if (map.tap) map.tap.disable();
 
-// Simple Marker (Good for Performance)
-var marker = new L.Circle([52.459555,13.3820], 20, {
-	fillColor: "#ff7800",
-	color: "#000",
-	fillOpacity: 1.0
-}).addTo(map);
 
-// Popups
-marker.bindPopup("This is our house.");
+//////////
+// Mask
+//////////
 
 // transform geojson coordinates into an array of L.LatLng
 var coordinates = tempelhof.features[0].geometry.coordinates[0];
@@ -164,7 +172,60 @@ for (i=0; i<coordinates.length; i++) {
 }
 
 L.mask(latLngs).addTo(map);
-    
+
+
+/////////////
+// Markers
+/////////////
+
+function onMarkersDataLoaded() {
+
+    for (var i=0; i<markersData['STD03'].markers.length; i++) {
+
+        var markerObj = markersData['STD03'].markers[i];
+        console.log(markerObj);
+
+        L.marker([markerObj.lat, markerObj.lng]).addTo(map)
+                                                .bindPopup('<h4>'+markerObj.Location+'</h4><p>'+markerObj.Note+'</p>');
+
+        // Simple Marker (Good for Performance)
+        // var marker = new L.Circle([markerObj.lat, markerObj.lng], 20, {
+        //     fillColor: "#ff7800",
+        //     color: "#000",
+        //     fillOpacity: 1.0
+        // }).addTo(map);
+    }
+
+    // // Simple Marker (Good for Performance)
+    // var marker = new L.Circle([52.459555,13.3820], 20, {
+    //     fillColor: "#ff7800",
+    //     color: "#000",
+    //     fillOpacity: 1.0
+    // }).addTo(map);
+
+    // // Popups
+    // marker.bindPopup("This is our house.");
+}
+
+var markersData = [];
+
+$(document).ready(function (){
+
+    $.getJSON( "data/RD_mapMarkers.json", function(data) {
+
+        console.log("Markers data successfully loaded!")
+
+        // Parse JSON
+        $.each( data, function( key, item ) {
+            markersData[item.id] = item;
+        });
+
+        onMarkersDataLoaded();
+    });
+});
+
+
+
 
 
 /*// Marker

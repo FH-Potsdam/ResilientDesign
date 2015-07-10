@@ -1,0 +1,152 @@
+[
+    {
+        "id": "STD03",
+        "markers": 
+            [
+                {
+                    "Location": "House",
+                    "addedPoint": 1,
+                    "lat": 52.45984039717879,
+                    "lng": 13.379008769989014,
+                    "Note": "This is our house!",
+                    "Category": "point"
+                },
+                {
+                    "Location": "Shop",
+                    "addedPoint": 2,
+                    "lat": 52.4585067747166,
+                    "lng": 13.38160514831543,
+                    "Note": "This is our shop!",
+                    "Category": "point"
+                },
+                {
+                    "Location": "Street",
+                    "addedPoint": 3,
+                    "lat": 52.457238488431486,
+                    "lng": 13.381369113922117,
+                    "Note": "This is our street!",
+                    "Category": "point"
+                }
+            ]
+    },
+    {
+        "id": "STD06",
+        "markers": 
+            [
+                {
+                    "Location": "House",
+                    "addedPoint": 1,
+                    "lat": 52.45984039717879,
+                    "lng": 13.379008769989014,
+                    "Note": "This is our house!",
+                    "Category": "point"
+                },
+                {
+                    "Location": "Shop",
+                    "addedPoint": 2,
+                    "lat": 52.4585067747166,
+                    "lng": 13.38160514831543,
+                    "Note": "This is our shop!",
+                    "Category": "point"
+                },
+                {
+                    "Location": "Street",
+                    "addedPoint": 3,
+                    "lat": 52.457238488431486,
+                    "lng": 13.381369113922117,
+                    "Note": "This is our street!",
+                    "Category": "point"
+                }
+            ]
+    },
+    {
+        "id": "STD12",
+        "markers": 
+            [
+                {
+                    "Location": "House",
+                    "addedPoint": 1,
+                    "lat": 52.45984039717879,
+                    "lng": 13.379008769989014,
+                    "Note": "This is our house!",
+                    "Category": "point"
+                },
+                {
+                    "Location": "Shop",
+                    "addedPoint": 2,
+                    "lat": 52.4585067747166,
+                    "lng": 13.38160514831543,
+                    "Note": "This is our shop!",
+                    "Category": "point"
+                },
+                {
+                    "Location": "Street",
+                    "addedPoint": 3,
+                    "lat": 52.457238488431486,
+                    "lng": 13.381369113922117,
+                    "Note": "This is our street!",
+                    "Category": "point"
+                }
+            ]
+    },
+    {
+        "id": "STD24",
+        "markers": 
+            [
+                {
+                    "Location": "House",
+                    "addedPoint": 1,
+                    "lat": 52.45984039717879,
+                    "lng": 13.379008769989014,
+                    "Note": "This is our house!",
+                    "Category": "point"
+                },
+                {
+                    "Location": "Shop",
+                    "addedPoint": 2,
+                    "lat": 52.4585067747166,
+                    "lng": 13.38160514831543,
+                    "Note": "This is our shop!",
+                    "Category": "point"
+                },
+                {
+                    "Location": "Street",
+                    "addedPoint": 3,
+                    "lat": 52.457238488431486,
+                    "lng": 13.381369113922117,
+                    "Note": "This is our street!",
+                    "Category": "point"
+                }
+            ]
+    },
+    {
+        "id": "STD48",
+        "markers": 
+            [
+                {
+                    "Location": "House",
+                    "addedPoint": 1,
+                    "lat": 52.45984039717879,
+                    "lng": 13.379008769989014,
+                    "Note": "This is our house!",
+                    "Category": "point"
+                },
+                {
+                    "Location": "Shop",
+                    "addedPoint": 2,
+                    "lat": 52.4585067747166,
+                    "lng": 13.38160514831543,
+                    "Note": "This is our shop!",
+                    "Category": "point"
+                },
+                {
+                    "Location": "Street",
+                    "addedPoint": 3,
+                    "lat": 52.457238488431486,
+                    "lng": 13.381369113922117,
+                    "Note": "This is our street!",
+                    "Category": "point"
+                }
+            ]
+    }
+]
