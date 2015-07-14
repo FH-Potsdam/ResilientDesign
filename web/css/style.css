@@ -261,10 +261,38 @@ button {
 .group:after {
   clear: both;
 }
+@font-face {
+  font-family: 'ProximaNovaRegular';
+  src: url('fonts/proximanova-regular-webfont.eot');
+  src: url('fonts/proximanova-regular-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/proximanova-regular-webfont.woff') format('woff'), url('fonts/proximanova-regular-webfont.ttf') format('truetype'), url('fonts/proximanova-regular-webfont.svg#ProximaNovaRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ProximaNovaSemibold';
+  src: url('fonts/proximanova-semibold-webfont.eot');
+  src: url('fonts/proximanova-semibold-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/proximanova-semibold-webfont.woff') format('woff'), url('fonts/proximanova-semibold-webfont.ttf') format('truetype'), url('fonts/proximanova-semibold-webfont.svg#ProximaNovaSemibold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ProximaNovaBold';
+  src: url('fonts/proximanova-bold-webfont.eot');
+  src: url('fonts/proximanova-bold-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/proximanova-bold-webfont.woff') format('woff'), url('fonts/proximanova-bold-webfont.ttf') format('truetype'), url('fonts/proximanova-bold-webfont.svg#ProximaNovaBold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ProximaNovaExtrabold';
+  src: url('fonts/proximanova-extrabold-webfont.eot');
+  src: url('fonts/proximanova-extrabold-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/proximanova-extrabold-webfont.woff') format('woff'), url('fonts/proximanova-extrabold-webfont.ttf') format('truetype'), url('fonts/proximanova-extrabold-webfont.svg#ProximaNovaExtrabold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
 /* Ok, this is where the fun starts.
 ---------------------------------------*/
 body {
-  font: 12px Helmet, Freesans, sans-serif;
+  font: 12px 'ProximaNovaRegular', Helmet, Freesans, sans-serif;
   line-height: 1.5;
   background: #333;
 }
@@ -287,7 +315,7 @@ textarea {
 }
 strong,
 b {
-  font-family: Helmet, Freesans, sans-serif;
+  font-family: 'ProximaNovaBold', Helmet, Freesans, sans-serif;
   font-weight: normal;
 }
 a {
@@ -344,6 +372,7 @@ h4,
 h5,
 h6 {
   text-rendering: optimizeLegibility;
+  font-weight: normal;
 }
 .inside {
   position: relative;
@@ -360,16 +389,16 @@ header > .inside {
 }
 header h1 {
   position: absolute;
-  bottom: 5px;
-  font: 60px Helmet, Freesans, sans-serif;
+  bottom: 10px;
+  font: 60px 'ProximaNovaBold', Helmet, Freesans, sans-serif;
 }
 header summary {
   position: absolute;
-  bottom: 12px;
+  bottom: 21px;
   left: 275px;
   width: 350px;
-  font: 18px Helmet, Freesans, sans-serif;
-  line-height: 25px;
+  font: 16px 'ProximaNovaRegular', Helmet, Freesans, sans-serif;
+  line-height: 20px;
 }
 #view-nav {
   position: absolute;
@@ -407,8 +436,8 @@ header summary {
   vertical-align: top;
   zoom: 1;
   *display: inline;
-  font-size: 13px;
-  line-height: 50px;
+  font-size: 14px;
+  line-height: 52px;
 }
 #view-nav li a:before {
   content: "";
@@ -556,20 +585,22 @@ header summary {
   min-height: 20px;
 }
 #content article h2 {
-  font: 16px Helmet, Freesans, sans-serif;
+  font: 16px 'ProximaNovaBold', Helmet, Freesans, sans-serif;
   margin-bottom: 5px;
-  font-weight: bold;
 }
 #content article p {
   margin-bottom: 15px;
+}
+#content article strong,
+#content article b {
+  font-family: 'ProximaNovaRegular', Helmet, Freesans, sans-serif;
 }
 #content aside {
   width: 166px;
   height: 480px;
 }
 #content aside h3 {
-  font: 12px Helmet, Freesans, sans-serif;
-  font-weight: bold;
+  font: 12px 'ProximaNovaSemibold', Helmet, Freesans, sans-serif;
   margin-bottom: 2px;
 }
 #content aside .progress-bar {
@@ -687,6 +718,7 @@ header summary {
   background-color: #4962a2;
   background-color: rgba(73, 98, 162, 0.7);
   color: #4962a2;
+  font-size: 12px;
   -moz-transition: color 0.2s ease-out;
   -webkit-transition: color 0.2s ease-out;
   -o-transition: color 0.2s ease-out;
@@ -771,7 +803,7 @@ footer #logo {
   display: block;
 }
 footer .credits {
-  font: 14px Helmet, Freesans, sans-serif;
+  font: 14px 'ProximaNovaRegular', Helmet, Freesans, sans-serif;
   line-height: 25px;
   color: #ffffff;
   padding-left: 25px;

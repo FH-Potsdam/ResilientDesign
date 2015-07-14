@@ -94,6 +94,7 @@ mark {background-color: #fcd700; color: #000; font-style: italic; font-weight: b
 h1, h2, h3, h4, h5, h6 {
 	// font-weight: 100;
 	.optimize-text();
+	font-weight: normal;
 }
 
 
@@ -120,24 +121,24 @@ header {
 		//padding:45px 0 30px;
 	}
 	
-	@bottom: 5px;
+	@bottom: 10px;
 
 	h1 {
 		position: absolute;
 		bottom: @bottom;
 
-		font: 60px @font-light;
+		font: 60px @font-bold;
 	}
 
 	summary {
 		position: absolute;
-		bottom: @bottom + 7px;
+		bottom: @bottom + 11px;
 		left: 275px;
 
 		width: 350px;
 		
-		font: 18px @font-light;
-		line-height: 25px;
+		font: 16px @font-light;
+		line-height: 20px;
 	}
 }
 
@@ -175,8 +176,8 @@ header {
 			.optimize-text();
 			.inline-block;
 
-			font-size: 13px;
-			line-height: @bar-height; //25px;
+			font-size: 14px;
+			line-height: @bar-height + 2px; //25px;
 			
 			&:before {
 				content: "";
@@ -291,13 +292,17 @@ header {
 		// }
 
 		h2 {
-			font: 16px @font-med;
+			font: 16px @font-bold;
 			margin-bottom: 5px;
-			font-weight: bold;
+			//font-weight: bold;
 		}
 
 		p {
 			margin-bottom: 15px;
+		}
+
+		strong, b {
+			font-family: @font-reg;
 		}
 	}
 
@@ -308,8 +313,8 @@ header {
 		//.opacity(20);
 
 		h3 {
-			font: 12px @font-reg;
-			font-weight: bold;
+			font: 12px @font-med;
+			//font-weight: bold;
 			margin-bottom: 2px;
 		}
 
@@ -460,6 +465,8 @@ header {
 		width: 3px;
 		.rgba(@nav-color, 0.7);
 		color: @nav-color;
+
+		font-size: 12px;
 
 		.transition(color, 0.2s);
 
