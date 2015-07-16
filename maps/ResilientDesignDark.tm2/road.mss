@@ -694,7 +694,7 @@
 
 // These are drawn on the acutal road layers to ensure correct ordering
 // of arrows on bridges & tunnels.
-#road::fill,
+/*#road::fill,
 #bridge::fill,
 #tunnel {
   ['mapnik::geometry_type'=2][zoom>=16][oneway=1] {
@@ -713,6 +713,6 @@
       [zoom>17] { marker-transform: "scale(1.25)"; }
     }
   }
-}
+}*/
 
 /**/

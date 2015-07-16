@@ -185,8 +185,14 @@ function onMarkersDataLoaded() {
         var markerObj = markersData['STD03'].markers[i];
         console.log(markerObj);
 
-        L.marker([markerObj.lat, markerObj.lng]).addTo(map)
-                                                .bindPopup('<h4>'+markerObj.Location+'</h4><p>'+markerObj.Note+'</p>');
+        // Add marker
+        var marker = new L.marker([markerObj.lat, markerObj.lng]);
+        marker.addTo(map);
+
+        // Add popup
+        var popup = new L.Popup();
+        popup.setContent('<h4>'+markerObj.Location+'</h4><p>'+markerObj.Note+'</p>');
+        marker.bindPopup(popup);
 
         // Simple Marker (Good for Performance)
         // var marker = new L.Circle([markerObj.lat, markerObj.lng], 20, {

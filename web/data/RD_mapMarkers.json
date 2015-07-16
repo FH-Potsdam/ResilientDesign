@@ -4,12 +4,12 @@
         "markers": 
             [
                 {
-                    "Location": "House",
+                    "Location": "Medizinische Versorgung",
                     "addedPoint": 1,
                     "lat": 52.45984039717879,
                     "lng": 13.379008769989014,
-                    "Note": "This is our house!",
-                    "Category": "point"
+                    "Note": "Dank eines staatlichen Notfallplans werde Arztpraxen und Gesundheiszentren für die medizinische Grundversorgung genutzt. Entsprechende Schulung vorrausgesetzt.",
+                    "Category": "med"
                 },
                 {
                     "Location": "Shop",

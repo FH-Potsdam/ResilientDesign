@@ -13,12 +13,15 @@
 
 // Font sets are defined in vars.mss
 
+#poi_label {
+  opacity: 0;
+}
+
 // =====================================================================
 // 1__ OCEAN & MARINE LABELS
 // =====================================================================
 
-
-#marine_label["mapnik::geometry_type"=1],
+/*#marine_label["mapnik::geometry_type"=1],
 #marine_label["mapnik::geometry_type"=2] {
   text-name: @name;
   text-face-name: @sans_lt_italic;
@@ -546,7 +549,7 @@
 }*/
 
 // regular labels
-#road_label['mapnik::geometry_type'=2] {
+/*#road_label['mapnik::geometry_type'=2] {
   // Longer roads get a label earlier as they are likely to be more
   // important. This especially helps label density in rural/remote areas.
   // This z14 filter is *not* redundant to logic in SQL queries. Because z14

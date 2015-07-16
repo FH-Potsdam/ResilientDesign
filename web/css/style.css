@@ -522,13 +522,52 @@ header summary {
 .leaflet-control-attribution {
   display: none;
 }
+.leaflet-popup {
+  left: 0 !important;
+  bottom: 40px !important;
+}
+.leaflet-popup a.leaflet-popup-close-button {
+  font: 24px 'ProximaNovaRegular', Helmet, Freesans, sans-serif;
+  padding: 0;
+  width: 22px;
+}
 .leaflet-popup-content-wrapper {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
+  background: #000;
 }
 .leaflet-popup-content {
-  color: black;
+  font: 12px 'ProximaNovaRegular', Helmet, Freesans, sans-serif;
+  line-height: 1.4;
+  max-width: 235px;
+  padding: 8px 15px 10px;
+  margin: 0;
+}
+.leaflet-popup-content h4 {
+  color: #3cb878;
+}
+.leaflet-popup-content p {
+  margin: 0;
+}
+.leaflet-popup-tip-container {
+  width: auto;
+}
+.leaflet-popup-tip {
+  position: relative;
+  transform: rotate(0deg);
+  background: transparent;
+  right: 16px;
+  box-shadow: none;
+  width: 0;
+  height: 0;
+  display: block;
+  border-left: 16px solid transparent;
+  border-right: 16px solid transparent;
+  border-top: 16px solid #000000;
+  border-bottom: none;
+  padding: 0;
+  margin: 0;
 }
 #house {
   background-image: url('../images/dummy/HouseView_DUMMY.png');
