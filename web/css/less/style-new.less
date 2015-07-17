@@ -12,7 +12,7 @@ Version: 1.0
 @import "common";
 
 // Theme specific
-@import "vars";
+@import "vars-new";
 @import "mixins";
 
 /* Ok, this is where the fun starts.
@@ -20,7 +20,11 @@ Version: 1.0
 
 body {
 	font: 12px @font-reg;
-	line-height: 1.5;
+	// font-size: 12px;
+	// font-family: 'Source Code Pro';
+	// font-weight: 400;
+
+	line-height: 1.6;
 	background: #333;
 }
 
@@ -34,8 +38,8 @@ html, body {
 
 // Webkit smoothing
 // http://www.icondeposit.com/blog:how-to-properly-smooth-font-using-css3
-//html, html a {
-* {
+html, html a {
+//* {
 	-webkit-font-smoothing: antialiased !important; 
 }
 
@@ -97,6 +101,49 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: normal;
 }
 
+h1 {
+	// font: 60px @font-bold;
+	font-size: 60px;
+	font-family: 'Source Code Pro';
+	font-weight: 300;
+	text-transform: uppercase;
+	letter-spacing: 10px;
+}
+
+h2 {
+	font-size: 18px;
+	font-family: 'Source Code Pro';
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+h3 {
+	font-family: 'Source Code Pro';
+	font-weight: 400;
+	// font-size: 18px;
+	// font-family: 'Source Code Pro';
+	// font-weight: 500;
+	// text-transform: uppercase;
+	// letter-spacing: 0px;
+}
+
+h4 {
+	font-size: 14px;
+	font-family: 'Source Code Pro';
+	font-weight: 500;
+	//text-transform: uppercase;
+	//letter-spacing: 0.5px;
+}
+
+
+summary {
+	font: 16px @font-light;
+	line-height: 22px;
+	padding-bottom: 2px;
+	letter-spacing: 0.5px;
+}
+
 
 //////////////////
 // Main Classes
@@ -116,33 +163,49 @@ header {
 	height: @header-height;
 
 	& > .inside {
-		height: @header-height - @bar-height;
+		//height: @header-height - @bar-height;
 		//padding-top: 130px;
 		//padding:45px 0 30px;
+		padding: 25px 0;
+		text-align: center;
 	}
 	
 	@bottom: 10px;
 
 	h1 {
-		position: absolute;
-		bottom: @bottom;
-	
-		font: 60px @font-bold;
-		// font: 60px 'Source Code Pro';
-		// font-weight: 100;
-		// text-transform: uppercase;
-		// letter-spacing: 10px;
+		//position: absolute;
+		//bottom: @bottom;
+		.inline-block();
+		line-height: 1;
+		
+		margin-right: -10px;
+
+		// Line
+		// border-bottom: 1px solid white;
+		// padding-bottom: 20px;
+		margin-bottom: 24px;
+
+		&:after {
+			content: "";
+			display: block;
+			position: relative;
+			width: 95.3%;
+			// width: 20%;
+			margin: 0 auto;
+			left: -3px;
+			border-bottom: 2px solid white;
+			padding-top: 22px;
+		}
 	}
 
 	summary {
-		position: absolute;
-		bottom: @bottom + 11px;
-		left: 275px;
+		//.inline-block();
+		//position: absolute;
+		//bottom: @bottom + 18px;
+		//left: 275px;
 
-		width: 350px;
-		
-		font: 16px @font-light;
-		line-height: 20px;
+		//width: 300px;
+		margin: 0 auto;
 	}
 }
 
@@ -155,21 +218,23 @@ header {
 	width: 100%;
 
 	.bar();
+	background: transparent;
 	
 	ul { 
 		height: 100%;
 		font-size:0; // removes space created by inline-block
+		text-align: center;
 	}
 
 	li {
-		.size(190px, 100%);
-		border-right: 2px solid @bg-color;
+		.size(200px, 100%);
+		//border-right: 2px solid @bg-color;
 		text-align: center;
 
 		.inline-block();
 
 		&:first-child {
-			border-left: 2px solid @bg-color; 
+			//border-left: 2px solid @bg-color; 
 		}
 
 		// Text styles
@@ -180,8 +245,14 @@ header {
 			.optimize-text();
 			.inline-block;
 
-			font-size: 14px;
-			line-height: @bar-height + 2px; //25px;
+			//font-size: 14px;
+			font-family: 'Source Code Pro';
+			font-size: 18px;
+			text-transform: uppercase;
+			font-weight: 500;
+			letter-spacing: 0.5px;
+
+			line-height: @bar-height; //25px;
 			
 			&:before {
 				content: "";
@@ -190,18 +261,22 @@ header {
 				background-size: 25px 25px;
 				background-position: left center;
 				background-repeat: no-repeat;
-				margin-right: 10px;
+				margin-right: 12px;
 			}
 
 			&.intro-view:before { background-image: url('../images/icons/ResilientDesign_icons_introScreenIcon.png'); }
 			&.map-view:before 	{ background-image: url('../images/icons/ResilientDesign_icons-02.png'); }
 			&.house-view:before { background-image: url('../images/icons/ResilientDesign_icons-03.png'); }
+
+			.opacity(60);
 		}
 
 		// Active / hover styles
-		&.active > a,
-		a:hover {
+		a:hover,
+		&.active > a {
 			.rgba(@nav-color, 0.3);
+			//transform: scale(1.4);
+			.opacity(100);
 		}
 	}
 }
@@ -273,7 +348,7 @@ header {
 
 	// This 2 values should sum 55px (1080px-970px)
 	//margin: 35px;
-	padding: @content-box-padding @content-box-padding @content-box-padding @content-box-padding+3px;
+	padding: @content-box-padding+10px @content-box-padding - 2px @content-box-padding @content-box-padding+5px;
 
 	.bg-overlay();
 	
@@ -297,8 +372,9 @@ header {
 		// }
 
 		h2 {
-			font: 16px @font-bold;
-			margin-bottom: 5px;
+			//width: 160px;
+			//font: 16px @font-bold;
+			margin-bottom: 10px;
 			//font-weight: bold;
 		}
 
@@ -318,13 +394,13 @@ header {
 		//.opacity(20);
 
 		h3 {
-			font: 12px @font-med;
+			//font: 12px @font-med;
 			//font-weight: bold;
-			margin-bottom: 2px;
+			//margin-bottom: 2px;
 		}
 
 		.progress-bar {
-			margin-bottom: 30px;
+			margin-bottom: 28px;
 		}
 	}
 
@@ -429,7 +505,7 @@ header {
 		// Arrow
 		&:after {
 			content: "";
-
+			
 			.background-image('../images/timeline-handle.png');
 			.block(@cursor-width, 50px);
 			
@@ -505,7 +581,8 @@ header {
 	//border: 1px solid;
 	.rgba(@nav-color, 0.5);
 
-	height: 15px;
+	height: 10px;
+	// height: 15px;
 	width: 100%;
 
 	& > div {

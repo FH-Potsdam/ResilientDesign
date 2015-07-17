@@ -9,7 +9,8 @@
                     "lat": 52.45984039717879,
                     "lng": 13.379008769989014,
                     "Note": "Dank eines staatlichen Notfallplans werde Arztpraxen und Gesundheiszentren für die medizinische Grundversorgung genutzt. Entsprechende Schulung vorrausgesetzt.",
-                    "Category": "med"
+                    "Category": "med",
+                    "group" : "problems"
                 },
                 {
                     "Location": "Shop",
@@ -17,7 +18,8 @@
                     "lat": 52.4585067747166,
                     "lng": 13.38160514831543,
                     "Note": "This is our shop!",
-                    "Category": "point"
+                    "Category": "point",
+                    "group" : "solutions"
                 },
                 {
                     "Location": "Street",
@@ -25,7 +27,8 @@
                     "lat": 52.457238488431486,
                     "lng": 13.381369113922117,
                     "Note": "This is our street!",
-                    "Category": "point"
+                    "Category": "point",
+                    "group" : "solutions"
                 }
             ]
     },
@@ -34,12 +37,13 @@
         "markers": 
             [
                 {
-                    "Location": "House",
+                    "Location": "Medizinische Versorgung",
                     "addedPoint": 1,
                     "lat": 52.45984039717879,
                     "lng": 13.379008769989014,
-                    "Note": "This is our house!",
-                    "Category": "point"
+                    "Note": "Dank eines staatlichen Notfallplans werde Arztpraxen und Gesundheiszentren für die medizinische Grundversorgung genutzt. Entsprechende Schulung vorrausgesetzt.",
+                    "Category": "med",
+                    "group" : "problems"
                 },
                 {
                     "Location": "Shop",
@@ -47,7 +51,8 @@
                     "lat": 52.4585067747166,
                     "lng": 13.38160514831543,
                     "Note": "This is our shop!",
-                    "Category": "point"
+                    "Category": "point",
+                    "group" : "solutions"
                 },
                 {
                     "Location": "Street",
@@ -55,7 +60,8 @@
                     "lat": 52.457238488431486,
                     "lng": 13.381369113922117,
                     "Note": "This is our street!",
-                    "Category": "point"
+                    "Category": "point",
+                    "group" : "solutions"
                 }
             ]
     },
@@ -64,12 +70,13 @@
         "markers": 
             [
                 {
-                    "Location": "House",
+                    "Location": "Medizinische Versorgung",
                     "addedPoint": 1,
                     "lat": 52.45984039717879,
                     "lng": 13.379008769989014,
-                    "Note": "This is our house!",
-                    "Category": "point"
+                    "Note": "Dank eines staatlichen Notfallplans werde Arztpraxen und Gesundheiszentren für die medizinische Grundversorgung genutzt. Entsprechende Schulung vorrausgesetzt.",
+                    "Category": "med",
+                    "group" : "problems"
                 },
                 {
                     "Location": "Shop",
@@ -77,7 +84,8 @@
                     "lat": 52.4585067747166,
                     "lng": 13.38160514831543,
                     "Note": "This is our shop!",
-                    "Category": "point"
+                    "Category": "point",
+                    "group" : "solutions"
                 },
                 {
                     "Location": "Street",
@@ -85,7 +93,8 @@
                     "lat": 52.457238488431486,
                     "lng": 13.381369113922117,
                     "Note": "This is our street!",
-                    "Category": "point"
+                    "Category": "point",
+                    "group" : "solutions"
                 }
             ]
     },
@@ -94,12 +103,13 @@
         "markers": 
             [
                 {
-                    "Location": "House",
+                    "Location": "Medizinische Versorgung",
                     "addedPoint": 1,
                     "lat": 52.45984039717879,
                     "lng": 13.379008769989014,
-                    "Note": "This is our house!",
-                    "Category": "point"
+                    "Note": "Dank eines staatlichen Notfallplans werde Arztpraxen und Gesundheiszentren für die medizinische Grundversorgung genutzt. Entsprechende Schulung vorrausgesetzt.",
+                    "Category": "med",
+                    "group" : "problems"
                 },
                 {
                     "Location": "Shop",
@@ -107,7 +117,8 @@
                     "lat": 52.4585067747166,
                     "lng": 13.38160514831543,
                     "Note": "This is our shop!",
-                    "Category": "point"
+                    "Category": "point",
+                    "group" : "solutions"
                 },
                 {
                     "Location": "Street",
@@ -115,7 +126,8 @@
                     "lat": 52.457238488431486,
                     "lng": 13.381369113922117,
                     "Note": "This is our street!",
-                    "Category": "point"
+                    "Category": "point",
+                    "group" : "solutions"
                 }
             ]
     },
@@ -124,12 +136,13 @@
         "markers": 
             [
                 {
-                    "Location": "House",
+                    "Location": "Medizinische Versorgung",
                     "addedPoint": 1,
                     "lat": 52.45984039717879,
                     "lng": 13.379008769989014,
-                    "Note": "This is our house!",
-                    "Category": "point"
+                    "Note": "Dank eines staatlichen Notfallplans werde Arztpraxen und Gesundheiszentren für die medizinische Grundversorgung genutzt. Entsprechende Schulung vorrausgesetzt.",
+                    "Category": "med",
+                    "group" : "problems"
                 },
                 {
                     "Location": "Shop",
@@ -137,7 +150,8 @@
                     "lat": 52.4585067747166,
                     "lng": 13.38160514831543,
                     "Note": "This is our shop!",
-                    "Category": "point"
+                    "Category": "point",
+                    "group" : "solutions"
                 },
                 {
                     "Location": "Street",
@@ -145,7 +159,8 @@
                     "lat": 52.457238488431486,
                     "lng": 13.381369113922117,
                     "Note": "This is our street!",
-                    "Category": "point"
+                    "Category": "point",
+                    "group" : "solutions"
                 }
             ]
     }

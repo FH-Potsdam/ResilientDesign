@@ -9,13 +9,16 @@
 		
 		<!-- jQuery UI JS -->
 		<script type="text/javascript" src="lib/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
-		
-		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 
 		<!-- jQuery UI styles -->
 		<link rel="stylesheet" type="text/css" href="lib/jquery-ui-1.11.4.custom/jquery-ui.min.css"/>
-		<!-- <link rel="stylesheet" type="text/css" href="lib/jquery-ui-1.11.4.custom/jquery-ui.structure.min.css"/> -->
-		<!-- <link rel="stylesheet" type="text/css" href="lib/jquery-ui-1.11.4.custom/jquery-ui.theme.min.css"/> -->
+	
+		<!-- Google Fonts -->
+		<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,900' rel='stylesheet' type='text/css'>
+		
+		<!-- Styles -->
+		<!-- <link rel="stylesheet" type="text/css" href="css/style.css"/> -->
+		<link rel="stylesheet" type="text/css" href="css/style-new.css"/>
 
 		<meta charset="UTF-8">
 	</head>
@@ -26,14 +29,13 @@
 			
 			<header>
 				<div class="inside">
-					<h1>Blackout</h1>
+					<h1>Black<strong>out</strong></h1>
 					<summary>
-						Consequences of a long lasting urban <br>
-						power outtage and possible solutions
+						Consequences of a long lasting urban power outtage and possible solutions
 					</summary>
 				</div>
 				
-				<nav id="view-nav">
+				<nav id="view-nav" class="block-nav">
 					<div class="inside">
 						<ul>
 							<li><a class="intro-view" href="#intro-view">Intro</a></li>
@@ -53,7 +55,11 @@
 
 						<!-- Pages View  -->
 						<section id="intro-view">
-							Intro screen
+							<div id="intro-view-content-wrap">
+								<div id="intro-view-content">
+									<div id="dm-circle"></div>
+								</div>
+							</div>
 						</section>
 						
 						<!-- Map View  -->
@@ -75,6 +81,7 @@
 							<span class='ui-slider-handle'></span>
 						</div>
 						<div id="guides">
+							<div class="g0"><span>0std.</span></div>
 							<div class="g3 active"><span>3std.</span></div>
 							<div class="g6"><span>6std.</span></div>
 							<div class="g12"><span>12std.</span></div>

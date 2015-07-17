@@ -1,0 +1,26 @@
+///////////////////////
+// House View Styles
+///////////////////////
+
+#intro-view-content-wrap {
+	.center-vertically-wrapper();
+	height: 100%;
+}
+
+#intro-view-content {
+	.center-vertically();
+}
+
+#dm-circle {
+	
+	margin: -2*@bar-height auto 0;
+	
+	@circle-size: 400px;
+	.block(@circle-size, @circle-size);
+	.border-radius(@circle-size);
+	background: transparent;
+	border: 60px solid white;
+
+	position: relative;
+
+}

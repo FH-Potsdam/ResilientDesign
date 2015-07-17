@@ -31,6 +31,9 @@ var siteContentMap   = [],
 var siteContentMapFile   = "data/RD_contentTableMap_export01.json", //"data/RD_contentTable_export01.json";
     siteContentHouseFile = "data/RD_contentTablePersona_export01.json" 
 
+var initTime    = 3,
+    timeValues  = [0, 3, 6, 12, 24, 48];
+
 ////////////////
 // Navigation
 ////////////////
@@ -97,7 +100,7 @@ function initTimeline() {
     $guides = $('#guides > div'),
     $timelineValue = $("#timeline-value");
 
-    var values = [0, 3, 6, 12, 24, 48];
+    var values = timeValues;
     $slider = $("#slider").slider({
         orientation: 'horizontal',
         range: true,
@@ -323,7 +326,7 @@ function onLoad() {
 function onSiteDataLoaded() {
 
     // Load content for current page
-    initViewTimelineContent(3);
+    initViewTimelineContent(initTime);
 }
 
 /////////////

@@ -178,6 +178,9 @@ L.mask(latLngs).addTo(map);
 // Markers
 /////////////
 
+var layerProblems,
+    layerSolutions;
+
 function onMarkersDataLoaded() {
 
     for (var i=0; i<markersData['STD03'].markers.length; i++) {
@@ -193,6 +196,8 @@ function onMarkersDataLoaded() {
         var popup = new L.Popup();
         popup.setContent('<h4>'+markerObj.Location+'</h4><p>'+markerObj.Note+'</p>');
         marker.bindPopup(popup);
+
+        
 
         // Simple Marker (Good for Performance)
         // var marker = new L.Circle([markerObj.lat, markerObj.lng], 20, {
