@@ -1,0 +1,70 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "text": "exampletext01",
+        "title": "exampletitle01",
+        "content": "looting"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.384222984313965,
+          52.45831065035929
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "text": "exampletext02",
+        "title": "exampletitle02",
+        "content": "looting"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.381648063659668,
+          52.459605054973636
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "text": "exampletext03",
+        "title": "exampletitle03",
+        "content": "looting"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              13.381047248840332,
+              52.4613439426865
+            ],
+            [
+              13.380875587463377,
+              52.460899421534826
+            ],
+            [
+              13.381626605987549,
+              52.460834050398674
+            ],
+            [
+              13.381862640380858,
+              52.461265498103494
+            ],
+            [
+              13.381047248840332,
+              52.4613439426865
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}
