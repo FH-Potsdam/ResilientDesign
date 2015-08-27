@@ -19,7 +19,7 @@
     {
       "type": "Feature",
       "properties": {
-        "text": "exampletext02",
+        "text": "exampletext02CHANGED",
         "title": "exampletitle02",
         "content": "looting"
       },
