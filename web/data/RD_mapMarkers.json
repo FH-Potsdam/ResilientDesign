@@ -4,29 +4,29 @@
         "markers": 
             [
                 {
-                    "Location": "Medizinische Versorgung",
+                    "title": "Medizinische Versorgung",
                     "addedPoint": 1,
                     "lat": 52.45984039717879,
                     "lng": 13.379008769989014,
-                    "Note": "Dank eines staatlichen Notfallplans werde Arztpraxen und Gesundheiszentren für die medizinische Grundversorgung genutzt. Entsprechende Schulung vorrausgesetzt.",
+                    "text": "Dank eines staatlichen Notfallplans werde Arztpraxen und Gesundheiszentren für die medizinische Grundversorgung genutzt. Entsprechende Schulung vorrausgesetzt.",
                     "Category": "med",
                     "group" : "problems"
                 },
                 {
-                    "Location": "Shop",
+                    "title": "Shop",
                     "addedPoint": 2,
                     "lat": 52.4585067747166,
                     "lng": 13.38160514831543,
-                    "Note": "This is our shop!",
+                    "text": "This is our shop!",
                     "Category": "point",
                     "group" : "solutions"
                 },
                 {
-                    "Location": "Street",
+                    "title": "Street",
                     "addedPoint": 3,
                     "lat": 52.457238488431486,
                     "lng": 13.381369113922117,
-                    "Note": "This is our street!",
+                    "text": "This is our street!",
                     "Category": "point",
                     "group" : "solutions"
                 }
@@ -37,29 +37,29 @@
         "markers": 
             [
                 {
-                    "Location": "Medizinische Versorgung",
+                    "title": "Medizinische Versorgung",
                     "addedPoint": 1,
                     "lat": 52.45984039717879,
                     "lng": 13.379008769989014,
-                    "Note": "Dank eines staatlichen Notfallplans werde Arztpraxen und Gesundheiszentren für die medizinische Grundversorgung genutzt. Entsprechende Schulung vorrausgesetzt.",
+                    "text": "Dank eines staatlichen Notfallplans werde Arztpraxen und Gesundheiszentren für die medizinische Grundversorgung genutzt. Entsprechende Schulung vorrausgesetzt.",
                     "Category": "med",
                     "group" : "problems"
                 },
                 {
-                    "Location": "Shop",
+                    "title": "Shop",
                     "addedPoint": 2,
                     "lat": 52.4585067747166,
                     "lng": 13.38160514831543,
-                    "Note": "This is our shop!",
+                    "text": "This is our shop!",
                     "Category": "point",
                     "group" : "solutions"
                 },
                 {
-                    "Location": "Street",
+                    "title": "Street",
                     "addedPoint": 3,
                     "lat": 52.457238488431486,
                     "lng": 13.381369113922117,
-                    "Note": "This is our street!",
+                    "text": "This is our street!",
                     "Category": "point",
                     "group" : "solutions"
                 }
@@ -70,29 +70,29 @@
         "markers": 
             [
                 {
-                    "Location": "Medizinische Versorgung",
+                    "title": "Medizinische Versorgung",
                     "addedPoint": 1,
                     "lat": 52.45984039717879,
                     "lng": 13.379008769989014,
-                    "Note": "Dank eines staatlichen Notfallplans werde Arztpraxen und Gesundheiszentren für die medizinische Grundversorgung genutzt. Entsprechende Schulung vorrausgesetzt.",
+                    "text": "Dank eines staatlichen Notfallplans werde Arztpraxen und Gesundheiszentren für die medizinische Grundversorgung genutzt. Entsprechende Schulung vorrausgesetzt.",
                     "Category": "med",
                     "group" : "problems"
                 },
                 {
-                    "Location": "Shop",
+                    "title": "Shop",
                     "addedPoint": 2,
                     "lat": 52.4585067747166,
                     "lng": 13.38160514831543,
-                    "Note": "This is our shop!",
+                    "text": "This is our shop!",
                     "Category": "point",
                     "group" : "solutions"
                 },
                 {
-                    "Location": "Street",
+                    "title": "Street",
                     "addedPoint": 3,
                     "lat": 52.457238488431486,
                     "lng": 13.381369113922117,
-                    "Note": "This is our street!",
+                    "text": "This is our street!",
                     "Category": "point",
                     "group" : "solutions"
                 }
@@ -103,29 +103,29 @@
         "markers": 
             [
                 {
-                    "Location": "Medizinische Versorgung",
+                    "title": "Medizinische Versorgung",
                     "addedPoint": 1,
                     "lat": 52.45984039717879,
                     "lng": 13.379008769989014,
-                    "Note": "Dank eines staatlichen Notfallplans werde Arztpraxen und Gesundheiszentren für die medizinische Grundversorgung genutzt. Entsprechende Schulung vorrausgesetzt.",
+                    "text": "Dank eines staatlichen Notfallplans werde Arztpraxen und Gesundheiszentren für die medizinische Grundversorgung genutzt. Entsprechende Schulung vorrausgesetzt.",
                     "Category": "med",
                     "group" : "problems"
                 },
                 {
-                    "Location": "Shop",
+                    "title": "Shop",
                     "addedPoint": 2,
                     "lat": 52.4585067747166,
                     "lng": 13.38160514831543,
-                    "Note": "This is our shop!",
+                    "text": "This is our shop!",
                     "Category": "point",
                     "group" : "solutions"
                 },
                 {
-                    "Location": "Street",
+                    "title": "Street",
                     "addedPoint": 3,
                     "lat": 52.457238488431486,
                     "lng": 13.381369113922117,
-                    "Note": "This is our street!",
+                    "text": "This is our street!",
                     "Category": "point",
                     "group" : "solutions"
                 }
@@ -136,29 +136,29 @@
         "markers": 
             [
                 {
-                    "Location": "Medizinische Versorgung",
+                    "title": "Medizinische Versorgung",
                     "addedPoint": 1,
                     "lat": 52.45984039717879,
                     "lng": 13.379008769989014,
-                    "Note": "Dank eines staatlichen Notfallplans werde Arztpraxen und Gesundheiszentren für die medizinische Grundversorgung genutzt. Entsprechende Schulung vorrausgesetzt.",
+                    "text": "Dank eines staatlichen Notfallplans werde Arztpraxen und Gesundheiszentren für die medizinische Grundversorgung genutzt. Entsprechende Schulung vorrausgesetzt.",
                     "Category": "med",
                     "group" : "problems"
                 },
                 {
-                    "Location": "Shop",
+                    "title": "Shop",
                     "addedPoint": 2,
                     "lat": 52.4585067747166,
                     "lng": 13.38160514831543,
-                    "Note": "This is our shop!",
+                    "text": "This is our shop!",
                     "Category": "point",
                     "group" : "solutions"
                 },
                 {
-                    "Location": "Street",
+                    "title": "Street",
                     "addedPoint": 3,
                     "lat": 52.457238488431486,
                     "lng": 13.381369113922117,
-                    "Note": "This is our street!",
+                    "text": "This is our street!",
                     "Category": "point",
                     "group" : "solutions"
                 }

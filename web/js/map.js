@@ -194,7 +194,7 @@ function onMarkersDataLoaded() {
 
         // Add popup
         var popup = new L.Popup();
-        popup.setContent('<h4>'+markerObj.Location+'</h4><p>'+markerObj.Note+'</p>');
+        popup.setContent('<h4>'+markerObj.title+'</h4><p>'+markerObj.text+'</p>');
         marker.bindPopup(popup);
 
         
