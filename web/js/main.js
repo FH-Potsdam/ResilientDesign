@@ -38,6 +38,16 @@ var initTime    = 3,
 // Navigation
 ////////////////
 
+function changeView(strView) {
+
+    // Change navigation
+    $navItems.parents('li').removeClass('active');
+    $navItems.filter('.' + strView).parent('li').addClass('active');
+
+    // Change view
+    $viewSlider.attr('class', strView + '-active');
+}
+
 function initViewNavigation() {
     
     // Start view
@@ -51,13 +61,15 @@ function initViewNavigation() {
         oldView = currentView;
         currentView = nextViewID.replace('#','');
 
-        // Change navigation
-        $navItems.filter('.'+oldView).parent('li').removeClass('active');
-        $navItems.filter(e.target).parent('li').addClass('active');
+        changeView(currentView);
 
-        // Animate views
-        $viewSlider.removeClass(oldView + '-active')
-                   .addClass(currentView + '-active');
+        // // Change navigation
+        // $navItems.filter('.'+oldView).parent('li').removeClass('active');
+        // $navItems.filter(e.target).parent('li').addClass('active');
+
+        // // Animate views
+        // $viewSlider.removeClass(oldView + '-active')
+        //            .addClass(currentView + '-active');
 
         e.preventDefault();
         return false;
@@ -369,6 +381,9 @@ $(document).ready(function (){
 
     // // Init onScroll handler
     // $(window).scroll(onScroll).trigger("scroll");
+
+    // Set current view
+    changeView('house-view');
 
     // Load
     $(window).load(onLoad);

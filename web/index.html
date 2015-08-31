@@ -3,16 +3,21 @@
 		<title>Resilient Design | FHP</title>
 		<script type="text/javascript" src="lib/jquery-2.1.1.min.js"></script>
 		
-
+		
+		<!-- Leaflet -->
 		<script type="text/javascript" src="lib/leaflet.js"></script>
 		<link rel="stylesheet" type="text/css" href="lib/leaflet.css"/>
-		
+
 		<!-- jQuery UI JS -->
 		<script type="text/javascript" src="lib/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
 
 		<!-- jQuery UI styles -->
 		<link rel="stylesheet" type="text/css" href="lib/jquery-ui-1.11.4.custom/jquery-ui.min.css"/>
-	
+		
+		<!-- Snap.svg -->
+		<script type="text/javascript" src="lib/snap.svg-min.js"></script>
+		<script type="text/javascript" src="lib/snap.svg.utils.js"></script>
+
 		<!-- Google Fonts -->
 		<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,900' rel='stylesheet' type='text/css'>
 		
@@ -40,7 +45,7 @@
 					<div class="inside">
 						<ul>
 							<li><a class="intro-view" href="#intro-view">Intro</a></li>
-							<li class="active"><a class="map-view" href="#map-view">Map view</a></li>
+							<li><a class="map-view" href="#map-view">Map view</a></li>
 							<li><a class="house-view" href="#house-view">House view</a></li>
 						</ul>
 					</div>
@@ -52,7 +57,7 @@
 			<main id="container">
 				
 				<div id="viewport">
-					<div id="view-slider" class="map-view-active">
+					<div id="view-slider">
 
 						<!-- Pages View  -->
 						<section id="intro-view">
@@ -70,7 +75,11 @@
 						
 						<!-- House View  -->
 						<section id="house-view">
-							<div id="house"></div>
+							<svg id="house">
+								<!-- <svg id="floor-1"></svg>
+								<svg id="floor-2"></svg>
+								<svg id="floor-3"></svg> -->
+							</svg>
 						</section>
 					</div>
 				</div>
@@ -213,6 +222,7 @@
 
 		<script type="text/javascript" src="js/main.js"></script>
 		<script type="text/javascript" src="js/map.js"></script>
+		<script type="text/javascript" src="js/house.js"></script>
 
 	</body>
 </html>

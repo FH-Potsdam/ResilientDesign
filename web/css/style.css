@@ -597,18 +597,6 @@ header summary {
   padding: 0;
   margin: 0;
 }
-#house {
-  background-image: url('../images/dummy/HouseView_DUMMY.png');
-  background-position: center center;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
-  display: block;
-  -moz-background-size: 100% 100%;
-  -o-background-size: 100% 100%;
-  -webkit-background-size: 100% 100%;
-  background-size: 100% 100%;
-}
 #content-wrap {
   position: relative;
   width: 100%;
