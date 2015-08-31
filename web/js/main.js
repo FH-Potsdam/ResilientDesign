@@ -258,7 +258,8 @@ function hideContent() {
 
 function showNewContent(value) {
 
-    var siteContent = (currentView == 'map-view') ? siteContentMap : siteContentHouse;
+    //var siteContent = (currentView == 'map-view') ? siteContentMap : siteContentHouse;
+    var siteContent = siteContentMap;
     
     value = (value < 10) ? "0"+value : value;
 
@@ -383,7 +384,7 @@ $(document).ready(function (){
     // $(window).scroll(onScroll).trigger("scroll");
 
     // Set current view
-    changeView('house-view');
+    changeView('map-view');
 
     // Load
     $(window).load(onLoad);
