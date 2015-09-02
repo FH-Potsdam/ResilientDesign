@@ -901,21 +901,34 @@ header summary {
 }
 footer .inside {
   padding: 15px 0 32px;
+  zoom: 1;
+}
+footer .inside:before,
+footer .inside:after {
+  content: "";
+  display: table;
+}
+footer .inside:after {
+  clear: both;
 }
 footer #logo {
   position: absolute;
-  left: 0;
-  background-image: url('../images/fhp-footer-logo.png');
+  left: 6px;
+  background-image: url('../images/fhp_logo.png');
   background-position: 0 0;
   background-repeat: no-repeat;
-  width: 7px;
-  height: 37px;
+  width: 210px;
+  height: 35px;
   display: block;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  -webkit-background-size: contain;
+  background-size: contain;
 }
 footer .credits {
-  font: 14px 'gotham-thin', Helmet, Freesans, sans-serif;
-  line-height: 25px;
+  font: 10px 'gotham-book', Helmet, Freesans, sans-serif;
+  line-height: 1.5;
   color: #ffffff;
-  padding-left: 25px;
-  margin-top: -6px;
+  float: right;
+  text-align: right;
 }

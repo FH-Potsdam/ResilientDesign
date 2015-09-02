@@ -384,7 +384,7 @@ $(document).ready(function (){
     // $(window).scroll(onScroll).trigger("scroll");
 
     // Set current view
-    changeView('map-view');
+    changeView('house-view');
 
     // Load
     $(window).load(onLoad);

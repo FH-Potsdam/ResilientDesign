@@ -628,24 +628,36 @@ header {
 footer {
 	
 	.inside {
-		padding: 15px 0 32px
+		padding: 15px 0 32px;
+		.group;
 	}
 	
 	#logo {
 		position: absolute;
-		left: 0;
+		left: 6px;
+		// float: left;
 
-		.background-image('../images/fhp-footer-logo.png');
-		.block(7px, 37px);
+		.background-image('../images/fhp_logo.png');
+		.block(210px, 35px);
+		.background-size(contain);
+		// .block(120px, 25px);
+		// .background-size(120px 25px);
 	}
 
 	.credits {
-		font: 14px @font-extralight;
-		line-height: 25px;
+		font: 10px @font-reg;
+		// line-height: 25px;
+		line-height: 1.5;
 		color: @white; //darken(@white, 30%);
 
-		padding-left: 25px;
-		margin-top: -6px;
+		//padding-left: 200px;
+		//margin-top: -6px;
+		
+		//float: left;
+		//margin-left: 40px;
+		float: right;
+		text-align: right;
+		// text-align: center;
 	}
 }
 
