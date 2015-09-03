@@ -2,6 +2,10 @@
 // House View Styles
 ///////////////////////
 
+#house-view {
+	position: relative;
+}
+
 #house {
 	// .background-image('../images/house/HouseView_DUMMY.png', center center);
 	//.background-size(100% 100%);
@@ -14,8 +18,12 @@
 
 .active-graphic {
 
-	path {
+	path, polygon, line {
 		fill: #ccc;
+		stroke: #fff;
+	}
+
+	polyline {
 		stroke: #fff;
 	}
 }

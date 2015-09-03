@@ -648,13 +648,21 @@ header summary {
   padding: 0;
   margin: 0;
 }
+#house-view {
+  position: relative;
+}
 #house {
   width: 100%;
   height: 100%;
   display: block;
 }
-.active-graphic path {
+.active-graphic path,
+.active-graphic polygon,
+.active-graphic line {
   fill: #ccc;
+  stroke: #fff;
+}
+.active-graphic polyline {
   stroke: #fff;
 }
 #content-wrap {
