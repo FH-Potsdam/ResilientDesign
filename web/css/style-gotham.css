@@ -870,6 +870,10 @@ header summary {
 #guides .g48 {
   left: 808px;
 }
+.textIMG  {
+  float:left;
+  margin-right: 10px;
+}
 .progress-bar {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
