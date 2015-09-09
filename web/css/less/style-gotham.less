@@ -15,6 +15,8 @@ Version: 1.0
 @import "vars-gotham";
 @import "mixins";
 
+@import "content-images";
+
 /* Ok, this is where the fun starts.
 ---------------------------------------*/
 
@@ -284,6 +286,8 @@ header {
 
 #wrap {
 	width: @screen-width;
+	height: @screen-height;
+	overflow: hidden;
 	margin: 0 auto;
 	background: @bg-color;
 }

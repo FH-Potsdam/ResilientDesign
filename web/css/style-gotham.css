@@ -303,6 +303,12 @@ button {
   font-weight: normal;
   font-style: normal;
 }
+.textIMG {
+  float: left;
+  margin-right: 10px;
+  max-width: 170px;
+  height: auto;
+}
 /* Ok, this is where the fun starts.
 ---------------------------------------*/
 body {
@@ -521,6 +527,8 @@ header summary {
 }
 #wrap {
   width: 1080px;
+  height: 1780px;
+  overflow: hidden;
   margin: 0 auto;
   background: #12161f;
 }
@@ -869,10 +877,6 @@ header summary {
 }
 #guides .g48 {
   left: 808px;
-}
-.textIMG  {
-  float:left;
-  margin-right: 10px;
 }
 .progress-bar {
   -webkit-box-sizing: border-box;
