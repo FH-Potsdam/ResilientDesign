@@ -21,7 +21,7 @@ var $window,
     $solutionsContent,
     $footer,
 
-    initView = 'map-view',
+    initView = 'house-view',
     currentView = '',
     lastView = '',
 
