@@ -100,39 +100,12 @@ var tempelhof = {
   ]
 };
 
-// credits: https://github.com/turban/Leaflet.Mask
-L.Mask = L.Polygon.extend({
-    options: {
-        stroke: false,
-        color: '#000',
-        fillOpacity: 0.5,
-        clickable: false,
-
-        outerBounds: new L.LatLngBounds([-90, -360], [90, 360])
-    },
-
-    initialize: function (latLngs, options) {
-        
-         var outerBoundsLatLngs = [
-            this.options.outerBounds.getSouthWest(),
-            this.options.outerBounds.getNorthWest(),
-            this.options.outerBounds.getNorthEast(),
-            this.options.outerBounds.getSouthEast()
-        ];
-        L.Polygon.prototype.initialize.call(this, [outerBoundsLatLngs, latLngs], options);  
-    },
-
-});
-L.mask = function (latLngs, options) {
-    return new L.Mask(latLngs, options);
-};
-
 
 ////////////////////
 // Initialize map
 ////////////////////
 
-var map = L.map('map').setView([52.4574, 13.3820], 16);
+var map = L.map('map').setView([52.4548, 13.3815], 16);
 
 // Add tile layer
 L.tileLayer('http://{s}.tiles.mapbox.com/v3/jorditost.2116a83e/{z}/{x}/{y}.png', {

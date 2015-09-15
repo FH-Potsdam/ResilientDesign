@@ -12,6 +12,7 @@ var $window,
 
     $slider,
     $guides,
+    $timeline,
     $timelineValue,
 
     $contentWrap,
@@ -153,7 +154,8 @@ function loadData() {
 
 function initTimeline() {
     
-    $guides = $('#guides > div'),
+    $timeline = $('#timeline');
+    $guides = $('#guides > div');
     $timelineValue = $("#timeline-value");
 
     var values = timeValues;
@@ -247,16 +249,18 @@ function initViewTimelineContent(time) {
 // Content Functions
 ///////////////////////
 
-function newContentWrap() {
+function showContentWrap() {
 
-    $contentWrap.stop(true, true)
-                .animate({top: 0}, 250);
+    $contentWrap.removeClass('hidden');
+
+    // $contentWrap.css({top: 0});
 }
 
 function hideContentWrap() {
-
-    $contentWrap.stop(true, true)
-                .animate({top: $contentWrap.outerHeight() + $footer.outerHeight()}, 250);
+    
+    $contentWrap.addClass('hidden');
+    
+    // $contentWrap.css({top: $contentWrap.outerHeight() + $timeline.outerHeight() + $footer.outerHeight() + $slider.find('.ui-slider-handle').outerHeight()});
 }
 
 function hideContent() {
@@ -372,7 +376,8 @@ $(document).ready(function (){
     $container      = $('#container');
     $viewSlider     = $container.find('#view-slider');
     $views          = $viewSlider.find('section');
-    $contentWrap    = $container.find('#content-wrap');
+
+    $contentWrap    = $('#content-wrap');
     $content        = $contentWrap.find('#content');
 
     // Content
@@ -384,7 +389,7 @@ $(document).ready(function (){
     $solutionsBars      = $content.find('#solutions-bars');
 
     // Footer
-    $footer             = $('#footer');
+    $footer             = $('footer');
 
     // Resize
     resizeSite();

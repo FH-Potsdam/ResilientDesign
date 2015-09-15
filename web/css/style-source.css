@@ -573,7 +573,7 @@ header summary {
   vertical-align: middle;
 }
 #dm-circle {
-  margin: -100px auto 0;
+  margin: 100px auto 0;
   width: 400px;
   height: 400px;
   display: block;
@@ -648,6 +648,9 @@ header summary {
 }
 #house-view {
   position: relative;
+}
+#svg-wrap {
+  margin-top: 240px;
 }
 #house {
   width: 100%;

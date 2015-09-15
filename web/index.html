@@ -6,6 +6,7 @@
 		
 		<!-- Leaflet -->
 		<script type="text/javascript" src="lib/leaflet.js"></script>
+		<script type="text/javascript" src="lib/leaflet.mask.js"></script>
 		<link rel="stylesheet" type="text/css" href="lib/leaflet.css"/>
 
 		<!-- jQuery UI JS -->
@@ -22,9 +23,9 @@
 		<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,900' rel='stylesheet' type='text/css'>
 		
 		<!-- Styles -->
-		<!-- <link rel="stylesheet" type="text/css" href="css/style.css"/> -->
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 		<!-- <link rel="stylesheet" type="text/css" href="css/style-source.css"/> -->
-		<link rel="stylesheet" type="text/css" href="css/style-gotham.css"/>
+		<!-- <link rel="stylesheet" type="text/css" href="css/style-old.css"/> -->
 
 		<meta charset="UTF-8">
 	</head>
@@ -53,9 +54,8 @@
 
 			</header>
 			
-			<!-- PAGES NAVIGATION  -->
+			<!-- Main Container  -->
 			<main id="container">
-				
 				<div id="viewport">
 					<div id="view-slider">
 
@@ -75,102 +75,105 @@
 						
 						<!-- House View  -->
 						<section id="house-view">
-							<svg id="house">
-								<!-- <svg id="floor-1"></svg>
-								<svg id="floor-2"></svg>
-								<svg id="floor-3"></svg> -->
-							</svg>
+							<div id="svg-wrap">
+								<svg id="house">
+									<!-- <svg id="floor-1"></svg>
+									<svg id="floor-2"></svg>
+									<svg id="floor-3"></svg> -->
+								</svg>
+							</div>
 						</section>
 					</div>
 				</div>
-				
-				<div id="content-wrap">
-					<div id="timeline">
-						<div id="slider">
-							<span class='ui-slider-handle ui-slider-handle-disabled'></span>
-							<span class='ui-slider-handle'></span>
-						</div>
-						<div id="guides">
-							<div class="g0 active"><span>0std.</span></div>
-							<div class="g3"><span>3std.</span></div>
-							<div class="g6"><span>6std.</span></div>
-							<div class="g12"><span>12std.</span></div>
-							<div class="g24"><span>24std.</span></div>
-							<div class="g48"><span>48std.</span></div>
-						</div>
-						<div id="timeline-value"></div>
+			</main><!-- End Main Container -->
+			
+			<!-- Content Wrapper -->
+			<div id="content-wrap">
+				<div id="timeline">
+					<div id="slider">
+						<span class='ui-slider-handle ui-slider-handle-disabled'></span>
+						<span class='ui-slider-handle'></span>
 					</div>
-					
-					<div id="content">
-						
-						<article id="problems-content">
-							
-						</article>
-
-						<aside>
-							
-							<div id="problems-bars">
-								<div id="probbarverkehrschaos">
-									<h3>Verkehrschaos</h3>
-									<div class="progress-bar">
-										<div style="width: 0%;"></div>
-									</div>
-								</div>
-								<div id="probbarmedizinischenotfaelle">
-									<h3>Medizinische Notfälle</h3>
-									<div class="progress-bar">
-										<div style="width: 0%;"></div>
-									</div>
-								</div>
-								<div id="probbarkriminalitaet">
-									<h3>Kriminalität</h3>
-									<div class="progress-bar">
-										<div style="width: 0%;"></div>
-									</div>
-								</div>
-								<div id="probbarpanik">
-									<h3>Panik</h3>
-									<div class="progress-bar">
-										<div style="width: 0%;"></div>
-									</div>
-								</div>
-							</div>
-
-							<div id="solutions-bars">
-								<div id="resbarkommunikation">
-									<h3>Kommunikation</h3>
-									<div class="progress-bar">
-										<div style="width: 0%;"></div>
-									</div>
-								</div>
-								<div id="resbarversorgung">
-									<h3>Versorgung</h3>
-									<div class="progress-bar">
-										<div style="width: 0%;"></div>
-									</div>
-								</div>
-								<div id="resbarwhatever">
-									<h3>Whatever</h3>
-									<div class="progress-bar">
-										<div style="width: 0%;"></div>
-									</div>
-								</div>
-								<div id="resbarsozialerzusammenhalt">
-									<h3>Sozialer Zusammenhalt</h3>
-									<div class="progress-bar">
-										<div style="width: 0%;"></div>
-									</div>
-								</div>
-							</div>
-
-						</aside>
-
-						<article id="solutions-content">
-							
-						</article>
+					<div id="guides">
+						<div class="g0 active"><span>0std.</span></div>
+						<div class="g3"><span>3std.</span></div>
+						<div class="g6"><span>6std.</span></div>
+						<div class="g12"><span>12std.</span></div>
+						<div class="g24"><span>24std.</span></div>
+						<div class="g48"><span>48std.</span></div>
 					</div>
+					<div id="timeline-value"></div>
 				</div>
-			</main>
+				
+				<div id="content">
+					
+					<article id="problems-content">
+						
+					</article>
+
+					<aside>
+						
+						<div id="problems-bars">
+							<div id="probbarverkehrschaos">
+								<h3>Verkehrschaos</h3>
+								<div class="progress-bar">
+									<div style="width: 0%;"></div>
+								</div>
+							</div>
+							<div id="probbarmedizinischenotfaelle">
+								<h3>Medizinische Notfälle</h3>
+								<div class="progress-bar">
+									<div style="width: 0%;"></div>
+								</div>
+							</div>
+							<div id="probbarkriminalitaet">
+								<h3>Kriminalität</h3>
+								<div class="progress-bar">
+									<div style="width: 0%;"></div>
+								</div>
+							</div>
+							<div id="probbarpanik">
+								<h3>Panik</h3>
+								<div class="progress-bar">
+									<div style="width: 0%;"></div>
+								</div>
+							</div>
+						</div>
+
+						<div id="solutions-bars">
+							<div id="resbarkommunikation">
+								<h3>Kommunikation</h3>
+								<div class="progress-bar">
+									<div style="width: 0%;"></div>
+								</div>
+							</div>
+							<div id="resbarversorgung">
+								<h3>Versorgung</h3>
+								<div class="progress-bar">
+									<div style="width: 0%;"></div>
+								</div>
+							</div>
+							<div id="resbarwhatever">
+								<h3>Whatever</h3>
+								<div class="progress-bar">
+									<div style="width: 0%;"></div>
+								</div>
+							</div>
+							<div id="resbarsozialerzusammenhalt">
+								<h3>Sozialer Zusammenhalt</h3>
+								<div class="progress-bar">
+									<div style="width: 0%;"></div>
+								</div>
+							</div>
+						</div>
+
+					</aside>
+
+					<article id="solutions-content">
+						
+					</article>
+				</div>
+			</div><!-- End Content Wrapper -->
 
 			<footer>
 				<div class="inside">
