@@ -628,6 +628,9 @@ header summary {
 #house-view {
   position: relative;
 }
+#house-view .leaflet-popup-pane {
+  padding-top: 240px;
+}
 #house-slider {
   position: relative;
   margin-top: 240px;
@@ -692,6 +695,11 @@ header summary {
 }
 #svg-nav > a#nav-floor-1 {
   top: 784px;
+}
+#svg-nav > a.active {
+  opacity: 0;
+  width: 0px;
+  height: 0px;
 }
 .active-graphic path,
 .active-graphic polygon,

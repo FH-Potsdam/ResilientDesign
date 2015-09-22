@@ -22,8 +22,10 @@ var svg,
 	sink;
 	
 // Floor vars
-var $houseSlider,
+var $houseView,
+	$houseSlider,
 	$floorNavItems,
+	$popupPane,
 	currentFloor = 'floor-3',
 	oldFloor = '';
 
@@ -48,8 +50,8 @@ function initFloorNavigation() {
 		oldFloor = currentFloor;
 		currentFloor = nextFloorID.replace('#','');
 
-		console.log("oldFloor: " + oldFloor);
-		console.log("currentFloor: " + currentFloor);
+		// console.log("oldFloor: " + oldFloor);
+		// console.log("currentFloor: " + currentFloor);
 		
 		// Change view animation
 		//changeView(currentView);
@@ -66,21 +68,29 @@ function initFloorNavigation() {
 
 function goToFloor(strFloor) {
 
+	var $oldFloor = $floorNavItems.filter('.active'),//.removeClass('active')
+		$currentFloor = $floorNavItems.filter('a[href$="#' + strFloor + '"]');
+
+	// Deactivate old floor
+	$oldFloor.removeClass('active');
+
 	// Animate slider
 	$houseSlider.attr('class', strFloor + '-active');
 
-	$houseSlider.on("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(e) {
-					
-					//showContent(currentTime);
+	var transitionEnded = false;
 
-					// Reset old active floor
-					//var $oldFloor = $floorNavItems.filter('.active').addClass('fadeOut')
-					// $floorNavItems.filter('.active').removeClass('active');
-					
-					// Deactivate events for active floor
-					//$floorNavItems.filter('a[href$="' + currentFloor + '"]').addClass('active');
-					$(this).off(e);
-				});
+	$currentFloor.on("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(e) {
+	// $currentFloor.one("transitionend", function(e) {
+
+		if (transitionEnded) return false;
+
+		// Deactivate events for active floor
+		$currentFloor.addClass('active');
+		
+		$(this).off(e);
+
+		transitionEnded = true;
+	});
 }
 
 
@@ -90,7 +100,12 @@ function goToFloor(strFloor) {
 
 window.onload = function () {
 
+	$houseView = $('#house-view');
 	$houseSlider = $('#house-slider');
+
+	// Init popup pane
+	$popupPane = $('<div class="leaflet-popup-pane"></div>');
+	$houseSlider.append($popupPane);
 
 	// Floor navigation
 	initFloorNavigation();
@@ -194,6 +209,8 @@ var onElementClicked = function(evt) {
 
 function showPopup(graphic, evt) {
 
+	//alert("show popup");
+
 	var $this = $(graphic.node),
 		bbox  = $this[0].getBBox();
 
@@ -207,15 +224,12 @@ function showPopup(graphic, evt) {
 	// Add popup in this position
 	var x = evt.x - 185, // bbox.x,
 		y = evt.y - 50; // bbox.y;
-
+	
 	// Remove old popups
-	var $popupPane = $('.leaflet-popup-pane').remove();
+	$popupPane.html('');
 
-	// Create new pane
-	$popupPane = $('<div class="leaflet-popup-pane"><div class="leaflet-popup  leaflet-zoom-animated" style="opacity: 1; transform: translate3d('+x+'px, '+y+'px, 0px); bottom: 27px; left: -82px;"><a class="leaflet-popup-close-button" href="#close">×</a><div class="leaflet-popup-content-wrapper"><div class="leaflet-popup-content" style="width: 133px;"><h4>House</h4><p>This is our house!</p></div></div><div class="leaflet-popup-tip-container"><div class="leaflet-popup-tip"></div></div></div></div>');
-		//$popup = $popupPane.find('leaflet-popup').css({left: evt.x+"px", top: evt.y+"px"});
-
-	$('#house-view').append($popupPane);
+	// Create new popup
+	$popupPane.append('<div class="leaflet-popup leaflet-zoom-animated" style="opacity: 1; transform: translate3d('+x+'px, '+y+'px, 0px); bottom: 27px; left: -82px;"><a class="leaflet-popup-close-button" href="#close">×</a><div class="leaflet-popup-content-wrapper"><div class="leaflet-popup-content" style="width: 133px;"><h4>House</h4><p>This is our house!</p></div></div><div class="leaflet-popup-tip-container"><div class="leaflet-popup-tip"></div></div></div>');
 }
 
 ///////////////////

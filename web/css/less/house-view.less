@@ -7,6 +7,10 @@
 
 #house-view {
 	position: relative;
+
+	.leaflet-popup-pane {
+		padding-top: @header-height;
+	}
 }
 
 #house-slider {
@@ -53,6 +57,8 @@
 		position: absolute;
 		
 		background-color: @bg-color;
+		
+		//visibility: "visible";
 		opacity: 0.8;
 		.transition(opacity, 0.5s, ease-out);
 
@@ -72,12 +78,16 @@
 		}
 	
 		// Deactivate click events
-		// &.active {
-		// 	display: none;
-		// }
+		&.active {
+			//display: none;
+			//visibility: "hidden";
+			opacity: 0;
+			width: 0px;
+			height: 0px;
+		}
 
 		// &.fadeOut {
-		// 	display: block !important;
+		// 	display: block;
 		// 	opacity: 0.8;
 		// }
 	}
