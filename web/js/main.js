@@ -21,8 +21,8 @@ var $window,
     $problemsContent,
     $solutionsContent,
     $contentHouse,
-    $flatProfileContent,
-    $flatProblemsContent,
+    $floorProfileContent,
+    $floorProblemsContent,
 
     $mapProblemBars,
     $mapSolutionBars,
@@ -31,10 +31,9 @@ var $window,
 
     $footer,
 
-    initView = 'map-view',
+    initView = 'house-view',
     currentView = '',
     oldView = '',
-    currentFlat = '',
 
     windowWidth,
     windowHeight;
@@ -56,10 +55,6 @@ var initTime    = 0,
 //////////
 
 function loadData() {
-
-    console.log("LOAD DATA");
-    console.log("---- " + siteContentMapFile);
-    console.log("---- " + siteContentHouseFile);
 
     // This triggers when both JSON files
     $.when(
@@ -196,7 +191,12 @@ function initTimeline() {
             //$("#amount").html(slider.slider('values', 0) + ' - ' + slider.slider('values', 1) + " hours");
             return false;
         },
-        start: function(event, ui) { 
+        start: function(event, ui) {
+
+            if (currentView == 'house-view') {
+                oldFloor = currentFloor;
+            }
+
             hideContent();
         },
         stop: function(event, ui) { 
@@ -273,18 +273,19 @@ function hideContent() {
                          .animate({opacity: 0}, 250);
     } else if (currentView == 'house-view') {
 
-        // TO DO: if different flat
-        $flatProfileContent.stop(true, true)
-                           .animate({opacity: 0}, 250);
+        // TO DO: if different floor
+        if (oldFloor != '' && currentFloor != oldFloor) {
+            $floorProfileContent.stop(true, true)
+                               .animate({opacity: 0}, 250);
+        }
 
-        $flatProblemsContent.stop(true, true)
+        $floorProblemsContent.stop(true, true)
                             .animate({opacity: 0}, 250);
     }
 }
 
 function showContent(value) {
 
-    var siteContent;
     //var siteContent = (currentView == 'map-view') ? siteContentMap : siteContentHouse;
 
     value = (value < 10) ? "0" + value : value;
@@ -292,42 +293,42 @@ function showContent(value) {
     // Map view
     if (currentView == 'map-view') {
 
-        siteContent = siteContentMap;
-
         // Problems content
         $problemsContent.stop(true, true)
-                        .html(siteContent['STD'+value].problemtext)
+                        .html(siteContentMap['STD'+value].problemtext)
                         .animate({opacity: 1}, 250);
 
         // Solutions content
         $solutionsContent.stop(true, true)
-                         .html(siteContent['STD'+value].solutionstext)
+                         .html(siteContentMap['STD'+value].solutionstext)
                          .animate({opacity: 1}, 250);
 
         // Update vars
-        $mapProblemBars.find('#probbarverkehrschaos .progress-bar > div').css('width', siteContent['STD'+value].probbarverkehrschaos + "%");
-        $mapProblemBars.find('#probbarmedizinischenotfaelle .progress-bar > div').css('width', siteContent['STD'+value].probbarmedizinischenotfaelle + "%");
-        $mapProblemBars.find('#probbarkriminalitaet .progress-bar > div').css('width', siteContent['STD'+value].probbarkriminalitaet + "%");
-        $mapProblemBars.find('#probbarpanik .progress-bar > div').css('width', siteContent['STD'+value].probbarpanik + "%");
+        $mapProblemBars.find('#probbarverkehrschaos .progress-bar > div').css('width', siteContentMap['STD'+value].probbarverkehrschaos + "%");
+        $mapProblemBars.find('#probbarmedizinischenotfaelle .progress-bar > div').css('width', siteContentMap['STD'+value].probbarmedizinischenotfaelle + "%");
+        $mapProblemBars.find('#probbarkriminalitaet .progress-bar > div').css('width', siteContentMap['STD'+value].probbarkriminalitaet + "%");
+        $mapProblemBars.find('#probbarpanik .progress-bar > div').css('width', siteContentMap['STD'+value].probbarpanik + "%");
 
-        $mapSolutionBars.find('#resbarkommunikation .progress-bar > div').css('width', siteContent['STD'+value].resbarkommunikation + "%");
-        $mapSolutionBars.find('#resbarversorgung .progress-bar > div').css('width', siteContent['STD'+value].resbarversorgung + "%");
-        $mapSolutionBars.find('#resbarwhatever .progress-bar > div').css('width', siteContent['STD'+value].resbarwhatever + "%");
-        $mapSolutionBars.find('#resbarsozialerzusammenhalt .progress-bar > div').css('width', siteContent['STD'+value].resbarsozialerzusammenhalt + "%");
+        $mapSolutionBars.find('#resbarkommunikation .progress-bar > div').css('width', siteContentMap['STD'+value].resbarkommunikation + "%");
+        $mapSolutionBars.find('#resbarversorgung .progress-bar > div').css('width', siteContentMap['STD'+value].resbarversorgung + "%");
+        $mapSolutionBars.find('#resbarwhatever .progress-bar > div').css('width', siteContentMap['STD'+value].resbarwhatever + "%");
+        $mapSolutionBars.find('#resbarsozialerzusammenhalt .progress-bar > div').css('width', siteContentMap['STD'+value].resbarsozialerzusammenhalt + "%");
     
     // House view
     } else if (currentView == 'house-view') {
 
-        siteContent = siteContentHouse;
+        // Profile content
+        $floorProfileContent.stop(true, true)
+                            .html(getFloorProfileContent(currentFloor))
 
-        // Problems content
-        $flatProfileContent.stop(true, true)
-                           .html(siteContent['Steckbrief'].altedame)
-                           .animate({opacity: 1}, 250);
+        if (oldFloor != '' && currentFloor != oldFloor) {
+            
+            $floorProfileContent.animate({opacity: 1}, 250);
+        }
 
         // Solutions content
-        $flatProblemsContent.stop(true, true)
-                            .html(siteContent['STD'+value].altedame)
+        $floorProblemsContent.stop(true, true)
+                            .html(getFloorProblemsContent(currentFloor, value))
                             .animate({opacity: 1}, 250);
 
         // Update vars
@@ -347,6 +348,40 @@ function updateContent(value) {
 
     hideContent();
     showContent(value);
+}
+
+/////////////////////////////
+// House Content Functions
+/////////////////////////////
+
+function getFloorProfileContent(floor) {
+    
+    var content = '';
+
+    if (floor == 'floor-1') {
+        content = siteContentHouse['Steckbrief'].mutter;
+    } else if (floor == 'floor-2') {
+        content = siteContentHouse['Steckbrief'].altedame;
+    } else if (floor == 'floor-3') {
+        content = siteContentHouse['Steckbrief'].wg;
+    }
+
+    return content;
+}
+
+function getFloorProblemsContent(floor, time) {
+    
+    var content = '';
+
+    if (floor == 'floor-1') {
+        content = siteContentHouse['STD'+time].mutter;
+    } else if (floor == 'floor-2') {
+        content = siteContentHouse['STD'+time].altedame;
+    } else if (floor == 'floor-3') {
+        content = siteContentHouse['STD'+time].wg;
+    }
+
+    return content;
 }
 
 ///////////////////////////////
@@ -412,7 +447,7 @@ function onSiteDataLoaded() {
 // onReady
 /////////////
 
-$(document).ready(function (){
+$(document).ready(function () {
 
     $window         = $(window);
     $scrollElement  = $('html, body').scrollTop(0);
@@ -434,8 +469,8 @@ $(document).ready(function (){
     $problemsContent    = $content.find('#problems-content');
     $solutionsContent   = $content.find('#solutions-content');
 
-    $flatProfileContent  = $content.find('#flat-profile-content');
-    $flatProblemsContent = $content.find('#flat-problems-content');
+    $floorProfileContent  = $content.find('#floor-profile-content');
+    $floorProblemsContent = $content.find('#floor-problems-content');
 
     // Progress bars
     $mapProblemBars      = $content.find('#map-problem-bars');

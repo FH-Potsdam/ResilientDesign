@@ -2,13 +2,34 @@
 // House View Styles
 ///////////////////////
 
+@floor-height: 370px;
+@floor-margin: 22px;
+
 #house-view {
 	position: relative;
 }
 
-#svg-wrap {
+#house-slider {
 	position: relative;
 	margin-top: @header-height;
+
+	top: 0;
+	.transition(top, 0.5s, ease-out);
+
+	&.floor-3-active {
+		top: 0;
+		#nav-floor-3 { opacity: 0; /*display: none;*/ }
+	}
+
+	&.floor-2-active {
+		top: -(@floor-height + @floor-margin);
+		#nav-floor-2 { opacity: 0; /*display: none;*/ }
+	}
+
+	&.floor-1-active {
+		top: -2*(@floor-height + @floor-margin);
+		#nav-floor-1 { opacity: 0; /*display: none;*/ }
+	}
 }
 
 #house {
@@ -24,13 +45,41 @@
 #svg-nav {
 	position: absolute;
 	z-index: 2;
-	top: 0;
+	top: 200px;
 	left: 0;
 	right: 0;
 
-	& > div {
-		.rgba(200, 0, 0, 0.5);
-		.block(650px, 300px);
+	& > a {
+		position: absolute;
+		
+		background-color: @bg-color;
+		opacity: 0.8;
+		.transition(opacity, 0.5s, ease-out);
+
+		//.rgba(200, 0, 0, 0.5);
+		.block(100%, @floor-height);
+
+		&#nav-floor-3 {
+			top: 0;
+		}
+
+		&#nav-floor-2 {
+			top: @floor-height + @floor-margin;
+		}
+
+		&#nav-floor-1 {
+			top: 2*(@floor-height + @floor-margin);
+		}
+	
+		// Deactivate click events
+		// &.active {
+		// 	display: none;
+		// }
+
+		// &.fadeOut {
+		// 	display: block !important;
+		// 	opacity: 0.8;
+		// }
 	}
 }
 

@@ -295,6 +295,15 @@ button {
   max-width: 170px;
   height: auto;
 }
+#floor-profile-content .textIMG {
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  width: 120px;
+  height: 120px;
+  display: block;
+  margin-top: 5px;
+}
 /* Ok, this is where the fun starts.
 ---------------------------------------*/
 body {
@@ -649,9 +658,36 @@ header summary {
 #house-view {
   position: relative;
 }
-#svg-wrap {
+#house-slider {
   position: relative;
   margin-top: 240px;
+  top: 0;
+  -moz-transition: top 0.5s ease-out;
+  -webkit-transition: top 0.5s ease-out;
+  -o-transition: top 0.5s ease-out;
+  -ms-transition: top 0.5s ease-out;
+  transition: top 0.5s ease-out;
+}
+#house-slider.floor-3-active {
+  top: 0;
+}
+#house-slider.floor-3-active #nav-floor-3 {
+  opacity: 0;
+  /*display: none;*/
+}
+#house-slider.floor-2-active {
+  top: -392px;
+}
+#house-slider.floor-2-active #nav-floor-2 {
+  opacity: 0;
+  /*display: none;*/
+}
+#house-slider.floor-1-active {
+  top: -784px;
+}
+#house-slider.floor-1-active #nav-floor-1 {
+  opacity: 0;
+  /*display: none;*/
 }
 #house {
   width: 100%;
@@ -661,15 +697,31 @@ header summary {
 #svg-nav {
   position: absolute;
   z-index: 2;
-  top: 0;
+  top: 200px;
   left: 0;
   right: 0;
 }
-#svg-nav > div {
-  background-color: rgba(200, 0, 0, 0.5);
-  width: 650px;
-  height: 300px;
+#svg-nav > a {
+  position: absolute;
+  background-color: #12161f;
+  opacity: 0.8;
+  -moz-transition: opacity 0.5s ease-out;
+  -webkit-transition: opacity 0.5s ease-out;
+  -o-transition: opacity 0.5s ease-out;
+  -ms-transition: opacity 0.5s ease-out;
+  transition: opacity 0.5s ease-out;
+  width: 100%;
+  height: 370px;
   display: block;
+}
+#svg-nav > a#nav-floor-3 {
+  top: 0;
+}
+#svg-nav > a#nav-floor-2 {
+  top: 392px;
+}
+#svg-nav > a#nav-floor-1 {
+  top: 784px;
 }
 .active-graphic path,
 .active-graphic polygon,

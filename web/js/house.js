@@ -1,25 +1,88 @@
 
-//////////////
+////////////////////////
+// House View Scripts
+////////////////////////
+
 // SVG Vars
-//////////////
+var svg,
+	g,
+	// Solutions
+	boy1,
+	boy2,
+	girl,
+	bottle,
+	// Problems
+	lamp,
+	cabinetOp,
+	cabinetCl,
+	counterOp,
+	counterCl,
+	laptop,
+	wc,
+	sink;
+	
+// Floor vars
+var $houseSlider,
+	$floorNavItems,
+	currentFloor = 'floor-3',
+	oldFloor = '';
 
-var svg;
 
-////////////
-// Colors
-////////////
+//////////////////////
+// Floor Navigation
+//////////////////////
 
-var problemsStroke 		 = "#F3C262",
-	problemsFill   		 = "#99622D",
-	problemsFillOpacity  = 1,
+function initFloorNavigation() {
 
-	solutionsStroke 	 = "#46B177",
-	solutionsFill   	 = "#518265",
-	solutionsFillOpacity = 1,
+	//oldFloor = currentFloor;
 
-	selectedStroke		 = "#FFF",
-	selectedFill		 = "#CCC",
-	selectedFillOpacity	 = 1;
+	$floorNavItems = $("#svg-nav > a");
+
+	// Navigate to current floor
+	goToFloor(currentFloor);
+
+	$floorNavItems.click(function(e) {
+
+		var nextFloorID = e.target.hash;
+		
+		oldFloor = currentFloor;
+		currentFloor = nextFloorID.replace('#','');
+
+		console.log("oldFloor: " + oldFloor);
+		console.log("currentFloor: " + currentFloor);
+		
+		// Change view animation
+		//changeView(currentView);
+
+		//hideContent();
+		updateContent(currentTime);
+
+		goToFloor(currentFloor);
+
+		e.preventDefault();
+		return false;
+	});
+}
+
+function goToFloor(strFloor) {
+
+	// Animate slider
+	$houseSlider.attr('class', strFloor + '-active');
+
+	$houseSlider.on("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(e) {
+					
+					//showContent(currentTime);
+
+					// Reset old active floor
+					//var $oldFloor = $floorNavItems.filter('.active').addClass('fadeOut')
+					// $floorNavItems.filter('.active').removeClass('active');
+					
+					// Deactivate events for active floor
+					//$floorNavItems.filter('a[href$="' + currentFloor + '"]').addClass('active');
+					$(this).off(e);
+				});
+}
+
 
 //////////////////
 // Init on load
@@ -27,6 +90,12 @@ var problemsStroke 		 = "#F3C262",
 
 window.onload = function () {
 
+	$houseSlider = $('#house-slider');
+
+	// Floor navigation
+	initFloorNavigation();
+
+	// SVG Interaction
 	svg = Snap("#house");
 	// s.attr({
 	//     //viewBox: [0, 0, 840, 600]
@@ -37,24 +106,24 @@ window.onload = function () {
 	// Snap.load("images/house/3rd_Floor_WG_Active.svg", function (f) {
 	Snap.load("images/house/optimised.svg", function (f) {
 
-		var g 			= f.select("g"),
-			floor2  	= f.select("#apartment_x5F_Inactive"),
+		g 			= f.select("g"),
+		//floor2  	= f.select("#apartment_x5F_Inactive"),
 
-			// Solutions
-			boy1 	 	= f.select("#Boy_x5F_1"),
-			boy2 		= f.select("#Boy_x5F_2"),
-			girl 		= f.select("#Girl"),
-			bottle   	= f.select("#Bottle"),
-			
-			// Problems
-			lamp 		= f.select("#Lamp"),
-			cabinetOp 	= f.select("#Cabinet_x5F_Open"),
-			cabinetCl 	= f.select("#Cabinet_x5F_Closed"),
-			counterOp 	= f.select("#Counter_x5F_Open"),
-			counterCl 	= f.select("#Counter_x5F_Closed"),
-			laptop 		= f.select("#Laptop"),
-			wc 			= f.select("#WC"),
-			sink 		= f.select("#Sink");
+		// Solutions
+		boy1 	 	= f.select("#Boy_x5F_1"),
+		boy2 		= f.select("#Boy_x5F_2"),
+		girl 		= f.select("#Girl"),
+		bottle   	= f.select("#Bottle"),
+		
+		// Problems
+		lamp 		= f.select("#Lamp"),
+		cabinetOp 	= f.select("#Cabinet_x5F_Open"),
+		cabinetCl 	= f.select("#Cabinet_x5F_Closed"),
+		counterOp 	= f.select("#Counter_x5F_Open"),
+		counterCl 	= f.select("#Counter_x5F_Closed"),
+		laptop 		= f.select("#Laptop"),
+		wc 			= f.select("#WC"),
+		sink 		= f.select("#Sink");
 
 		// console.log(g.getBBox().x);
 		// console.log(g.getBBox().y);
@@ -73,9 +142,9 @@ window.onload = function () {
 		// Interaction
 		/////////////////
 		
-		floor2.click(function(e) {
-			animateTest();
-		});
+		// floor2.click(function(e) {
+		// 	animateTest();
+		// });
 
 		// Solutions
 		boy1.click(onElementClicked);
@@ -109,6 +178,10 @@ window.onload = function () {
 
 var onElementClicked = function(evt) {
 
+	activateGraphic(this);
+	showPopup(this, evt);
+	evt.stopPropagation();
+	
 	// Check http://snapsvg.io/docs/#Element.getBBox()
 	//console.log("x: " + this.getBBox().x + ", y: " + this.getBBox().y);
 	//console.log("Click coordinates - x: " + evt.x + ", y: " + evt.y);
@@ -117,10 +190,6 @@ var onElementClicked = function(evt) {
 	// c.attr({
 	//     fill: '#f00'
 	// });
-
-	activateGraphic(this);
-	showPopup(this, evt);
-	evt.stopPropagation();
 }
 
 function showPopup(graphic, evt) {

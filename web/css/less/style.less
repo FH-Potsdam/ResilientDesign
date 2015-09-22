@@ -411,18 +411,13 @@ footer {
 		width: 375px;
 		min-height: 20px;
 
-		// .transition(opacity, 0.25s);
-		// .opacity(100);
-
-		// &.hidden {
-		// 	.opacity(0);
-		// }
-
 		h2 {
 			//width: 160px;
 			//font: 16px @font-bold;
 			margin-bottom: 10px;
 			//font-weight: bold;
+			line-height: 1.4;
+			padding: 1px 0 2px;
 		}
 
 		p {
@@ -445,13 +440,32 @@ footer {
 				color: @green;
 			}
 		}
+
+		ul {
+			li {
+				position: relative;
+				padding-left: 20px;
+
+				// margin-left: 10px;
+				&:before {
+					content: "—";
+					position: absolute;
+					left: 0;
+				}
+			}
+		}
+
+		&#floor-profile-content {
+
+			ul {
+				padding-left: 160px;
+			}
+		}
 	}
 
 	aside {
 		width: 166px;
 		height: 480px;
-		//background-color: @orange;
-		//.opacity(20);
 
 		h3 {
 			//font: 12px @font-med;
