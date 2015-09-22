@@ -650,11 +650,24 @@ header summary {
   position: relative;
 }
 #svg-wrap {
+  position: relative;
   margin-top: 240px;
 }
 #house {
   width: 100%;
   height: 100%;
+  display: block;
+}
+#svg-nav {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+}
+#svg-nav > div {
+  background-color: rgba(200, 0, 0, 0.5);
+  width: 650px;
+  height: 300px;
   display: block;
 }
 .active-graphic path,

@@ -387,7 +387,11 @@ footer {
 	position: relative;
 	height: @content-wrap-height - @content-wrap-padding;
 	.border-box();
-	.group();
+	// .group();
+
+	& > div {
+		.group();
+	}
 
 	// This 2 values should sum 55px (1080px-970px)
 	//margin: 35px;
@@ -428,6 +432,19 @@ footer {
 		strong, b {
 			font-family: @font-reg;
 		}
+
+		&:first-child {
+			h2, strong {
+				color: @orange;
+			}
+		}
+
+		&:last-child {
+			margin-right: 0;
+			h2, strong {
+				color: @green;
+			}
+		}
 	}
 
 	aside {
@@ -444,19 +461,6 @@ footer {
 
 		.progress-bar {
 			margin-bottom: 28px;
-		}
-	}
-
-	#problems-content {
-		h2, strong {
-			color: @orange;
-		}
-	}
-
-	#solutions-content {
-		margin-right: 0;
-		h2, strong {
-			color: @green;
 		}
 	}
 
@@ -636,7 +640,7 @@ footer {
 	}
 }
 
-#problems-bars {
+.problem-bars {
 	h3 {
 		color: @orange;
 	}
@@ -649,7 +653,7 @@ footer {
 	}
 }
 
-#solutions-bars {
+.solution-bars {
 
 	text-align: right;
 

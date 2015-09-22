@@ -687,11 +687,24 @@ footer {
   position: relative;
 }
 #svg-wrap {
+  position: relative;
   margin-top: 240px;
 }
 #house {
   width: 100%;
   height: 100%;
+  display: block;
+}
+#svg-nav {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+}
+#svg-nav > div {
+  background-color: rgba(200, 0, 0, 0.5);
+  width: 650px;
+  height: 300px;
   display: block;
 }
 .active-graphic path,
@@ -726,17 +739,19 @@ footer {
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
-  zoom: 1;
   padding: 30px 18px 20px 25px;
   background-color: #34495e;
   background-color: rgba(52, 73, 94, 0.3);
 }
-#content:before,
-#content:after {
+#content > div {
+  zoom: 1;
+}
+#content > div:before,
+#content > div:after {
   content: "";
   display: table;
 }
-#content:after {
+#content > div:after {
   clear: both;
 }
 #content article,
@@ -760,23 +775,23 @@ footer {
 #content article b {
   font-family: 'gotham-book', Helmet, Freesans, sans-serif;
 }
+#content article:first-child h2,
+#content article:first-child strong {
+  color: #ffa400;
+}
+#content article:last-child {
+  margin-right: 0;
+}
+#content article:last-child h2,
+#content article:last-child strong {
+  color: #26c281;
+}
 #content aside {
   width: 166px;
   height: 480px;
 }
 #content aside .progress-bar {
   margin-bottom: 28px;
-}
-#content #problems-content h2,
-#content #problems-content strong {
-  color: #ffa400;
-}
-#content #solutions-content {
-  margin-right: 0;
-}
-#content #solutions-content h2,
-#content #solutions-content strong {
-  color: #26c281;
 }
 #content:after {
   content: "";
@@ -937,25 +952,25 @@ footer {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
   filter: alpha(opacity=90);
 }
-#problems-bars h3 {
+.problem-bars h3 {
   color: #ffa400;
 }
-#problems-bars .progress-bar {
+.problem-bars .progress-bar {
   border-color: #ffa400;
 }
-#problems-bars .progress-bar > div {
+.problem-bars .progress-bar > div {
   background-color: #ffa400;
 }
-#solutions-bars {
+.solution-bars {
   text-align: right;
 }
-#solutions-bars h3 {
+.solution-bars h3 {
   color: #26c281;
 }
-#solutions-bars .progress-bar {
+.solution-bars .progress-bar {
   border-color: #26c281;
 }
-#solutions-bars .progress-bar > div {
+.solution-bars .progress-bar > div {
   float: right;
   background-color: #26c281;
 }
