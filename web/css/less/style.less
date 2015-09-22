@@ -15,12 +15,18 @@ Version: 1.0
 @import "vars";
 @import "mixins";
 
+@import "content-images";
+
 /* Ok, this is where the fun starts.
 ---------------------------------------*/
 
 body {
 	font: 12px @font-reg;
-	line-height: 1.5;
+	// font-size: 12px;
+	// font-family: 'Source Code Pro';
+	// font-weight: 400;
+
+	line-height: 1.6;
 	background: #333;
 }
 
@@ -34,8 +40,8 @@ html, body {
 
 // Webkit smoothing
 // http://www.icondeposit.com/blog:how-to-properly-smooth-font-using-css3
-//html, html a {
-* {
+html, html a {
+//* {
 	-webkit-font-smoothing: antialiased !important; 
 }
 
@@ -97,6 +103,45 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: normal;
 }
 
+h1 {
+	// font: 60px @font-bold;
+	font-size: 60px;
+	font-family: @font-light;
+	text-transform: uppercase;
+	letter-spacing: 10px;
+}
+
+h2 {
+	font-size: 18px;
+	font-family: @font-reg;
+	//text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+h3 {
+	font-family: @font-reg;
+	// font-size: 18px;
+	// font-family: 'Source Code Pro';
+	// font-weight: 500;
+	// text-transform: uppercase;
+	// letter-spacing: 0px;
+}
+
+h4 {
+	font-size: 15px;
+	font-family: @font-reg;
+	//text-transform: uppercase;
+	//letter-spacing: 0.5px;
+}
+
+
+summary {
+	font: 16px @font-light;
+	line-height: 22px;
+	padding-bottom: 2px;
+	letter-spacing: 0.5px;
+}
+
 
 //////////////////
 // Main Classes
@@ -112,37 +157,53 @@ h1, h2, h3, h4, h5, h6 {
 /////////////
 
 header {
-	position: relative;
 	height: @header-height;
 
 	& > .inside {
-		height: @header-height - @bar-height;
+		//height: @header-height - @bar-height;
 		//padding-top: 130px;
 		//padding:45px 0 30px;
+		padding: 40px 0;
+		text-align: center;
 	}
 	
 	@bottom: 10px;
 
 	h1 {
-		position: absolute;
-		bottom: @bottom;
-	
-		font: 60px @font-bold;
-		// font: 60px 'Source Code Pro';
-		// font-weight: 100;
-		// text-transform: uppercase;
-		// letter-spacing: 10px;
+		//position: absolute;
+		//bottom: @bottom;
+		.inline-block();
+		line-height: 1;
+		
+		margin-right: -10px;
+		//letter-spacing: 5px;
+
+		// Line
+		// border-bottom: 1px solid white;
+		// padding-bottom: 20px;
+		 margin-bottom: 24px;
+
+		// &:after {
+		// 	content: "";
+		// 	display: block;
+		// 	position: relative;
+		// 	width: 95.3%;
+		// 	// width: 20%;
+		// 	margin: 0 auto;
+		// 	left: -3px;
+		// 	border-bottom: 2px solid white;
+		// 	padding-top: 22px;
+		// }
 	}
 
 	summary {
-		position: absolute;
-		bottom: @bottom + 11px;
-		left: 275px;
+		//.inline-block();
+		//position: absolute;
+		//bottom: @bottom + 18px;
+		//left: 275px;
 
-		width: 350px;
-		
-		font: 16px @font-light;
-		line-height: 20px;
+		//width: 350px;
+		margin: 0 auto;
 	}
 }
 
@@ -155,21 +216,23 @@ header {
 	width: 100%;
 
 	.bar();
+	background: transparent;
 	
 	ul { 
 		height: 100%;
 		font-size:0; // removes space created by inline-block
+		text-align: center;
 	}
 
 	li {
-		.size(190px, 100%);
-		border-right: 2px solid @bg-color;
+		.size(200px, 100%);
+		//border-right: 2px solid @bg-color;
 		text-align: center;
 
 		.inline-block();
 
 		&:first-child {
-			border-left: 2px solid @bg-color; 
+			//border-left: 2px solid @bg-color; 
 		}
 
 		// Text styles
@@ -180,8 +243,14 @@ header {
 			.optimize-text();
 			.inline-block;
 
-			font-size: 14px;
-			line-height: @bar-height + 2px; //25px;
+			//font-size: 14px;
+			font-family: @font-reg;
+			font-size: 16px;
+			text-transform: uppercase;
+			font-weight: 500;
+			letter-spacing: 0.5px;
+
+			line-height: @bar-height; //25px;
 			
 			&:before {
 				content: "";
@@ -190,18 +259,22 @@ header {
 				background-size: 25px 25px;
 				background-position: left center;
 				background-repeat: no-repeat;
-				margin-right: 10px;
+				margin-right: 12px;
 			}
 
 			&.intro-view:before { background-image: url('../images/icons/ResilientDesign_icons_introScreenIcon.png'); }
 			&.map-view:before 	{ background-image: url('../images/icons/ResilientDesign_icons-02.png'); }
 			&.house-view:before { background-image: url('../images/icons/ResilientDesign_icons-03.png'); }
+
+			.opacity(60);
 		}
 
 		// Active / hover styles
-		&.active > a,
-		a:hover {
+		a:hover,
+		&.active > a {
 			.rgba(@nav-color, 0.3);
+			//transform: scale(1.4);
+			.opacity(100);
 		}
 	}
 }
@@ -210,39 +283,80 @@ header {
 // Structure
 ///////////////
 
+@z-container: 5;
+
 #wrap {
+	position: relative;
+
 	width: @screen-width;
+	height: @screen-height;
+	overflow: hidden;
 	margin: 0 auto;
 	background: @bg-color;
 }
 
+header, footer, #content-wrap {
+	position: absolute;
+	width: 100%;
+
+	.bg-overlay();
+	z-index: @z-container + 1;
+}
+
+header {
+	top: 0;
+}
+
+#content-wrap {
+	bottom: @content-wrap-height + @footer-height;
+	// bottom: @content-wrap-height + @footer-height + @bar-height - @footer-padding-top;
+	
+	z-index: @z-container + 2;
+
+	&.hidden {
+		bottom: -3*@bar-height;
+	}
+}
+
+footer {
+	bottom: 0;
+	//bottom: @footer-height;
+}
+
 #container {
 	position: relative;
+	height: 100%;
+	top: 0;
+	left: 0;
+
+	z-index: @z-container;
 }
-
-#viewport {
-	overflow: hidden;
-}
-
-#view-slider {
-	position: relative;
-	.group;
-	display: block;
-	width: 3*@screen-width;
-
-	.transition(left, 1s, @easeInOutCubic);
-	//.transition(left, 1.5s, cubic-bezier(.57,.22,.45,.83));
-
-	section {
-		float: left;
-		.block(@view-width, @view-height);
-		min-height: 50px;
+	#viewport {
+		overflow: hidden;
+		height: 100%;
 	}
 
-	&.intro-view-active { left: 0; }
-	&.map-view-active   { left: -@screen-width; }
-	&.house-view-active { left: -2*@screen-width; }
-}
+	#view-slider {
+		position: relative;
+		.group;
+		display: block;
+		width: 3*@screen-width;
+
+		.transition(left, 0.8s, ease-out);
+		//.transition(left, 1s, @easeInOutCubic);
+		//.transition(left, 1.5s, cubic-bezier(.57,.22,.45,.83));
+
+		section {
+			float: left;
+			.block(@view-width, 100%);
+			// .block(@view-width, @view-height);
+			min-height: 50px;
+		}
+
+		&.intro-view-active { left: 0; }
+		&.map-view-active   { left: -@screen-width; }
+		&.house-view-active { left: -2*@screen-width; }
+	}
 
 ///////////
 // VIEWS
@@ -259,23 +373,27 @@ header {
 
 #content-wrap {
 	position: relative;
+	//.block(100%, auto);
 	.block(100%, @content-wrap-height);
 
-	padding: @content-wrap-padding;
+	padding: @content-wrap-padding @content-wrap-padding @content-wrap-padding-bottom @content-wrap-padding;
 	.border-box();
+	
+	.transition(bottom, 0.8s, ease-out);
+	// top: 0;
 }
 
 #content {
 	position: relative;
-	height: @content-wrap-height - 50px;
+	height: @content-wrap-height - @content-wrap-padding;
 	.border-box();
 	.group();
 
 	// This 2 values should sum 55px (1080px-970px)
 	//margin: 35px;
-	padding: @content-box-padding @content-box-padding @content-box-padding @content-box-padding+3px;
+	padding: @content-box-padding+10px @content-box-padding - 2px @content-box-padding @content-box-padding+5px;
 
-	.bg-overlay();
+	.nav-overlay();
 	
 	// Content columns
 	article, aside {
@@ -297,8 +415,9 @@ header {
 		// }
 
 		h2 {
-			font: 16px @font-bold;
-			margin-bottom: 5px;
+			//width: 160px;
+			//font: 16px @font-bold;
+			margin-bottom: 10px;
 			//font-weight: bold;
 		}
 
@@ -318,13 +437,13 @@ header {
 		//.opacity(20);
 
 		h3 {
-			font: 12px @font-med;
+			//font: 12px @font-med;
 			//font-weight: bold;
-			margin-bottom: 2px;
+			//margin-bottom: 2px;
 		}
 
 		.progress-bar {
-			margin-bottom: 30px;
+			margin-bottom: 28px;
 		}
 	}
 
@@ -429,7 +548,7 @@ header {
 		// Arrow
 		&:after {
 			content: "";
-
+			
 			.background-image('../images/timeline-handle.png');
 			.block(@cursor-width, 50px);
 			
@@ -505,7 +624,8 @@ header {
 	//border: 1px solid;
 	.rgba(@nav-color, 0.5);
 
-	height: 15px;
+	height: 10px;
+	// height: 15px;
 	width: 100%;
 
 	& > div {
@@ -553,25 +673,41 @@ header {
 
 footer {
 	
+	height: @footer-height;
+
 	.inside {
-		padding: 15px 0 32px
+		padding: @footer-padding-top 0 @footer-padding-bottom;
+		.group;
+		.border-box();
+		height: 100%;
 	}
 	
 	#logo {
 		position: absolute;
-		left: 0;
+		left: 6px;
+		// float: left;
 
-		.background-image('../images/fhp-footer-logo.png');
-		.block(7px, 37px);
+		.background-image('../images/fhp_logo.png');
+		.block(210px, 35px);
+		.background-size(contain);
+		// .block(120px, 25px);
+		// .background-size(120px 25px);
 	}
 
 	.credits {
-		font: 14px @font-extralight;
-		line-height: 25px;
+		font: 10px @font-reg;
+		// line-height: 25px;
+		line-height: 1.5;
 		color: @white; //darken(@white, 30%);
 
-		padding-left: 25px;
-		margin-top: -6px;
+		//padding-left: 200px;
+		//margin-top: -6px;
+		
+		//float: left;
+		//margin-left: 40px;
+		float: right;
+		text-align: right;
+		// text-align: center;
 	}
 }
 

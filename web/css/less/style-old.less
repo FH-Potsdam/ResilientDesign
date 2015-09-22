@@ -12,19 +12,17 @@ Version: 1.0
 @import "common";
 
 // Theme specific
-@import "vars-gotham";
+@import "vars";
 @import "mixins";
+
+@import "content-images";
 
 /* Ok, this is where the fun starts.
 ---------------------------------------*/
 
 body {
 	font: 12px @font-reg;
-	// font-size: 12px;
-	// font-family: 'Source Code Pro';
-	// font-weight: 400;
-
-	line-height: 1.6;
+	line-height: 1.5;
 	background: #333;
 }
 
@@ -38,8 +36,8 @@ html, body {
 
 // Webkit smoothing
 // http://www.icondeposit.com/blog:how-to-properly-smooth-font-using-css3
-html, html a {
-//* {
+//html, html a {
+* {
 	-webkit-font-smoothing: antialiased !important; 
 }
 
@@ -101,45 +99,6 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: normal;
 }
 
-h1 {
-	// font: 60px @font-bold;
-	font-size: 60px;
-	font-family: @font-light;
-	text-transform: uppercase;
-	letter-spacing: 10px;
-}
-
-h2 {
-	font-size: 18px;
-	font-family: @font-reg;
-	//text-transform: uppercase;
-	letter-spacing: 0.5px;
-}
-
-h3 {
-	font-family: @font-reg;
-	// font-size: 18px;
-	// font-family: 'Source Code Pro';
-	// font-weight: 500;
-	// text-transform: uppercase;
-	// letter-spacing: 0px;
-}
-
-h4 {
-	font-size: 15px;
-	font-family: @font-reg;
-	//text-transform: uppercase;
-	//letter-spacing: 0.5px;
-}
-
-
-summary {
-	font: 16px @font-light;
-	line-height: 22px;
-	padding-bottom: 2px;
-	letter-spacing: 0.5px;
-}
-
 
 //////////////////
 // Main Classes
@@ -159,50 +118,33 @@ header {
 	height: @header-height;
 
 	& > .inside {
-		//height: @header-height - @bar-height;
+		height: @header-height - @bar-height;
 		//padding-top: 130px;
 		//padding:45px 0 30px;
-		padding: 40px 0;
-		text-align: center;
 	}
 	
 	@bottom: 10px;
 
 	h1 {
-		//position: absolute;
-		//bottom: @bottom;
-		.inline-block();
-		line-height: 1;
-		
-		margin-right: -10px;
-		//letter-spacing: 5px;
-
-		// Line
-		// border-bottom: 1px solid white;
-		// padding-bottom: 20px;
-		 margin-bottom: 24px;
-
-		// &:after {
-		// 	content: "";
-		// 	display: block;
-		// 	position: relative;
-		// 	width: 95.3%;
-		// 	// width: 20%;
-		// 	margin: 0 auto;
-		// 	left: -3px;
-		// 	border-bottom: 2px solid white;
-		// 	padding-top: 22px;
-		// }
+		position: absolute;
+		bottom: @bottom;
+	
+		font: 60px @font-bold;
+		// font: 60px 'Source Code Pro';
+		// font-weight: 100;
+		// text-transform: uppercase;
+		// letter-spacing: 10px;
 	}
 
 	summary {
-		//.inline-block();
-		//position: absolute;
-		//bottom: @bottom + 18px;
-		//left: 275px;
+		position: absolute;
+		bottom: @bottom + 11px;
+		left: 275px;
 
-		//width: 350px;
-		margin: 0 auto;
+		width: 350px;
+		
+		font: 16px @font-light;
+		line-height: 20px;
 	}
 }
 
@@ -215,23 +157,21 @@ header {
 	width: 100%;
 
 	.bar();
-	background: transparent;
 	
 	ul { 
 		height: 100%;
 		font-size:0; // removes space created by inline-block
-		text-align: center;
 	}
 
 	li {
-		.size(200px, 100%);
-		//border-right: 2px solid @bg-color;
+		.size(190px, 100%);
+		border-right: 2px solid @bg-color;
 		text-align: center;
 
 		.inline-block();
 
 		&:first-child {
-			//border-left: 2px solid @bg-color; 
+			border-left: 2px solid @bg-color; 
 		}
 
 		// Text styles
@@ -242,14 +182,8 @@ header {
 			.optimize-text();
 			.inline-block;
 
-			//font-size: 14px;
-			font-family: @font-reg;
-			font-size: 16px;
-			text-transform: uppercase;
-			font-weight: 500;
-			letter-spacing: 0.5px;
-
-			line-height: @bar-height; //25px;
+			font-size: 14px;
+			line-height: @bar-height + 2px; //25px;
 			
 			&:before {
 				content: "";
@@ -258,22 +192,18 @@ header {
 				background-size: 25px 25px;
 				background-position: left center;
 				background-repeat: no-repeat;
-				margin-right: 12px;
+				margin-right: 10px;
 			}
 
 			&.intro-view:before { background-image: url('../images/icons/ResilientDesign_icons_introScreenIcon.png'); }
 			&.map-view:before 	{ background-image: url('../images/icons/ResilientDesign_icons-02.png'); }
 			&.house-view:before { background-image: url('../images/icons/ResilientDesign_icons-03.png'); }
-
-			.opacity(60);
 		}
 
 		// Active / hover styles
-		a:hover,
-		&.active > a {
+		&.active > a,
+		a:hover {
 			.rgba(@nav-color, 0.3);
-			//transform: scale(1.4);
-			.opacity(100);
 		}
 	}
 }
@@ -321,7 +251,7 @@ header {
 ///////////
 
 @import "intro-view";
-@import "map-view-gotham";
+@import "map-view";
 @import "house-view";
 
 
@@ -345,9 +275,9 @@ header {
 
 	// This 2 values should sum 55px (1080px-970px)
 	//margin: 35px;
-	padding: @content-box-padding+10px @content-box-padding - 2px @content-box-padding @content-box-padding+5px;
+	padding: @content-box-padding @content-box-padding @content-box-padding @content-box-padding+3px;
 
-	.bg-overlay();
+	.nav-overlay();
 	
 	// Content columns
 	article, aside {
@@ -369,9 +299,8 @@ header {
 		// }
 
 		h2 {
-			//width: 160px;
-			//font: 16px @font-bold;
-			margin-bottom: 10px;
+			font: 16px @font-bold;
+			margin-bottom: 5px;
 			//font-weight: bold;
 		}
 
@@ -391,13 +320,13 @@ header {
 		//.opacity(20);
 
 		h3 {
-			//font: 12px @font-med;
+			font: 12px @font-med;
 			//font-weight: bold;
-			//margin-bottom: 2px;
+			margin-bottom: 2px;
 		}
 
 		.progress-bar {
-			margin-bottom: 28px;
+			margin-bottom: 30px;
 		}
 	}
 
@@ -502,7 +431,7 @@ header {
 		// Arrow
 		&:after {
 			content: "";
-			
+
 			.background-image('../images/timeline-handle.png');
 			.block(@cursor-width, 50px);
 			
@@ -578,8 +507,7 @@ header {
 	//border: 1px solid;
 	.rgba(@nav-color, 0.5);
 
-	height: 10px;
-	// height: 15px;
+	height: 15px;
 	width: 100%;
 
 	& > div {
@@ -628,36 +556,24 @@ header {
 footer {
 	
 	.inside {
-		padding: 15px 0 32px;
-		.group;
+		padding: 15px 0 32px
 	}
 	
 	#logo {
 		position: absolute;
-		left: 6px;
-		// float: left;
+		left: 0;
 
-		.background-image('../images/fhp_logo.png');
-		.block(210px, 35px);
-		.background-size(contain);
-		// .block(120px, 25px);
-		// .background-size(120px 25px);
+		.background-image('../images/fhp-footer-logo.png');
+		.block(7px, 37px);
 	}
 
 	.credits {
-		font: 10px @font-reg;
-		// line-height: 25px;
-		line-height: 1.5;
+		font: 14px @font-extralight;
+		line-height: 25px;
 		color: @white; //darken(@white, 30%);
 
-		//padding-left: 200px;
-		//margin-top: -6px;
-		
-		//float: left;
-		//margin-left: 40px;
-		float: right;
-		text-align: right;
-		// text-align: center;
+		padding-left: 25px;
+		margin-top: -6px;
 	}
 }
 

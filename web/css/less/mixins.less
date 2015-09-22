@@ -1,10 +1,14 @@
 .bg-overlay() {
+	.rgba(@bg-color, 0.75);
+}
+
+.nav-overlay() {
 	.rgba(@nav-color, 0.3);
 }
 
 .bar() {
 	.block(100%, @bar-height);
-	.bg-overlay();
+	.nav-overlay();
 }
 
 .button(@width, @height) {

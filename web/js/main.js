@@ -12,13 +12,16 @@ var $window,
 
     $slider,
     $guides,
+    $timeline,
     $timelineValue,
 
     $contentWrap,
     $content,
     $problemsContent,
     $solutionsContent,
+    $footer,
 
+    initView = 'house-view',
     currentView = '',
     lastView = '',
 
@@ -31,7 +34,7 @@ var siteContentMap   = [],
 var siteContentMapFile   = "data/RD_contentTableMap_export01.json", //"data/RD_contentTable_export01.json";
     siteContentHouseFile = "data/RD_contentTablePersona_export01.json" 
 
-var initTime    = 3,
+var initTime    = 0,
     timeValues  = [0, 3, 6, 12, 24, 48];
 
 ////////////////
@@ -60,6 +63,14 @@ function initViewNavigation() {
         
         oldView = currentView;
         currentView = nextViewID.replace('#','');
+
+        // Reset timeline if user navigates from intro screen
+        if (oldView == 'intro-view') {
+            showContentWrap();
+            initViewTimelineContent(initTime);
+        } else if (currentView == 'intro-view') {
+            hideContentWrap();
+        }
 
         changeView(currentView);
 
@@ -90,17 +101,51 @@ function loadData() {
     //     }
     // });
 
-    $.getJSON( siteContentMapFile, function(data) {
+    $.when(
+        $.getJSON(siteContentMapFile),
+        $.getJSON(siteContentHouseFile)
+    ).done(function(mapResponse, houseResponse) {
+
+        var mapData = $.parseJSON(mapResponse[2].responseText),
+            houseData = $.parseJSON(houseResponse[2].responseText);
+
+        console.log(mapData);
 
         // Parse JSON
-        $.each( data, function( key, item ) {
+        $.each( mapData, function( key, item ) {
             siteContentMap[item.id] = item;
         });
-        //alert(siteContentMap['std3'].problemtext);
 
-        console.log("Site data successfully loaded!")
+        $.each( houseData, function( key, item ) {
+            siteContentHouse[item.id] = item;
+        });
+
+        console.log("Site content successfully loaded!")
         onSiteDataLoaded();
     });
+
+    // $.getJSON( siteContentMapFile, function(data) {
+
+    //     // Parse JSON
+    //     $.each( data, function( key, item ) {
+    //         siteContentMap[item.id] = item;
+    //     });
+    //     //alert(siteContentMap['std3'].problemtext);
+
+    //     console.log("Map view content successfully loaded!")
+    //     onSiteDataLoaded();
+    // });
+
+    // $.getJSON( siteContentHouseFile, function(data) {
+
+    //     // Parse JSON
+    //     $.each( data, function( key, item ) {
+    //         siteContentHouse[item.id] = item;
+    //     });
+
+    //     console.log("House view content successfully loaded!")
+    //     onSiteDataLoaded();
+    // });
 }
 
 //////////////
@@ -109,7 +154,8 @@ function loadData() {
 
 function initTimeline() {
     
-    $guides = $('#guides > div'),
+    $timeline = $('#timeline');
+    $guides = $('#guides > div');
     $timelineValue = $("#timeline-value");
 
     var values = timeValues;
@@ -118,16 +164,22 @@ function initTimeline() {
         range: true,
         min: 0,
         max: 60,
-        //value: 0,
         values: [0, 3],
         step: 1,
         animate: false,
+        create: function(event, ui) {
+            //console.log("+++ Create timeline slider");
+            //$slider.slider('values', 1, 0);
+
+            //$(this).slider( "option", { disabled: true } );
+        },
         slide: function(event, ui) {
             var includeLeft = event.keyCode != $.ui.keyCode.RIGHT;
             var includeRight = event.keyCode != $.ui.keyCode.LEFT;
             
             // Update slider values
             var value = findNearest(includeLeft, includeRight, ui.value);
+
             if (ui.value == ui.values[0]) {
                 $slider.slider('values', 0, value);
             }
@@ -148,6 +200,8 @@ function initTimeline() {
             // Check active value
             var activeValue = $slider.slider('values', 1);
             
+            console.log(">>>> New timeline value - " + activeValue);
+
             // Control active values
             $guides.removeClass('active')
                    .filter('.g' + activeValue).addClass('active');
@@ -170,59 +224,9 @@ function initTimeline() {
                 }
             }
         }
-        
-        // if (nearest < 3)
-        //     nearest = 3;
 
         return nearest;
     }
-
-    // var values = [0, 3, 6, 12, 24, 48];
-    // var $slider = $( "#slider" ).slider({
-    //     orientation: 'horizontal',
-    //     value: 0,
-    //     min: 0,
-    //     max: 48,
-    //     animate: "slow",
-    //     //step: 50,
-    //     //values: [0,3,6,12,24,48],
-    //     slide: function( event, ui ) {
-
-    //         var includeLeft = event.keyCode != $.ui.keyCode.RIGHT;
-    //         var includeRight = event.keyCode != $.ui.keyCode.LEFT;
-            
-    //         var value = findNearest(includeLeft, includeRight, ui.value);
-
-    //         $slider.slider('value', value);
-
-    //         // if (ui.value == ui.values[0]) {
-    //         //     slider.slider('values', 0, value);
-    //         // }
-    //         // else {
-    //         //     slider.slider('values', 1, value);
-    //         // }
-        
-    //         $( "#amount" ).html(ui.value + " hours");
-    //         return false;
-    //     }
-    // });
-    // $( "#amount" ).html($( "#slider" ).slider( "value" ) + " hours");
-
-
-    // function findNearest(includeLeft, includeRight, value) {
-    //     var nearest = null;
-    //     var diff = null;
-    //     for (var i = 0; i < values.length; i++) {
-    //         if ((includeLeft && values[i] <= value) || (includeRight && values[i] >= value)) {
-    //             var newDiff = Math.abs(value - values[i]);
-    //             if (diff == null || newDiff < diff) {
-    //                 nearest = values[i];
-    //                 diff = newDiff;
-    //             }
-    //         }
-    //     }
-    //     return nearest;
-    // }
 }
 
 function initViewTimelineContent(time) {
@@ -241,25 +245,37 @@ function initViewTimelineContent(time) {
     //updateContent(activeValue);
 }
 
-function hideContent() {
+///////////////////////
+// Content Functions
+///////////////////////
+
+function showContentWrap() {
+
+    $contentWrap.removeClass('hidden');
+
+    // $contentWrap.css({top: 0});
+}
+
+function hideContentWrap() {
     
-    // $problemsContent.addClass('hidden');
-    // $solutionsContent.addClass('hidden');
+    $contentWrap.addClass('hidden');
+    
+    // $contentWrap.css({top: $contentWrap.outerHeight() + $timeline.outerHeight() + $footer.outerHeight() + $slider.find('.ui-slider-handle').outerHeight()});
+}
+
+function hideContent() {
 
     $problemsContent.stop(true, true)
                     .animate({opacity: 0}, 250);
 
     $solutionsContent.stop(true, true)
                      .animate({opacity: 0}, 250);
-
-    //$problemsBars.find('.progress-bar > div').css('width', 0);
-    //$solutionsBars.find('.progress-bar > div').css('width', 0);
 }
 
 function showNewContent(value) {
 
-    //var siteContent = (currentView == 'map-view') ? siteContentMap : siteContentHouse;
-    var siteContent = siteContentMap;
+    var siteContent = (currentView == 'map-view') ? siteContentMap : siteContentHouse;
+    //var siteContent = siteContentMap;
     
     value = (value < 10) ? "0"+value : value;
 
@@ -333,12 +349,14 @@ function onLoad() {
     initViewNavigation();
     initTimeline();
     
+    // Load site data (view content + markers)    
     loadData();
 }
 
 function onSiteDataLoaded() {
 
-    // Load content for current page
+    // Init timeline
+    // Content will be loaded by currentView
     initViewTimelineContent(initTime);
 }
 
@@ -358,7 +376,8 @@ $(document).ready(function (){
     $container      = $('#container');
     $viewSlider     = $container.find('#view-slider');
     $views          = $viewSlider.find('section');
-    $contentWrap    = $container.find('#content-wrap');
+
+    $contentWrap    = $('#content-wrap');
     $content        = $contentWrap.find('#content');
 
     // Content
@@ -369,22 +388,15 @@ $(document).ready(function (){
     $problemsBars       = $content.find('#problems-bars');
     $solutionsBars      = $content.find('#solutions-bars');
 
+    // Footer
+    $footer             = $('footer');
+
     // Resize
     resizeSite();
-
     $(window).resize(resizeSite);
-    // if ( isMobile ) {
-    //     window.addEventListener('onorientationchange' in window ? 'orientationchange' : 'resize', resizeSite, false);
-    // }
-    // else {
-    //     $(window).resize(resizeSite);
-    // }
-
-    // // Init onScroll handler
-    // $(window).scroll(onScroll).trigger("scroll");
 
     // Set current view
-    changeView('house-view');
+    changeView(initView);
 
     // Load
     $(window).load(onLoad);

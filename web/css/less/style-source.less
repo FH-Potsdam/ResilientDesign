@@ -15,6 +15,8 @@ Version: 1.0
 @import "vars-source";
 @import "mixins";
 
+@import "content-images";
+
 /* Ok, this is where the fun starts.
 ---------------------------------------*/
 
@@ -350,7 +352,7 @@ header {
 	//margin: 35px;
 	padding: @content-box-padding+10px @content-box-padding - 2px @content-box-padding @content-box-padding+5px;
 
-	.bg-overlay();
+	.nav-overlay();
 	
 	// Content columns
 	article, aside {
