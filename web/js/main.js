@@ -42,7 +42,7 @@ var $window,
 var siteContentMap   = [],
     siteContentHouse = [];
 
-var siteContentMapFile   = "data/RD_contentTableMap_export01.json", //"data/RD_contentTable_export01.json";
+var siteContentMapFile   = "data/RD_contentTableMap_export01.json",
     siteContentHouseFile = "data/RD_contentTablePersona_export01.json" 
 
 var initTime    = 0,
@@ -56,6 +56,10 @@ var initTime    = 0,
 //////////
 
 function loadData() {
+
+    console.log("LOAD DATA");
+    console.log("---- " + siteContentMapFile);
+    console.log("---- " + siteContentHouseFile);
 
     // This triggers when both JSON files
     $.when(
@@ -78,7 +82,7 @@ function loadData() {
             siteContentHouse[item.id] = item;
         });
 
-        console.log("Site content successfully loaded!");
+        console.log(">>> Site content successfully loaded!");
 
         onSiteDataLoaded();
     });

@@ -663,6 +663,7 @@ header summary {
   z-index: 2;
   top: 0;
   left: 0;
+  right: 0;
 }
 #svg-nav > div {
   background-color: rgba(200, 0, 0, 0.5);
