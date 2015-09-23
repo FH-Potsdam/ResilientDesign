@@ -1,0 +1,54 @@
+///////////////
+// Hit Areas
+///////////////
+
+.hit-area(@x, @y, @w, @h, @z: 1) {
+	position: absolute;
+	left: @x;
+	top: @y;
+
+	z-index: @z;
+
+	.block(@w, @h);
+	//.rgba(#f00, 0.3);
+}
+
+#hit-Boy_x5F_1 {
+	.hit-area(332px, 388px, 47px, 89px);
+}
+
+#hit-Boy_x5F_2 {
+	.hit-area(612px, 320px, 46px, 102px, 2);
+}
+
+#hit-Girl {
+	.hit-area(704px, 374px, 53px, 95px);
+}
+
+#hit-Bottle {
+	.hit-area(389px, 419px, 24px, 33px);
+}
+
+#hit-Lamp {
+	.hit-area(197px, 400px, 30px, 108px);
+}
+
+#hit-Cabinet_x5F_Open {
+	.hit-area(510px, 220px, 142px, 88px);
+}
+
+#hit-Counter_x5F_Open {
+	.hit-area(560px, 332px, 60px, 74px);
+}
+
+#hit-Laptop {
+	.hit-area(660px, 422px, 45px, 26px, 2);
+}
+
+#hit-WC {
+	.hit-area(766px, 348px, 50px, 63px);
+}
+
+#hit-Sink {
+	.hit-area(863px, 355px, 46px, 38px);
+}

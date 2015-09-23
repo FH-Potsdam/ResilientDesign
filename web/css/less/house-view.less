@@ -5,11 +5,22 @@
 @floor-height: 370px;
 @floor-margin: 22px;
 
+@z-house-graphic: 0;
+
 #house-view {
 	position: relative;
 
-	.leaflet-popup-pane {
-		padding-top: @header-height;
+	// .leaflet-popup-pane {
+	// 	padding-top: @header-height;
+	// }
+
+	.leaflet-container {
+		overflow: visible;
+	}
+
+	.leaflet-popup {
+		bottom: 0px !important;
+		opacity: 0;
 	}
 }
 
@@ -43,12 +54,28 @@
 }
 
 ///////////////
+// Hit Areas
+///////////////
+
+#svg-hit-areas {
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	z-index: @z-house-graphic + 1;
+	
+	//.block(100%, 100%);
+}
+
+@import "house-hit-areas";
+
+///////////////
 // House Nav
 ///////////////
 
 #svg-nav {
 	position: absolute;
-	z-index: 2;
+	z-index: @z-house-graphic + 2;
 	top: 200px;
 	left: 0;
 	right: 0;
