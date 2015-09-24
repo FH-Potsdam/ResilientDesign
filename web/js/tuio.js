@@ -10,10 +10,14 @@ jQuery(document).ready(function($) {
   },
 
   onUpdateTuioCursor = function(cursor) {
+    cursor.yPos = cursor.xPos;
+    cursor.xPos = 1 - cursor.yPos;
     createTouchEvent('touchmove', cursor);
   },
 
   onRemoveTuioCursor = function(cursor) {
+    cursor.yPos = cursor.xPos;
+    cursor.xPos = 1 - cursor.yPos;
     createTouchEvent('touchend', cursor);
   },
 
