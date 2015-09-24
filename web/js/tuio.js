@@ -4,21 +4,26 @@ jQuery(document).ready(function($) {
   }),
 
   onAddTuioCursor = function(cursor) {
-    cursor.yPos = cursor.xPos;
-    cursor.xPos = 1 - cursor.yPos;
+    cursor = rotateScreen(cursor);
     createTouchEvent('touchstart', cursor);
   },
 
   onUpdateTuioCursor = function(cursor) {
-    cursor.yPos = cursor.xPos;
-    cursor.xPos = 1 - cursor.yPos;
+    cursor = rotateScreen(cursor);
     createTouchEvent('touchmove', cursor);
   },
 
   onRemoveTuioCursor = function(cursor) {
-    cursor.yPos = cursor.xPos;
-    cursor.xPos = 1 - cursor.yPos;
+    cursor = rotateScreen(cursor);
     createTouchEvent('touchend', cursor);
+  },
+
+  rotateScreen = function(cursor) {
+    var cursorXpos = cursor.xPos;
+    cursor.xPos = 1 - cursor.yPos;
+    cursor.yPos = cursorXpos;
+
+    return cursor;
   },
 
   createTouchEvent = function(eventName, cursor) {
@@ -130,8 +135,9 @@ jQuery(document).ready(function($) {
   client.connect();
 
 
-  // $('#wrap').hammer().bind("tap", function(e) {
-  //   console.log('tap');
-  // });
-  // $('#wrap').data('hammer').get('tap').set({'threshold': 30});
+  $('#wrap').hammer().on("press", function(e) {
+    console.log('test');
+  });
+  $('#wrap').data('hammer').get('tap').set({'threshold': 20});
+  console.log($('#wrap').data('hammer').get('tap'));
 });
