@@ -1,9 +1,10 @@
+<!DOCTYPE html>
 <html>
 	<head>
 		<title>Resilient Design | FHP</title>
 		<script type="text/javascript" src="lib/jquery-2.1.1.min.js"></script>
-		
-		
+
+
 		<!-- Leaflet -->
 		<script type="text/javascript" src="lib/leaflet.js"></script>
 		<script type="text/javascript" src="lib/leaflet.mask.js"></script>
@@ -14,14 +15,21 @@
 
 		<!-- jQuery UI styles -->
 		<link rel="stylesheet" type="text/css" href="lib/jquery-ui-1.11.4.custom/jquery-ui.min.css"/>
-		
+
 		<!-- Snap.svg -->
 		<script type="text/javascript" src="lib/snap.svg-min.js"></script>
 		<script type="text/javascript" src="lib/snap.svg.utils.js"></script>
 
+    <!-- TUIO -->
+    <script type="text/javascript" src="lib/lodash.js"></script>
+    <script type="text/javascript" src="lib/socket.io.js"></script>
+		<script type="text/javascript" src="lib/Tuio.min.js"></script>
+    <script type="text/javascript" src="lib/hammer.min.js"></script>
+    <script type="text/javascript" src="lib/jquery.hammer.js"></script>
+
 		<!-- Google Fonts -->
 		<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,900' rel='stylesheet' type='text/css'>
-		
+
 		<!-- Styles -->
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 		<!-- <link rel="stylesheet" type="text/css" href="css/style-source.css"/> -->
@@ -29,11 +37,11 @@
 
 		<meta charset="UTF-8">
 	</head>
-	
+
 	<body>
 
 		<div id="wrap">
-			
+
 			<header>
 				<div class="inside">
 					<h1>Blackout</h1>
@@ -41,7 +49,7 @@
 						Hypothetic consequences of a long lasting urban power outtage and possible solutions
 					</summary>
 				</div>
-				
+
 				<nav id="view-nav" class="block-nav">
 					<div class="inside">
 						<ul>
@@ -53,7 +61,7 @@
 				</nav>
 
 			</header>
-			
+
 			<!-- Main Container  -->
 			<main id="container">
 				<div id="viewport">
@@ -67,12 +75,12 @@
 								</div>
 							</div>
 						</section>
-						
+
 						<!-- Map View  -->
 						<section id="map-view">
 							<div id="map"></div>
 						</section>
-						
+
 						<!-- House View  -->
 						<section id="house-view">
 							<div id="house-slider">
@@ -99,7 +107,7 @@
 					</div>
 				</div>
 			</main><!-- End Main Container -->
-			
+
 			<!-- Content Wrapper -->
 			<div id="content-wrap">
 				<div id="timeline">
@@ -117,7 +125,7 @@
 					</div>
 					<div id="timeline-value"></div>
 				</div>
-				
+
 				<div id="content">
 					<div id="content-map">
 						<article id="problems-content"></article>
@@ -217,7 +225,7 @@
 							</div>
 						</aside>
 						<article id="floor-problems-content">
-							
+
 						</article>
 					</div><!-- End Content House -->
 				</div>
@@ -234,6 +242,7 @@
 
 		</div>
 
+    <script type="text/javascript" src="js/tuio.js"></script>
 		<script type="text/javascript" src="js/main.js"></script>
 		<script type="text/javascript" src="js/map.js"></script>
 		<script type="text/javascript" src="js/house.js"></script>
