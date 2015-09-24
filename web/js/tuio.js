@@ -5,16 +5,19 @@ jQuery(document).ready(function($) {
 
   onAddTuioCursor = function(cursor) {
     cursor = rotateScreen(cursor);
+
     createTouchEvent('touchstart', cursor);
   },
 
   onUpdateTuioCursor = function(cursor) {
     cursor = rotateScreen(cursor);
+
     createTouchEvent('touchmove', cursor);
   },
 
   onRemoveTuioCursor = function(cursor) {
     cursor = rotateScreen(cursor);
+
     createTouchEvent('touchend', cursor);
   },
 

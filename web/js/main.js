@@ -3,7 +3,7 @@
 
 var $window,
     $scrollElement,
-    
+
     $nav,
     $navItems,
     $container,
@@ -89,15 +89,15 @@ function loadData() {
 /////////////////////
 
 function initViewNavigation() {
-    
+
     // Start view
     //currentView = $viewSlider.attr('class').replace('-active', '');
 
     // Click events
-    $navItems.click(function(e) {
+    $navItems.hammer().on('tap', function(e) {
 
         var nextViewID = e.target.hash;
-        
+
         oldView = currentView;
         currentView = nextViewID.replace('#','');
 
@@ -107,6 +107,7 @@ function initViewNavigation() {
         e.preventDefault();
         return false;
     });
+    $navItems.data('hammer').get('tap').set({'threshold': 30});
 }
 
 function changeView(strView) {
@@ -120,7 +121,7 @@ function changeView(strView) {
     // Hide timeline
     if (currentView == 'intro-view') {
         hideContentWrap();
-    
+
     // Reset and show timeline
     } else if (oldView == 'intro-view') {
         showContentWrap();
@@ -155,7 +156,7 @@ function changeView(strView) {
 /////////////////////////
 
 function initTimeline() {
-    
+
     $timeline = $('#timeline');
     $guides = $('#guides > div');
     $timelineValue = $("#timeline-value");
@@ -178,7 +179,7 @@ function initTimeline() {
         slide: function(event, ui) {
             var includeLeft = event.keyCode != $.ui.keyCode.RIGHT;
             var includeRight = event.keyCode != $.ui.keyCode.LEFT;
-            
+
             // Update slider values
             var value = findNearest(includeLeft, includeRight, ui.value);
 
@@ -188,7 +189,7 @@ function initTimeline() {
             else {
                 $slider.slider('values', 1, value);
             }
-            
+
             //$timelineValue.html($slider.slider('values', 1) + " hours");
             //$("#amount").html(slider.slider('values', 0) + ' - ' + slider.slider('values', 1) + " hours");
             return false;
@@ -201,12 +202,12 @@ function initTimeline() {
 
             hideContent();
         },
-        stop: function(event, ui) { 
-        //change: function(event, ui) { 
+        stop: function(event, ui) {
+        //change: function(event, ui) {
 
             // Check active value
             currentTime = $slider.slider('values', 1);
-            
+
             //console.log(">>>> New timeline value - " + currentTime);
 
             // Control active values
@@ -252,7 +253,7 @@ function initViewContent(time) {
     hideContent();
 
     $slider.slider('values', 1, time);
-    
+
     // Control active values
     $guides.removeClass('active')
            .filter('.g' + currentTime).addClass('active');
@@ -263,9 +264,9 @@ function initViewContent(time) {
 
     } else if (currentView == 'house-view') {
         showMarkers(currentTime);
-        $contentHouse.show();    
+        $contentHouse.show();
         $contentMap.hide();
-    }   
+    }
 
     // Update content
     showContent(currentTime);
@@ -321,7 +322,7 @@ function showContent(value) {
         $mapSolutionBars.find('#resbarversorgung .progress-bar > div').css('width', siteContentMap['STD'+value].resbarversorgung + "%");
         $mapSolutionBars.find('#resbarwhatever .progress-bar > div').css('width', siteContentMap['STD'+value].resbarwhatever + "%");
         $mapSolutionBars.find('#resbarsozialerzusammenhalt .progress-bar > div').css('width', siteContentMap['STD'+value].resbarsozialerzusammenhalt + "%");
-    
+
     // House view
     } else if (currentView == 'house-view') {
 
@@ -330,7 +331,7 @@ function showContent(value) {
                             .html(getFloorProfileContent(currentFloor))
 
         if (oldFloor != '' && currentFloor != oldFloor) {
-            
+
             $floorProfileContent.animate({opacity: 1}, 250);
         }
 
@@ -363,7 +364,7 @@ function updateContent(value) {
 /////////////////////////////
 
 function getFloorProfileContent(floor) {
-    
+
     var content = '';
 
     if (floor == 'floor-1') {
@@ -378,7 +379,7 @@ function getFloorProfileContent(floor) {
 }
 
 function getFloorProblemsContent(floor, time) {
-    
+
     var content = '';
 
     if (floor == 'floor-1') {
@@ -404,9 +405,9 @@ function showContentWrap() {
 }
 
 function hideContentWrap() {
-    
+
     $contentWrap.addClass('hidden');
-    
+
     // $contentWrap.css({top: $contentWrap.outerHeight() + $timeline.outerHeight() + $footer.outerHeight() + $slider.find('.ui-slider-handle').outerHeight()});
 }
 
@@ -439,8 +440,8 @@ function onLoad() {
 
     initViewNavigation();
     initTimeline();
-    
-    // Load site data (view content + markers)    
+
+    // Load site data (view content + markers)
     loadData();
 }
 
@@ -522,7 +523,7 @@ function mapInRange(value, min, max, a, b) {
 // _mouseCapture function copied from jQuery UI v1.10.3
 $.widget("ui.slider", $.ui.slider, {
     _mouseCapture: function (event) {
-        
+
         var position, normValue, distance, closestHandle, index, allowed, offset, mouseOverHandle,
         that = this,
             o = this.options;
