@@ -42,7 +42,7 @@ var siteContentMap   = [],
     siteContentHouse = [];
 
 var siteContentMapFile   = "data/RD_contentTableMap_export01.json",
-    siteContentHouseFile = "data/RD_contentTablePersona_export01.json" 
+    siteContentHouseFile = "data/RD_contentTablePersona_export01.json";
 
 var initTime    = 0,
     currentTime = initTime,

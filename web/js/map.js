@@ -154,7 +154,38 @@ L.mask(latLngs).addTo(map);
 var layerProblems,
     layerSolutions;
 
-function onMarkersDataLoaded() {
+function showMarkers(value) {
+
+    console.log("Show markers for time: " + currentTime);
+
+    value = (value < 10) ? "0" + value : value;
+
+    for (var i=0; i<markersData['STD'+value].length; i++) {
+
+        var markerObj = markersData['STD'+value][i];
+
+        // Point
+        if (markerObj.geometry.type == "Point") {
+
+            //console.log(markerObj);
+            //console.log("lat: " + markerObj.geometry.coordinates[1] + ", lng: " + markerObj.geometry.coordinates[0] + ", title: " + markerObj.properties.title);
+
+            // Add marker
+            var marker = new L.marker([markerObj.geometry.coordinates[1], markerObj.geometry.coordinates[0]]);
+            marker.addTo(map);
+
+            // Add popup
+            var popup = new L.Popup();
+            popup.setContent('<h4>'+markerObj.properties.title+'</h4><p>'+markerObj.properties.text+'</p>');
+            marker.bindPopup(popup);
+        }
+    }
+}
+
+
+/*function onMarkersDataLoaded() {
+
+    console.log(markersData);
 
     for (var i=0; i<markersData['STD03'].markers.length; i++) {
 
@@ -189,13 +220,50 @@ function onMarkersDataLoaded() {
 
     // // Popups
     // marker.bindPopup("This is our house.");
-}
+}*/
 
 var markersData = [];
 
 $(document).ready(function (){
 
-    $.getJSON( "data/RD_mapMarkers.json", function(data) {
+    //$.getJSON("data/RD_mapMarkersSTD0.json", function(data) {
+    $.when(
+        $.getJSON("data/RD_mapMarkersSTD0.json"),
+        $.getJSON("data/RD_mapMarkersSTD3.json"),
+        $.getJSON("data/RD_mapMarkersSTD6.json"),
+        $.getJSON("data/RD_mapMarkersSTD12.json"),
+        $.getJSON("data/RD_mapMarkersSTD24.json"),
+        $.getJSON("data/RD_mapMarkersSTD48.json")
+    ).done(function(std00Response, std03Response, std06Response, std12Response, std24Response, std48Response) {
+
+        var std00Data = $.parseJSON(std00Response[2].responseText),
+            std03Data = $.parseJSON(std03Response[2].responseText),
+            std06Data = $.parseJSON(std06Response[2].responseText),
+            std12Data = $.parseJSON(std12Response[2].responseText),
+            std24Data = $.parseJSON(std24Response[2].responseText),
+            std48Data = $.parseJSON(std48Response[2].responseText);
+            
+
+        console.log("Markers successfully loaded!")
+
+        // Parse JSON
+        markersData["STD00"] = std00Data.features;
+        markersData["STD03"] = std03Data.features;
+        markersData["STD06"] = std06Data.features;
+        markersData["STD12"] = std12Data.features;
+        markersData["STD24"] = std24Data.features;
+        markersData["STD48"] = std48Data.features;
+
+        // $.each( data, function( key, item ) {
+        //     console.log("key: " + key + ", id: " + item.id + ", item: " + item);
+        //     markersData[item.id] = item;
+        // });
+
+        showMarkers(currentTime);
+        //onMarkersDataLoaded();
+    });
+
+    /*$.getJSON("data/RD_mapMarkers.json", function(data) {
 
         console.log("Markers data successfully loaded!")
 
@@ -205,7 +273,7 @@ $(document).ready(function (){
         });
 
         onMarkersDataLoaded();
-    });
+    });*/
 });
 
 
