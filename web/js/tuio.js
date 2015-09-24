@@ -22,9 +22,9 @@ jQuery(document).ready(function($) {
   },
 
   rotateScreen = function(cursor) {
-    var cursorXpos = cursor.xPos;
+    var tempXpos = cursor.xPos;
     cursor.xPos = 1 - cursor.yPos;
-    cursor.yPos = cursorXpos;
+    cursor.yPos = tempXpos;
 
     return cursor;
   },
@@ -138,9 +138,9 @@ jQuery(document).ready(function($) {
   client.connect();
 
 
-  $('#wrap').hammer().on("press", function(e) {
+  $('#wrap').hammer().on("tap", function(e) {
     console.log('test');
   });
-  $('#wrap').data('hammer').get('tap').set({'threshold': 20});
+  $('#wrap').data('hammer').get('tap').set({'threshold': 40});
   console.log($('#wrap').data('hammer').get('tap'));
 });
