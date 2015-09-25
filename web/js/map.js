@@ -1,3 +1,6 @@
+var map,
+    mapMarkersArray;
+
 //////////
 // MASK
 //////////    
@@ -105,7 +108,7 @@ var tempelhof = {
 // Initialize map
 ////////////////////
 
-var map = L.map('map').setView([52.4548, 13.3815], 16);
+map = L.map('map').setView([52.4548, 13.3815], 16);
 
 // Add tile layer
 L.tileLayer('http://{s}.tiles.mapbox.com/v3/jorditost.2116a83e/{z}/{x}/{y}.png', {
@@ -132,7 +135,6 @@ map.scrollWheelZoom.disable();
 // Disable tap handler, if present.
 if (map.tap) map.tap.disable();
 
-
 //////////
 // Mask
 //////////
@@ -156,8 +158,10 @@ var layerProblems,
 
 function showMarkers(value) {
 
-    console.log("Show markers for time: " + currentTime);
+    // Remove old markers
+    removeOldMarkers();
 
+    console.log("Show markers for time: " + currentTime);
     value = (value < 10) ? "0" + value : value;
 
     for (var i=0; i<markersData['STD'+value].length; i++) {
@@ -174,12 +178,23 @@ function showMarkers(value) {
             var marker = new L.marker([markerObj.geometry.coordinates[1], markerObj.geometry.coordinates[0]]);
             marker.addTo(map);
 
+            mapMarkersArray.push(marker);
+
             // Add popup
             var popup = new L.Popup();
             popup.setContent('<h4>'+markerObj.properties.title+'</h4><p>'+markerObj.properties.text+'</p>');
             marker.bindPopup(popup);
         }
     }
+}
+
+function removeOldMarkers() {
+
+  if (!mapMarkersArray) return;
+
+  for(i=0; i<mapMarkersArray.length; i++) {
+      map.removeLayer(mapMarkersArray[i]);
+  }
 }
 
 
@@ -258,9 +273,11 @@ $(document).ready(function (){
         //     console.log("key: " + key + ", id: " + item.id + ", item: " + item);
         //     markersData[item.id] = item;
         // });
+        
+        // Initialize markers
+        mapMarkersArray = new Array();
 
         showMarkers(currentTime);
-        //onMarkersDataLoaded();
     });
 
     /*$.getJSON("data/RD_mapMarkers.json", function(data) {

@@ -127,7 +127,7 @@ function changeView(strView) {
         initViewContent(initTime);
     }
 
-    // Content actions
+    // Show house view
     if (currentView == 'house-view' && oldView == 'map-view') {
 
         $contentMap.fadeOut(350, function() {
@@ -135,9 +135,11 @@ function changeView(strView) {
             $contentHouse.fadeIn({opacity: 1}, 350);
         });
 
+    // Show map view
     } else if (currentView == 'map-view' && oldView == 'house-view') {
 
         $contentHouse.fadeOut(350, function() {
+            showMarkers(currentTime);
             showContent(currentTime);
             $contentMap.fadeIn({opacity: 1}, 350);
         });
@@ -213,6 +215,11 @@ function initTimeline() {
 
             // Update content
             showContent(currentTime);
+
+            // Show markers if map view
+            if (currentView == 'map-view') {
+                showMarkers(currentTime);
+            }
         }
     });
 
@@ -255,6 +262,7 @@ function initViewContent(time) {
         $contentHouse.hide();
 
     } else if (currentView == 'house-view') {
+        showMarkers(currentTime);
         $contentHouse.show();    
         $contentMap.hide();
     }   
