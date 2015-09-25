@@ -1,22 +1,24 @@
 jQuery(document).ready(function($) {
-  var client = new Tuio.Client({
+  var debug = true,
+  rotate = false,
+
+  client = new Tuio.Client({
       host: "http://localhost:5000"
   }),
-
   onAddTuioCursor = function(cursor) {
-    cursor = rotateScreen(cursor);
+    // newCursor = rotateScreen('touchstart', cursor);
 
     createTouchEvent('touchstart', cursor);
   },
 
   onUpdateTuioCursor = function(cursor) {
-    cursor = rotateScreen(cursor);
+    // newCursor = rotateScreen(cursor);
 
     createTouchEvent('touchmove', cursor);
   },
 
   onRemoveTuioCursor = function(cursor) {
-    cursor = rotateScreen(cursor);
+    // newCursor = rotateScreen(cursor);
 
     createTouchEvent('touchend', cursor);
   },
@@ -38,13 +40,15 @@ jQuery(document).ready(function($) {
     evt.targetTouches = getTargetTouches(touch.target);
     evt.changedTouches = [touch];
 
+    if(debug) {
+      updateDebugTouches(touch, eventName);
+    }
+
     if(touch.target) {
       touch.target.dispatchEvent(evt);
     } else {
       document.dispatchEvent(evt);
     }
-
-    updateDebugTouches(touch, eventName);
   },
 
   touches = [],
@@ -138,9 +142,8 @@ jQuery(document).ready(function($) {
   client.connect();
 
 
-  $('#wrap').hammer().on("tap", function(e) {
-    console.log('test');
-  });
-  $('#wrap').data('hammer').get('tap').set({'threshold': 40});
-  console.log($('#wrap').data('hammer').get('tap'));
+  // $('#wrap').hammer().on("tap", function(e) {
+  //   console.log('test');
+  // });
+  // $('#wrap').data('hammer').get('tap').set({'threshold': 40});
 });
