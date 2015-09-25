@@ -32,6 +32,26 @@ body {
 
 html {
 	overflow-x: hidden; // avoid scrolling when out of wrapper elements
+
+	&.rotate {
+		
+		overflow-x: auto;
+		overflow-y: auto;
+
+		&, body {
+			width: @screen-height;
+			height: @screen-width;
+		}
+
+		body {
+			overflow: hidden;
+		}
+
+		#wrap {
+		    transform: rotate(-90deg);
+		    margin-top: 0.5*(@screen-width - @screen-height);
+		}
+	}
 }
 
 html, body {
