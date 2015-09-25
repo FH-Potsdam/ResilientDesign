@@ -1,4 +1,4 @@
-/*   
+/*
 Resilient Design Interactive Poster
 Repository URL: https://github.com/FH-Potsdam/ResilientDesign
 Author: Jordi Tost
@@ -12,13 +12,13 @@ Version: 1.0
 	Based on the HTML5 Reset Wordpress Theme :: https://github.com/murtaugh/HTML5-Reset-Wordpress-Theme
 
 	We have learned much from/been inspired by/taken code where offered from:
-	
+
 	Eric Meyer					:: http://ericmeyer.com
 	HTML5 Doctor				:: http://html5doctor.com
 	and the HTML5 Boilerplate	:: http://html5boilerplate.com
-	
-	Special thanks: The Wordpress theme owes its start to an empty theme authored 
-		by Chris Coyier & Jeff Starr: http://digwp.com	
+
+	Special thanks: The Wordpress theme owes its start to an empty theme authored
+		by Chris Coyier & Jeff Starr: http://digwp.com
 */
 /* Let's default this puppy out
 ----------------------------------*/
@@ -331,6 +331,7 @@ html {
 html,
 body {
   -webkit-text-size-adjust: 100% !important;
+  height: 100%;
   /* Prevent font scaling in landscape */
 }
 html,
@@ -579,6 +580,7 @@ footer {
   zoom: 1;
   display: block;
   width: 3240px;
+  height: 100%;
   -moz-transition: left 0.8s ease-out;
   -webkit-transition: left 0.8s ease-out;
   -o-transition: left 0.8s ease-out;
