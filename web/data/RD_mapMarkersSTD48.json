@@ -1,1 +1,257 @@
-{"type":"FeatureCollection","features":[{"type":"Feature","properties":{"text":"exampletext01","title":"exampletitle01","content":"looting"},"geometry":{"type":"Point","coordinates":[13.384222984313965,52.45831065035929]}},{"type":"Feature","properties":{"text":"exampletext02CHANGED","title":"exampletitle02","content":"looting"},"geometry":{"type":"Point","coordinates":[13.381648063659668,52.459605054973636]}},{"type":"Feature","properties":{"text":"exampletext03","title":"exampletitle03","content":"looting"},"geometry":{"type":"Polygon","coordinates":[[[13.381047248840332,52.4613439426865],[13.380875587463377,52.460899421534826],[13.381626605987549,52.460834050398674],[13.381862640380858,52.461265498103494],[13.381047248840332,52.4613439426865]]]}}]}
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "markerIcon": "markerIcon_looting",
+        "markerText": "example text blablabla"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.384459018707275,
+          52.45577402995856
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "markerIcon": "markerIcon_contactPoint",
+        "markerText": "example text blablabla"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.379888534545897,
+          52.46010188704246
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "markerIcon": "markerIcon_contactPoint",
+        "markerText": "example text blablabla"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.384158611297607,
+          52.459121292045864
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "markerIcon": "markerIcon_keyPerson",
+        "markerText": "example text blablabla"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.381261825561523,
+          52.45823220037179
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "markerIcon": "markerIcon_keyPerson",
+        "markerText": "example text blablabla"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.384437561035156,
+          52.46038952409875
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "markerIcon": "markerIcon_keyPerson",
+        "markerText": "example text blablabla"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.379480838775633,
+          52.45717311185971
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "markerIcon": "markerIcon_crime",
+        "markerText": "example text blablabla"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.376755714416504,
+          52.45600939264076
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "markerIcon": "markerIcon_naturalBornHelper",
+        "markerText": "example text blablabla"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.381261825561523,
+          52.46112168267169
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "markerIcon": "markerIcon_crime",
+        "markerText": "example text blablabla"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.379437923431395,
+          52.45878134734922
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "markerIcon": "markerIcon_childCare",
+        "markerText": "example text blablabla"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.380446434020996,
+          52.460114961494845
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "markerIcon": "markerIcon_childCare",
+        "markerText": "example text blablabla"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.381154537200928,
+          52.45778764780227
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "markerIcon": "markerIcon_supplyStation",
+        "markerText": "example text blablabla"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.381733894348145,
+          52.461095534360894
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "markerIcon": "markerIcon_naturalBornHelper",
+        "markerText": "example text blablabla"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.37712049484253,
+          52.45882057187122
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "markerIcon": "markerIcon_naturalBornHelper",
+        "markerText": "example text blablabla"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.382785320281982,
+          52.45712081053241
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "markerIcon": "markerIcon_naturalBornHelper",
+        "markerText": "example text blablabla"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.37862253189087,
+          52.460611787809746
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "markerIcon": "markerIcon_shelter",
+        "markerText": "example text blablabla"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.378922939300537,
+          52.457277714327965
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "markerIcon": "markerIcon_shelter",
+        "markerText": "example text blablabla"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.379008769989014,
+          52.46062486211074
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "markerIcon": "markerIcon_supplyStation",
+        "markerText": "example text blablabla"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.387291431427,
+          52.45908206779175
+        ]
+      }
+    }
+  ]
+}

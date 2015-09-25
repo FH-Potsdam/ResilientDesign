@@ -1,0 +1,38 @@
+[
+    {
+        "wg": "STD00",
+        "altedame": 0,
+        "susi": 0,
+        "undefined": 60
+    },
+    {
+        "wg": "STD03",
+        "altedame": 0,
+        "susi": 0,
+        "undefined": 60
+    },
+    {
+        "wg": "STD06",
+        "altedame": 10,
+        "susi": 20,
+        "undefined": 50
+    },
+    {
+        "wg": "STD12",
+        "altedame": 20,
+        "susi": 40,
+        "undefined": 50
+    },
+    {
+        "wg": "STD24",
+        "altedame": 40,
+        "susi": 50,
+        "undefined": 40
+    },
+    {
+        "wg": "STD48",
+        "altedame": 70,
+        "susi": 70,
+        "undefined": 30
+    }
+]
