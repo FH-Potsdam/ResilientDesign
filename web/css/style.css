@@ -328,6 +328,24 @@ body {
 html {
   overflow-x: hidden;
 }
+html.rotate {
+  overflow-x: auto;
+  overflow-y: auto;
+}
+html.rotate,
+html.rotate body {
+  width: 1920px;
+  height: 1080px;
+}
+html.rotate body {
+  overflow: hidden;
+}
+html.rotate #wrap {
+  /*width: 1920px;
+		    height: 1080px;*/
+  transform: rotate(-90deg);
+  margin-top: -420px;
+}
 html,
 body {
   -webkit-text-size-adjust: 100% !important;
