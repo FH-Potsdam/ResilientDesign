@@ -536,7 +536,7 @@ header summary {
 #wrap {
   position: relative;
   width: 1080px;
-  height: 1780px;
+  height: 1920px;
   overflow: hidden;
   margin: 0 auto;
   background: #12161f;
@@ -704,7 +704,7 @@ footer {
 }
 #house-slider {
   position: relative;
-  margin-top: 240px;
+  margin-top: 290px;
   top: 0;
   -moz-transition: top 0.5s ease-out;
   -webkit-transition: top 0.5s ease-out;
