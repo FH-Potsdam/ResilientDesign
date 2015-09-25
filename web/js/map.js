@@ -3,7 +3,7 @@ var map,
 
 //////////
 // MASK
-//////////    
+//////////
 
 // Polygon created with http://geojson.io/
 var tempelhof = {
@@ -133,7 +133,7 @@ map.doubleClickZoom.disable();
 map.scrollWheelZoom.disable();
 
 // Disable tap handler, if present.
-if (map.tap) map.tap.disable();
+// if (map.tap) map.tap.disable();
 
 //////////
 // Mask
@@ -216,7 +216,7 @@ function removeOldMarkers() {
         popup.setContent('<h4>'+markerObj.title+'</h4><p>'+markerObj.text+'</p>');
         marker.bindPopup(popup);
 
-        
+
 
         // Simple Marker (Good for Performance)
         // var marker = new L.Circle([markerObj.lat, markerObj.lng], 20, {

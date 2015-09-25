@@ -94,6 +94,8 @@ function initViewNavigation() {
     //currentView = $viewSlider.attr('class').replace('-active', '');
 
     // Click events
+    $navItems.hammer();
+    $navItems.data('hammer').get('tap').set({'threshold': 30});
     $navItems.hammer().on('tap', function(e) {
 
         var nextViewID = e.target.hash;
@@ -107,7 +109,6 @@ function initViewNavigation() {
         e.preventDefault();
         return false;
     });
-    $navItems.data('hammer').get('tap').set({'threshold': 30});
 }
 
 function changeView(strView) {

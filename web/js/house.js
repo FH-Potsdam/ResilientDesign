@@ -7,13 +7,13 @@
 var svg,
 	svgFile,
 	g;
-	
+
 	// Solutions
 	// boy1, $boy1Hit,
 	// boy2, $boy2Hit,
 	// girl, $girlHit,
 	// bottle, $bottleHit,
-	
+
 	// // Problems
 	// lamp, $lampHit,
 	// cabinet, $cabinetHit,
@@ -21,7 +21,7 @@ var svg,
 	// laptop, $laptopHit,
 	// wc, $wcHit,
 	// sink, $sinkHit;
-	
+
 // Floor vars
 var $houseView,
 	$houseSlider,
@@ -44,10 +44,12 @@ function initFloorNavigation() {
 	// Navigate to current floor
 	goToFloor(currentFloor);
 
-	$floorNavItems.click(function(e) {
+  $floorNavItems.hammer();
+  $floorNavItems.data('hammer').get('tap').set({'threshold': 30});
+	$floorNavItems.hammer().on('tap',function(e) {
 
 		var nextFloorID = e.target.hash;
-		
+
 		oldFloor = currentFloor;
 		currentFloor = nextFloorID.replace('#','');
 
@@ -87,7 +89,7 @@ function goToFloor(strFloor) {
 
 		// Deactivate events for active floor
 		$currentFloor.addClass('active');
-		
+
 		$(this).off(e);
 
 		transitionEnded = true;
@@ -120,10 +122,10 @@ window.onload = function () {
 		svgFile = f;
 
 		g = svgFile.select("g");
-		
+
 		// Transform
 		var myMatrix = new Snap.Matrix();
-		myMatrix.scale(1.2, 1.2);            // play with scaling before and after the rotate 
+		myMatrix.scale(1.2, 1.2);            // play with scaling before and after the rotate
 		myMatrix.translate(30,50);      // this translate will not be applied to the rotation
 		// myMatrix.rotate(45);            // rotate
 		// g.animate({ transform: myMatrix.toTransformString() },1000);  // probably not needed
@@ -146,15 +148,17 @@ var $hitAreas;
 function initHitAreas() {
 
 	$hitAreas = $('#svg-hit-areas > a').each(function(e) {
-		
+
 		var $hitArea   = $(this);
 			//graphicID  = this.hash;//hitAreaHash.replace('#',''),
 			//svgGraphic = svgFile.select(graphicID);
 
 		// console.log("hit area: " + $hitArea.attr('id') + ", graphic: " + graphicID);
 
-		$hitArea.click(function(e) {
-			
+    $hitArea.hammer();
+    $hitArea.data('hammer').get('tap').set({'threshold': 30});
+		$hitArea.hammer().on('tap', function(e) {
+
 			var graphicID  = this.hash,
 				$svgGraphic = $(graphicID);
 
@@ -176,7 +180,9 @@ function initHitAreas() {
 	});
 
 	// Remove active areas when clicking on the whole graphic
-	$(document).click(function(e) {
+  $('body').hammer();
+  $('body').data('hammer').get('tap').set({'threshold': 30});
+	$('body').click(function(e) {
 		$('.active-graphic').removeAttr("class");
 		//var $popupPane = $('.leaflet-popup-pane').remove();
 
@@ -189,7 +195,7 @@ function initHitAreas() {
 	// boy2 		= svgFile.select("#Boy_x5F_2"),
 	// girl 		= svgFile.select("#Girl"),
 	// bottle   	= svgFile.select("#Bottle"),
-	
+
 	// // Problems
 	// lamp 		= svgFile.select("#Lamp"),
 	// cabinet 	= svgFile.select("#Cabinet_x5F_Open"),
@@ -224,7 +230,7 @@ function showPopup($area) {
 		y = $area.position().top;
 
 	console.log("show popup for area: " + $area.attr('id') + ", x: " + x + ", y: " + y);
-	
+
 	// Remove old popups
 	removePopups();
 
@@ -251,7 +257,7 @@ var onElementClicked = function(evt) {
 	$('.active-graphic').removeAttr("class");
 
 	activateGraphic(this);
-	
+
 	showPopup(this, evt);
 	evt.stopPropagation();
 }
@@ -273,7 +279,7 @@ var onElementClicked = function(evt) {
 // 	// Add popup in this position
 // 	var x = evt.x - 185, // bbox.x,
 // 		y = evt.y - 50; // bbox.y;
-	
+
 // 	// Remove old popups
 // 	$popupPane.html('');
 
@@ -283,7 +289,7 @@ var onElementClicked = function(evt) {
 
 function activateGraphic(graphic) {
 
-	// "node" selects the DOM element. 
+	// "node" selects the DOM element.
 	// then we can wrap it into a jQuery element ($)
 	var $this = $(graphic.node);
 	$this.attr("class", "active-graphic");
@@ -298,9 +304,9 @@ function activateGraphic(graphic) {
 }
 
 function animateTest() {
-	
+
 	var myMatrix = new Snap.Matrix();
-	myMatrix.scale(1.2, 1.2);            // play with scaling before and after the rotate 
+	myMatrix.scale(1.2, 1.2);            // play with scaling before and after the rotate
 	myMatrix.translate(30,-250);      // this translate will not be applied to the rotation
 
 	s.select('g').animate({ transform: myMatrix.toTransformString() }, 1000);  // probably not needed
