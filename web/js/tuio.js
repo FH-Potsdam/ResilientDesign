@@ -1,25 +1,20 @@
 jQuery(document).ready(function($) {
   var debug = true,
-  rotate = false,
+  rotate = true,
 
   client = new Tuio.Client({
       host: "http://localhost:5000"
   }),
-  onAddTuioCursor = function(cursor) {
-    // newCursor = rotateScreen('touchstart', cursor);
 
+  onAddTuioCursor = function(cursor) {
     createTouchEvent('touchstart', cursor);
   },
 
   onUpdateTuioCursor = function(cursor) {
-    // newCursor = rotateScreen(cursor);
-
     createTouchEvent('touchmove', cursor);
   },
 
   onRemoveTuioCursor = function(cursor) {
-    // newCursor = rotateScreen(cursor);
-
     createTouchEvent('touchend', cursor);
   },
 
@@ -32,6 +27,9 @@ jQuery(document).ready(function($) {
   },
 
   createTouchEvent = function(eventName, cursor) {
+    if(rotate) {
+      cursor = rotateScreen(cursor);
+    }
     var touch = createTouch(cursor);
     var evt = document.createEvent('Event');
 
@@ -43,7 +41,6 @@ jQuery(document).ready(function($) {
     if(debug) {
       updateDebugTouches(touch, eventName);
     }
-
     if(touch.target) {
       touch.target.dispatchEvent(evt);
     } else {
@@ -125,7 +122,7 @@ jQuery(document).ready(function($) {
 
   updateDebugTouches= function(touch, eventName) {
     if(eventName === 'touchstart') {
-      $('body').append('<div id="touch' + touch.identifier + '" style="position: absolute; background: rgba(215,61,47,0.3); width: 30px; height: 30px; border-radius: 50%; z-index:999; top: '+touch.pageY+'px; left: '+ touch.pageX+'px;"></div>');
+      $('body').append('<div id="touch' + touch.identifier + '" style="position: absolute; background: rgba(215,61,47,0.3); width: 30px; height: 30px; border-radius: 50%; z-index:999; top: '+touch.pageY+'px; left: '+ touch.pageX+'px; transform: translate(-50%, -50%);"></div>');
     } else if(eventName === 'touchmove') {
       $('#touch'+touch.identifier).css({
         'top': touch.pageY,
