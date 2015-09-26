@@ -20,6 +20,11 @@ Version: 1.0
 /* Ok, this is where the fun starts.
 ---------------------------------------*/
 
+html, body {
+    -webkit-text-size-adjust: 100% !important; /* Prevent font scaling in landscape */
+    // overflow: hidden;
+}
+
 body {
 	font: 12px @font-reg;
 	// font-size: 12px;
@@ -32,6 +37,19 @@ body {
 
 html {
 	overflow-x: hidden; // avoid scrolling when out of wrapper elements
+
+	&.multitouch {
+
+		&, body {
+			overflow: hidden;
+
+			// Deactivate text select
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+	}
 
 	&.rotate {
 		
@@ -56,11 +74,6 @@ html {
 		    margin-top: 0.5*(@screen-width - @screen-height);
 		}
 	}
-}
-
-html, body {
-    -webkit-text-size-adjust: 100% !important; /* Prevent font scaling in landscape */
-    // overflow: hidden;
 }
 
 // Webkit smoothing

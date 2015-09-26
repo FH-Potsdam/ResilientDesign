@@ -320,6 +320,11 @@ button {
 }
 /* Ok, this is where the fun starts.
 ---------------------------------------*/
+html,
+body {
+  -webkit-text-size-adjust: 100% !important;
+  /* Prevent font scaling in landscape */
+}
 body {
   font: 12px 'gotham-book', Helmet, Freesans, sans-serif;
   line-height: 1.6;
@@ -327,6 +332,14 @@ body {
 }
 html {
   overflow-x: hidden;
+}
+html.multitouch,
+html.multitouch body {
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 html.rotate {
   overflow-x: auto;
@@ -345,11 +358,6 @@ html.rotate #wrap {
 		    height: 1080px;*/
   transform: rotate(-90deg);
   margin-top: -420px;
-}
-html,
-body {
-  -webkit-text-size-adjust: 100% !important;
-  /* Prevent font scaling in landscape */
 }
 html,
 html a {

@@ -551,6 +551,12 @@ $(document).ready(function () {
 
     // // Strings
     // siteStrings = $.parseJSON(siteVars.siteStrings);
+
+    if ($('html').hasClass('multitouch')) {
+        $(document).bind("contextmenu",function(e){
+            return false;
+        });
+    }
 });
 
 
