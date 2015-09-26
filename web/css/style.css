@@ -426,7 +426,7 @@ h1 {
   font-size: 60px;
   font-family: 'gotham-light', Helmet, Freesans, sans-serif;
   text-transform: uppercase;
-  letter-spacing: 10px;
+  letter-spacing: 4px;
 }
 h2 {
   font-size: 18px;
@@ -460,11 +460,6 @@ header > .inside {
   text-align: center;
 }
 header h1 {
-  display: -moz-inline-stack;
-  display: inline-block;
-  vertical-align: top;
-  zoom: 1;
-  *display: inline;
   line-height: 1;
   margin-right: -10px;
   margin-bottom: 24px;
@@ -574,9 +569,16 @@ header {
 #content-wrap {
   bottom: 680px;
   z-index: 7;
+  -moz-transition: all 1s ease-out;
+  -webkit-transition: all 1s ease-out;
+  -o-transition: all 1s ease-out;
+  -ms-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+  opacity: 1;
 }
 #content-wrap.hidden {
   bottom: -150px;
+  opacity: 0;
 }
 footer {
   bottom: 0;
@@ -905,11 +907,6 @@ footer {
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
-  -moz-transition: bottom 0.8s ease-out;
-  -webkit-transition: bottom 0.8s ease-out;
-  -o-transition: bottom 0.8s ease-out;
-  -ms-transition: bottom 0.8s ease-out;
-  transition: bottom 0.8s ease-out;
 }
 #content {
   position: relative;

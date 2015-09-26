@@ -60,6 +60,7 @@ html {
 
 html, body {
     -webkit-text-size-adjust: 100% !important; /* Prevent font scaling in landscape */
+    // overflow: hidden;
 }
 
 // Webkit smoothing
@@ -132,7 +133,7 @@ h1 {
 	font-size: 60px;
 	font-family: @font-light;
 	text-transform: uppercase;
-	letter-spacing: 10px;
+	letter-spacing: 4px;
 }
 
 h2 {
@@ -196,7 +197,7 @@ header {
 	h1 {
 		//position: absolute;
 		//bottom: @bottom;
-		.inline-block();
+		//.inline-block();
 		line-height: 1;
 		
 		margin-right: -10px;
@@ -336,9 +337,15 @@ header {
 	// bottom: @content-wrap-height + @footer-height + @bar-height - @footer-padding-top;
 	
 	z-index: @z-container + 2;
+	
+	.transition(all, 1s, ease-out);
+	opacity: 1;
+	// top: 0;
 
 	&.hidden {
 		bottom: -3*@bar-height;
+		opacity: 0;
+		//.transition(all, 2s, ease-in);
 	}
 }
 
@@ -402,9 +409,6 @@ footer {
 
 	padding: @content-wrap-padding @content-wrap-padding @content-wrap-padding-bottom @content-wrap-padding;
 	.border-box();
-	
-	.transition(bottom, 0.8s, ease-out);
-	// top: 0;
 }
 
 #content {

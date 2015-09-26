@@ -114,8 +114,10 @@ window.onload = function () {
 	// SVG
 	svg = Snap("#house");
 
-	// Snap.load("images/house/3rd_Floor_WG_Active.svg", function (f) {
-	Snap.load("images/house/optimised.svg", function (f) {
+	//Snap.load("images/house/3rd_Floor_WG_Active.svg", function (f) {
+	Snap.load("images/house/House_View_all_floors.svg", function (f) {
+
+		console.log("svg image loaded");
 
 		svgFile = f;
 

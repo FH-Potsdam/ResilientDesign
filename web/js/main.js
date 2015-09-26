@@ -31,7 +31,7 @@ var $window,
 
     $footer,
 
-    initView = 'map-view',
+    initView = 'house-view',
     currentView = '',
     oldView = '',
 
@@ -126,6 +126,11 @@ function changeView(strView) {
         showContentWrap();
         initViewContent(initTime);
     }
+
+    hideContentWrap();
+    setTimeout(function() {
+        showContentWrap();
+    }, 400);
 
     // Show house view
     if (currentView == 'house-view' && oldView == 'map-view') {
