@@ -115,7 +115,7 @@ window.onload = function () {
 	svg = Snap("#house");
 
 	//Snap.load("images/house/3rd_Floor_WG_Active.svg", function (f) {
-	Snap.load("images/house/House_View_all_floors.svg", function (f) {
+	Snap.load("images/house/House_View_all_floors_2.svg", function (f) {
 
 		console.log("svg image loaded");
 
@@ -147,7 +147,7 @@ var $hitAreas;
 
 function initHitAreas() {
 
-	$hitAreas = $('#svg-hit-areas > a').each(function(e) {
+	$hitAreas = $('#svg-hit-areas a').each(function(e) {
 		
 		var $hitArea   = $(this);
 			//graphicID  = this.hash;//hitAreaHash.replace('#',''),

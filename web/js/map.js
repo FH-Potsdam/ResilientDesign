@@ -182,7 +182,8 @@ function showMarkers(value) {
 
             // Add popup
             var popup = new L.Popup();
-            popup.setContent('<h4>'+markerObj.properties.title+'</h4><p>'+markerObj.properties.text+'</p>');
+            //popup.setContent('<h4>'+markerObj.properties.title+'</h4><p>'+markerObj.properties.markerText+'</p>');
+            popup.setContent('<h4>'+markerObj.properties.markerTitle+'</h4><p>'+markerObj.properties.markerText+'</p>');
             marker.bindPopup(popup);
         }
     }
