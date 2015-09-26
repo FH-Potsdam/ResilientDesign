@@ -31,7 +31,7 @@ var $window,
 
     $footer,
 
-    initView = 'map-view',
+    initView = 'house-view',
     currentView = '',
     oldView = '',
 
@@ -39,10 +39,12 @@ var $window,
     windowHeight;
 
 var siteContentMap   = [],
-    siteContentHouse = [];
+    siteContentHouse = [],
+    siteContentHouseStatus = [];
 
-var siteContentMapFile   = "data/RD_contentTableMap_export01.json",
-    siteContentHouseFile = "data/RD_contentTablePersona_export01.json";
+var siteContentMapFile         = "data/RD_contentTableMap_export01.json",
+    siteContentHouseFile       = "data/RD_contentTablePersona_export01.json";
+    siteContentHouseStatusFile = "data/RD_contentTablePersonaStatus_export01.json";
 
 var initTime    = 0,
     currentTime = initTime,
@@ -59,14 +61,17 @@ function loadData() {
     // This triggers when both JSON files
     $.when(
         $.getJSON(siteContentMapFile),
-        $.getJSON(siteContentHouseFile)
-    ).done(function(mapResponse, houseResponse) {
+        $.getJSON(siteContentHouseFile),
+        $.getJSON(siteContentHouseStatusFile)
+    ).done(function(mapResponse, houseResponse, houseStatusResponse) {
 
         var mapData = $.parseJSON(mapResponse[2].responseText),
-            houseData = $.parseJSON(houseResponse[2].responseText);
+            houseData = $.parseJSON(houseResponse[2].responseText),
+            houseStatusData = $.parseJSON(houseStatusResponse[2].responseText);
 
         console.log(mapData);
         console.log(houseData);
+        console.log(houseStatusData);
 
         // Parse JSON
         $.each( mapData, function( key, item ) {
@@ -75,6 +80,10 @@ function loadData() {
 
         $.each( houseData, function( key, item ) {
             siteContentHouse[item.id] = item;
+        });
+
+        $.each( houseStatusData, function( key, item ) {
+            siteContentHouseStatus[item.id] = item;
         });
 
         console.log(">>> Site content successfully loaded!");
@@ -324,7 +333,7 @@ function showContent(value) {
 
         $mapSolutionBars.find('#resbarkommunikation .progress-bar > div').css('width', siteContentMap['STD'+value].resbarkommunikation + "%");
         $mapSolutionBars.find('#resbarversorgung .progress-bar > div').css('width', siteContentMap['STD'+value].resbarversorgung + "%");
-        $mapSolutionBars.find('#resbarwhatever .progress-bar > div').css('width', siteContentMap['STD'+value].resbarwhatever + "%");
+        $mapSolutionBars.find('#resbarhandlungsfaehigkeit .progress-bar > div').css('width', siteContentMap['STD'+value].resbarhandlungsfaehigkeit + "%");
         $mapSolutionBars.find('#resbarsozialerzusammenhalt .progress-bar > div').css('width', siteContentMap['STD'+value].resbarsozialerzusammenhalt + "%");
     
     // House view
@@ -345,15 +354,13 @@ function showContent(value) {
                             .animate({opacity: 1}, 250);
 
         // Update vars
-        // $houseProblemBars.find('#probbarverkehrschaos .progress-bar > div').css('width', siteContent['STD'+value].probbarverkehrschaos + "%");
-        // $houseProblemBars.find('#probbarmedizinischenotfaelle .progress-bar > div').css('width', siteContent['STD'+value].probbarmedizinischenotfaelle + "%");
-        // $houseProblemBars.find('#probbarkriminalitaet .progress-bar > div').css('width', siteContent['STD'+value].probbarkriminalitaet + "%");
-        // $houseProblemBars.find('#probbarpanik .progress-bar > div').css('width', siteContent['STD'+value].probbarpanik + "%");
+        $houseProblemBars.find('#nahrungsbedarf .progress-bar > div').css('width', getFloorStatusValue("nahrungsbedarf", currentFloor, value) + "%");
+        $houseProblemBars.find('#wasserbedarf .progress-bar > div').css('width', getFloorStatusValue("wasserbedarf", currentFloor, value) + "%");
+        $houseProblemBars.find('#angst .progress-bar > div').css('width', getFloorStatusValue("angst", currentFloor, value) + "%");
 
-        // $houseSolutionBars.find('#resbarkommunikation .progress-bar > div').css('width', siteContent['STD'+value].resbarkommunikation + "%");
-        // $houseSolutionBars.find('#resbarversorgung .progress-bar > div').css('width', siteContent['STD'+value].resbarversorgung + "%");
-        // $houseSolutionBars.find('#resbarwhatever .progress-bar > div').css('width', siteContent['STD'+value].resbarwhatever + "%");
-        // $houseSolutionBars.find('#resbarsozialerzusammenhalt .progress-bar > div').css('width', siteContent['STD'+value].resbarsozialerzusammenhalt + "%");
+        $houseSolutionBars.find('#koerper .progress-bar > div').css('width', getFloorStatusValue("koerper", currentFloor, value) + "%");
+        $houseSolutionBars.find('#geistigeVerfassung .progress-bar > div').css('width', getFloorStatusValue("geistigeVerfassung", currentFloor, value) + "%");
+        $houseSolutionBars.find('#handlungsfaehigkeit .progress-bar > div').css('width', getFloorStatusValue("handlungsfaehigkeit", currentFloor, value) + "%");
     }
 }
 
@@ -395,6 +402,42 @@ function getFloorProblemsContent(floor, time) {
     }
 
     return content;
+}
+
+function getFloorStatusValue(factor, floor, time) {
+    
+    var value = 0;
+    console.log("factor: " + factor + ", floor: " + floor + ", time:" + time);
+
+    if (floor == 'floor-1') {
+        
+        if (factor == "nahrungsbedarf") value = siteContentHouseStatus['STD'+time].susinahrungsbedarf;
+        if (factor == "wasserbedarf") value = siteContentHouseStatus['STD'+time].susiwasserbedarf;
+        if (factor == "angst") value = siteContentHouseStatus['STD'+time].susiangst;
+        if (factor == "koerper") value = siteContentHouseStatus['STD'+time].susikoerper;
+        if (factor == "geistigeVerfassung") value = siteContentHouseStatus['STD'+time].susigeistigeVerfassung;
+        if (factor == "handlungsfaehigkeit") value = siteContentHouseStatus['STD'+time].susihandlungsfaehigkeit;
+
+    } else if (floor == 'floor-2') {
+        
+        if (factor == "nahrungsbedarf") value = siteContentHouseStatus['STD'+time].altedamenahrungsbedarf;
+        if (factor == "wasserbedarf") value = siteContentHouseStatus['STD'+time].altedamewasserbedarf;
+        if (factor == "angst") value = siteContentHouseStatus['STD'+time].altedameangst;
+        if (factor == "koerper") value = siteContentHouseStatus['STD'+time].altedamekoerper;
+        if (factor == "geistigeVerfassung") value = siteContentHouseStatus['STD'+time].altedamegeistigeVerfassung;
+        if (factor == "handlungsfaehigkeit") value = siteContentHouseStatus['STD'+time].altedamehandlungsfaehigkeit;
+    
+    } else if (floor == 'floor-3') {
+        
+        if (factor == "nahrungsbedarf") value = siteContentHouseStatus['STD'+time].wgnahrungsbedarf;
+        if (factor == "wasserbedarf") value = siteContentHouseStatus['STD'+time].wgwasserbedarf;
+        if (factor == "angst") value = siteContentHouseStatus['STD'+time].wgangst;
+        if (factor == "koerper") value = siteContentHouseStatus['STD'+time].wgkoerper;
+        if (factor == "geistigeVerfassung") value = siteContentHouseStatus['STD'+time].wggeistigeVerfassung;
+        if (factor == "handlungsfaehigkeit") value = siteContentHouseStatus['STD'+time].wghandlungsfaehigkeit;
+    }
+
+    return value;
 }
 
 ///////////////////////////////

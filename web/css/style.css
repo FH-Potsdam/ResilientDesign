@@ -444,7 +444,7 @@ summary {
   font: 16px 'gotham-light', Helmet, Freesans, sans-serif;
   line-height: 22px;
   padding-bottom: 2px;
-  letter-spacing: 0.5px;
+  letter-spacing: 1.2px;
 }
 .inside {
   position: relative;
@@ -456,13 +456,12 @@ header {
   height: 240px;
 }
 header > .inside {
-  padding: 40px 0;
+  padding: 36px 0;
   text-align: center;
 }
 header h1 {
   line-height: 1;
-  margin-right: -10px;
-  margin-bottom: 24px;
+  margin-bottom: 12px;
 }
 header summary {
   margin: 0 auto;
