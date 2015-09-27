@@ -115,7 +115,8 @@ window.onload = function () {
 	svg = Snap("#house");
 
 	//Snap.load("images/house/3rd_Floor_WG_Active.svg", function (f) {
-	Snap.load("images/house/House_View_all_floors_2.svg", function (f) {
+	// Snap.load("images/house/House_View_all_floors_2.svg", function (f) {
+	Snap.load("images/house/House_View_all_floors_new_3.svg", function (f) {
 
 		console.log("svg image loaded");
 
@@ -225,7 +226,7 @@ function deactivateActiveGraphics() {
 function showPopup($area) {
 
 	// Add popup in this position
-	var x = $area.position().left + 0.35*$area.width(),
+	var x = $area.position().left + 0.42*$area.width(),
 		y = $area.position().top;
 
 	console.log("show popup for area: " + $area.attr('id') + ", x: " + x + ", y: " + y);

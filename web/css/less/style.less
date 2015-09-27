@@ -35,6 +35,18 @@ body {
 	background: #333;
 }
 
+// @-moz-document url-prefix() { 
+//   html, body {
+//   	overflow: hidden;
+
+//   	// Deactivate text select
+//   	-webkit-user-select: none;
+//   	-moz-user-select: none;
+//   	-ms-user-select: none;
+//   	user-select: none;
+//   }
+// }
+
 html {
 	overflow-x: hidden; // avoid scrolling when out of wrapper elements
 
@@ -675,6 +687,19 @@ footer {
 	.g12 { left: 202px; } //253px;
 	.g24 { left: 404px; } //505px;
 	.g48 { left: 808px; } //1010px;
+}
+
+#clock {
+	position: absolute;
+	left: 60px;
+	top: @header-height + 80px;
+	// right: 34px;
+	// top: @screen-height - @footer-height - @content-wrap-height - 110px;
+	z-index: 9;
+
+	font-size: 24px;
+	font-family: @font-reg;
+	letter-spacing: 0px;
 }
 
 

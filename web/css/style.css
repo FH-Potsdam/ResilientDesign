@@ -1,4 +1,4 @@
-/*   
+/*
 Resilient Design Interactive Poster
 Repository URL: https://github.com/FH-Potsdam/ResilientDesign
 Author: Jordi Tost
@@ -844,7 +844,7 @@ footer {
   height: 33px;
   display: block;
 }
-#hit-floor3 #hit-Lamp {
+#hit-floor3 #hit-Lamp_x5F_3 {
   position: absolute;
   left: 197px;
   top: 400px;
@@ -853,7 +853,7 @@ footer {
   height: 108px;
   display: block;
 }
-#hit-floor3 #hit-Cabinet_x5F_Open {
+#hit-floor3 #hit-Cabinet_x5F_Open_x5F_3 {
   position: absolute;
   left: 510px;
   top: 220px;
@@ -862,7 +862,7 @@ footer {
   height: 88px;
   display: block;
 }
-#hit-floor3 #hit-Counter_x5F_Open {
+#hit-floor3 #hit-Counter_x5F_Open_x5F_3 {
   position: absolute;
   left: 560px;
   top: 332px;
@@ -880,7 +880,7 @@ footer {
   height: 26px;
   display: block;
 }
-#hit-floor3 #hit-WC {
+#hit-floor3 #hit-WC_x5F_3 {
   position: absolute;
   left: 766px;
   top: 348px;
@@ -889,7 +889,7 @@ footer {
   height: 63px;
   display: block;
 }
-#hit-floor3 #hit-Sink {
+#hit-floor3 #hit-Sink_x5F_3 {
   position: absolute;
   left: 863px;
   top: 355px;
@@ -925,7 +925,7 @@ footer {
   height: 33px;
   display: block;
 }
-#hit-floor2 #hit-Door_1_ {
+#hit-floor2 #hit-Door_x5F_2 {
   position: absolute;
   left: 424px;
   top: 662px;
@@ -934,7 +934,7 @@ footer {
   height: 150px;
   display: block;
 }
-#hit-floor2 #hit-Lamp_1_ {
+#hit-floor2 #hit-Lamp_x5F_2 {
   position: absolute;
   left: 190px;
   top: 792px;
@@ -943,7 +943,7 @@ footer {
   height: 108px;
   display: block;
 }
-#hit-floor2 #hit-Cabinet_x5F_open {
+#hit-floor2 #hit-Cabinet_x5F_open_x5F_2 {
   position: absolute;
   left: 510px;
   top: 612px;
@@ -952,7 +952,7 @@ footer {
   height: 88px;
   display: block;
 }
-#hit-floor2 #hit-Counter_x5F_open {
+#hit-floor2 #hit-Counter_x5F_open_x5F_2 {
   position: absolute;
   left: 560px;
   top: 724px;
@@ -961,7 +961,7 @@ footer {
   height: 74px;
   display: block;
 }
-#hit-floor2 #hit-First_x5F_Aid {
+#hit-floor2 #hit-First_x5F_Aid_x5F_2 {
   position: absolute;
   left: 873px;
   top: 700px;
@@ -979,7 +979,7 @@ footer {
   height: 63px;
   display: block;
 }
-#hit-floor2 #hit-Sink_1_ {
+#hit-floor2 #hit-Sink_x5F_2 {
   position: absolute;
   left: 863px;
   top: 747px;
@@ -1015,7 +1015,7 @@ footer {
   height: 68px;
   display: block;
 }
-#hit-floor1 #hit-Lamp_2_ {
+#hit-floor1 #hit-Lamp_x5F_1 {
   position: absolute;
   left: 735px;
   top: 1159px;
@@ -1024,7 +1024,7 @@ footer {
   height: 112px;
   display: block;
 }
-#hit-floor1 #hit-Cabinet_x5F_open_1_ {
+#hit-floor1 #hit-Cabinet_x5F_open_x5F_1 {
   position: absolute;
   left: 510px;
   top: 1004px;
@@ -1033,7 +1033,7 @@ footer {
   height: 88px;
   display: block;
 }
-#hit-floor1 #hit-Counter_x5F_open_1_ {
+#hit-floor1 #hit-Counter_x5F_open_x5F_1 {
   position: absolute;
   left: 560px;
   top: 1116px;
@@ -1042,7 +1042,7 @@ footer {
   height: 74px;
   display: block;
 }
-#hit-floor1 #hit-Door_2_ {
+#hit-floor1 #hit-Door_x5F_1 {
   position: absolute;
   left: 424px;
   top: 1054px;
@@ -1051,7 +1051,7 @@ footer {
   height: 150px;
   display: block;
 }
-#hit-floor1 #hit-First_x5F_aid_1_ {
+#hit-floor1 #hit-First_x5F_aid_x5F_1 {
   position: absolute;
   left: 873px;
   top: 1084px;
@@ -1060,7 +1060,7 @@ footer {
   height: 38px;
   display: block;
 }
-#hit-floor1 #hit-Sink_2_ {
+#hit-floor1 #hit-Sink_x5F_1 {
   position: absolute;
   left: 863px;
   top: 1129px;
@@ -1339,6 +1339,15 @@ footer {
 }
 #guides .g48 {
   left: 808px;
+}
+#clock {
+  position: absolute;
+  left: 60px;
+  top: 320px;
+  z-index: 9;
+  font-size: 24px;
+  font-family: 'gotham-book', Helmet, Freesans, sans-serif;
+  letter-spacing: 0px;
 }
 .progress-bar {
   -webkit-box-sizing: border-box;

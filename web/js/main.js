@@ -29,9 +29,11 @@ var $window,
     $houseProblemBars,
     $houseSolutionBars,
 
+    $clock,
+
     $footer,
 
-    initView = 'map-view',
+    initView = 'house-view',
     currentView = '',
     oldView = '',
 
@@ -145,18 +147,24 @@ function changeView(strView) {
     if (currentView == 'house-view' && oldView == 'map-view') {
 
         $contentMap.fadeOut(350, function() {
+            updateProgressBars(currentTime);
             showContent(currentTime);
             $contentHouse.fadeIn({opacity: 1}, 350);
         });
+
+        //animateClock();
 
     // Show map view
     } else if (currentView == 'map-view' && oldView == 'house-view') {
 
         $contentHouse.fadeOut(350, function() {
             showMarkers(currentTime);
+            updateProgressBars(currentTime);
             showContent(currentTime);
             $contentMap.fadeIn({opacity: 1}, 350);
         });
+
+        //animateClock();
     }
 
     // Animate view change
@@ -209,14 +217,19 @@ function initTimeline() {
         },
         start: function(event, ui) {
 
+            // if (currentView == 'house-view') {
+            //     oldFloor = currentFloor;
+            // }
+
+            // hideContent();
+        },
+        // stop: function(event, ui) {
+        change: function(event, ui) {
+
             if (currentView == 'house-view') {
                 oldFloor = currentFloor;
             }
-
             hideContent();
-        },
-        stop: function(event, ui) {
-        //change: function(event, ui) {
 
             // Check active value
             currentTime = $slider.slider('values', 1);
@@ -228,7 +241,13 @@ function initTimeline() {
                    .filter('.g' + currentTime).addClass('active');
 
             // Update content
-            showContent(currentTime);
+            updateProgressBars(currentTime);
+
+            updateClock(currentTime);
+            
+            setTimeout(function() {
+                showContent(currentTime);
+            }, 250);
 
             // Show markers if map view
             if (currentView == 'map-view') {
@@ -282,6 +301,7 @@ function initViewContent(time) {
     }
 
     // Update content
+    updateProgressBars(currentTime);
     showContent(currentTime);
 }
 
@@ -325,17 +345,6 @@ function showContent(value) {
                          .html(siteContentMap['STD'+value].solutionstext)
                          .animate({opacity: 1}, 250);
 
-        // Update vars
-        $mapProblemBars.find('#probbarverkehrschaos .progress-bar > div').css('width', siteContentMap['STD'+value].probbarverkehrschaos + "%");
-        $mapProblemBars.find('#probbarmedizinischenotfaelle .progress-bar > div').css('width', siteContentMap['STD'+value].probbarmedizinischenotfaelle + "%");
-        $mapProblemBars.find('#probbarkriminalitaet .progress-bar > div').css('width', siteContentMap['STD'+value].probbarkriminalitaet + "%");
-        $mapProblemBars.find('#probbarpanik .progress-bar > div').css('width', siteContentMap['STD'+value].probbarpanik + "%");
-
-        $mapSolutionBars.find('#resbarkommunikation .progress-bar > div').css('width', siteContentMap['STD'+value].resbarkommunikation + "%");
-        $mapSolutionBars.find('#resbarversorgung .progress-bar > div').css('width', siteContentMap['STD'+value].resbarversorgung + "%");
-        $mapSolutionBars.find('#resbarhandlungsfaehigkeit .progress-bar > div').css('width', siteContentMap['STD'+value].resbarhandlungsfaehigkeit + "%");
-        $mapSolutionBars.find('#resbarsozialerzusammenhalt .progress-bar > div').css('width', siteContentMap['STD'+value].resbarsozialerzusammenhalt + "%");
-
     // House view
     } else if (currentView == 'house-view') {
 
@@ -352,6 +361,29 @@ function showContent(value) {
         $floorProblemsContent.stop(true, true)
                             .html(getFloorProblemsContent(currentFloor, value))
                             .animate({opacity: 1}, 250);
+    }
+}
+
+function updateProgressBars(value) {
+
+    value = (value < 10) ? "0" + value : value;
+
+    // Map view
+    if (currentView == 'map-view') {
+
+        // Update vars
+        $mapProblemBars.find('#probbarverkehrschaos .progress-bar > div').css('width', siteContentMap['STD'+value].probbarverkehrschaos + "%");
+        $mapProblemBars.find('#probbarmedizinischenotfaelle .progress-bar > div').css('width', siteContentMap['STD'+value].probbarmedizinischenotfaelle + "%");
+        $mapProblemBars.find('#probbarkriminalitaet .progress-bar > div').css('width', siteContentMap['STD'+value].probbarkriminalitaet + "%");
+        $mapProblemBars.find('#probbarpanik .progress-bar > div').css('width', siteContentMap['STD'+value].probbarpanik + "%");
+
+        $mapSolutionBars.find('#resbarkommunikation .progress-bar > div').css('width', siteContentMap['STD'+value].resbarkommunikation + "%");
+        $mapSolutionBars.find('#resbarversorgung .progress-bar > div').css('width', siteContentMap['STD'+value].resbarversorgung + "%");
+        $mapSolutionBars.find('#resbarhandlungsfaehigkeit .progress-bar > div').css('width', siteContentMap['STD'+value].resbarhandlungsfaehigkeit + "%");
+        $mapSolutionBars.find('#resbarsozialerzusammenhalt .progress-bar > div').css('width', siteContentMap['STD'+value].resbarsozialerzusammenhalt + "%");
+
+    // House view
+    } else if (currentView == 'house-view') {
 
         // Update vars
         $houseProblemBars.find('#nahrungsbedarf .progress-bar > div').css('width', getFloorStatusValue("nahrungsbedarf", currentFloor, value) + "%");
@@ -367,7 +399,51 @@ function showContent(value) {
 function updateContent(value) {
 
     hideContent();
-    showContent(value);
+    updateProgressBars(value);
+    setTimeout(function(){
+        showContent(value);
+    }, 250);
+}
+
+function updateClock(value) {
+
+    var time = "";
+    // if (value == 0) {
+    //     time = "12:00h";
+    // } else if (value == 3) {
+    //     time = "15:00h";
+    // } else if (value == 6) {
+    //     time = "18:00h";
+    // } else if (value == 12) {
+    //     time = "00:00h";
+    // } else if (value == 24) {
+    //     time = "1 Tag später";
+    // } else if (value == 48) {
+    //     time = "2 Tage später"; //"12:00h";
+    // }
+    if (value == 0) {
+        time = "Stand um 12:00h";
+    } else if (value == 3) {
+        time = "Stand um 15:00h";
+    } else if (value == 6) {
+        time = "Stand um 18:00h";
+    } else if (value == 12) {
+        time = "Stand um 00:00h";
+    } else if (value == 24) {
+        time = "Stand 1 Tag später";
+    } else if (value == 48) {
+        time = "Stand 2 Tage später"; //"12:00h";
+    }
+
+    $clock.fadeOut(250, function() {
+        $clock.html(time).fadeIn(250);
+    });
+}
+
+function animateClock() {
+    $clock.fadeOut(250, function() {
+        $clock.fadeIn(250);
+    });
 }
 
 /////////////////////////////
@@ -535,6 +611,7 @@ $(document).ready(function () {
     $houseProblemBars    = $content.find('#house-problem-bars');
     $houseSolutionBars   = $content.find('#house-solution-bars');
 
+    $clock              = $('#clock');
     // Footer
     $footer             = $('footer');
 
