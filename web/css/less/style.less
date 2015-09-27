@@ -1,4 +1,4 @@
-/*   
+/*
 Resilient Design Interactive Poster
 Repository URL: https://github.com/FH-Potsdam/ResilientDesign
 Author: Jordi Tost
@@ -6,7 +6,7 @@ Author URI: https://github.com/jorditost/
 Version: 1.0
 */
 
-// Main Framework 
+// Main Framework
 @import "reset";
 @import "common-vars";
 @import "common";
@@ -52,7 +52,7 @@ html {
 	}
 
 	&.rotate {
-		
+
 		overflow-x: auto;
 		overflow-y: auto;
 
@@ -80,11 +80,11 @@ html {
 // http://www.icondeposit.com/blog:how-to-properly-smooth-font-using-css3
 html, html a {
 //* {
-	-webkit-font-smoothing: antialiased !important; 
+	-webkit-font-smoothing: antialiased !important;
 }
 
-body, select, input, textarea { 
-	color: @text-color; 
+body, select, input, textarea {
+	color: @text-color;
 }
 
 strong, b {
@@ -93,7 +93,7 @@ strong, b {
 }
 
 a {
-	color: @link-color; 
+	color: @link-color;
 	text-decoration: none;
 
 	outline: none;
@@ -204,7 +204,7 @@ header {
 		padding: 36px 0;
 		text-align: center;
 	}
-	
+
 	@bottom: 10px;
 
 	h1 {
@@ -212,7 +212,7 @@ header {
 		//bottom: @bottom;
 		//.inline-block();
 		line-height: 1;
-		
+
 		//margin-right: -10px;
 		//letter-spacing: 5px;
 
@@ -255,8 +255,8 @@ header {
 
 	.bar();
 	background: transparent;
-	
-	ul { 
+
+	ul {
 		height: 100%;
 		font-size:0; // removes space created by inline-block
 		text-align: center;
@@ -270,7 +270,7 @@ header {
 		.inline-block();
 
 		&:first-child {
-			//border-left: 2px solid @bg-color; 
+			//border-left: 2px solid @bg-color;
 		}
 
 		// Text styles
@@ -289,7 +289,7 @@ header {
 			letter-spacing: 0.5px;
 
 			line-height: @bar-height; //25px;
-			
+
 			&:before {
 				content: "";
 				.inline-block();
@@ -348,9 +348,9 @@ header {
 #content-wrap {
 	bottom: @content-wrap-height + @footer-height;
 	// bottom: @content-wrap-height + @footer-height + @bar-height - @footer-padding-top;
-	
+
 	z-index: @z-container + 2;
-	
+
 	.transition(all, 1s, ease-out);
 	opacity: 1;
 	// top: 0;
@@ -439,7 +439,7 @@ footer {
 	padding: @content-box-padding+10px @content-box-padding - 2px @content-box-padding @content-box-padding+5px;
 
 	.nav-overlay();
-	
+
 	// Content columns
 	article, aside {
 		float: left;
@@ -447,7 +447,7 @@ footer {
 		margin-right: 25px;
 		clear: right;
 	}
-	
+
 	article {
 		width: 375px;
 		min-height: 20px;
@@ -528,7 +528,7 @@ footer {
 		position: absolute;
 		top: -@content-wrap-padding;
 		left: 0;
-		
+
 		.block(3px, 100%);
 		padding-top: @content-wrap-padding;
 
@@ -576,12 +576,12 @@ footer {
 		padding: 0 !important;
 		.border-radius(0);
 	}
-	
+
 	// Animations
 	.ui-slider-handle, .ui-slider-range {
 		.transition(all, 0.4s);
 	}
-	
+
 	@cursor-width: 31px;
 	.ui-slider-handle {
 		top: 0;
@@ -589,13 +589,13 @@ footer {
 		.block(3px, 100%);
 		padding-bottom: 3px !important;
 		margin-left: -@cursor-width;
-		
+
 		background: white !important;
 		color: #fff !important;
 
 		cursor: pointer;
 		z-index: 2;
-		
+
 		// // Line
 		// &:before {
 		// 	content: "";
@@ -611,10 +611,10 @@ footer {
 		// Arrow
 		&:after {
 			content: "";
-			
+
 			.background-image('../images/timeline-handle.png');
 			.block(@cursor-width, 50px);
-			
+
 			position: absolute;
 			left: 50%;
 			margin-left: -0.5*@cursor-width;
@@ -668,7 +668,7 @@ footer {
 			color: @white;
 		}
 	}
-	
+
 	.g0  { left:   0px; } //63px;
 	.g3  { left:  51px; } //63px;
 	.g6  { left: 101px; } //126px;
@@ -735,7 +735,7 @@ footer {
 /////////////
 
 footer {
-	
+
 	height: @footer-height;
 
 	.inside {
@@ -744,7 +744,7 @@ footer {
 		.border-box();
 		height: 100%;
 	}
-	
+
 	#logo {
 		position: absolute;
 		left: 6px;
@@ -765,7 +765,7 @@ footer {
 
 		//padding-left: 200px;
 		//margin-top: -6px;
-		
+
 		//float: left;
 		//margin-left: 40px;
 		float: right;

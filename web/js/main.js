@@ -3,7 +3,7 @@
 
 var $window,
     $scrollElement,
-    
+
     $nav,
     $navItems,
     $container,
@@ -98,7 +98,7 @@ function loadData() {
 /////////////////////
 
 function initViewNavigation() {
-    
+
     // Start view
     //currentView = $viewSlider.attr('class').replace('-active', '');
 
@@ -106,7 +106,7 @@ function initViewNavigation() {
     $navItems.click(function(e) {
 
         var nextViewID = e.target.hash;
-        
+
         oldView = currentView;
         currentView = nextViewID.replace('#','');
 
@@ -129,7 +129,7 @@ function changeView(strView) {
     // Hide timeline
     if (currentView == 'intro-view') {
         hideContentWrap();
-    
+
     // Reset and show timeline
     } else if (oldView == 'intro-view') {
         showContentWrap();
@@ -169,7 +169,7 @@ function changeView(strView) {
 /////////////////////////
 
 function initTimeline() {
-    
+
     $timeline = $('#timeline');
     $guides = $('#guides > div');
     $timelineValue = $("#timeline-value");
@@ -192,7 +192,7 @@ function initTimeline() {
         slide: function(event, ui) {
             var includeLeft = event.keyCode != $.ui.keyCode.RIGHT;
             var includeRight = event.keyCode != $.ui.keyCode.LEFT;
-            
+
             // Update slider values
             var value = findNearest(includeLeft, includeRight, ui.value);
 
@@ -202,7 +202,7 @@ function initTimeline() {
             else {
                 $slider.slider('values', 1, value);
             }
-            
+
             //$timelineValue.html($slider.slider('values', 1) + " hours");
             //$("#amount").html(slider.slider('values', 0) + ' - ' + slider.slider('values', 1) + " hours");
             return false;
@@ -215,12 +215,12 @@ function initTimeline() {
 
             hideContent();
         },
-        stop: function(event, ui) { 
-        //change: function(event, ui) { 
+        stop: function(event, ui) {
+        //change: function(event, ui) {
 
             // Check active value
             currentTime = $slider.slider('values', 1);
-            
+
             //console.log(">>>> New timeline value - " + currentTime);
 
             // Control active values
@@ -266,7 +266,7 @@ function initViewContent(time) {
     hideContent();
 
     $slider.slider('values', 1, time);
-    
+
     // Control active values
     $guides.removeClass('active')
            .filter('.g' + currentTime).addClass('active');
@@ -277,9 +277,9 @@ function initViewContent(time) {
 
     } else if (currentView == 'house-view') {
         showMarkers(currentTime);
-        $contentHouse.show();    
+        $contentHouse.show();
         $contentMap.hide();
-    }   
+    }
 
     // Update content
     showContent(currentTime);
@@ -335,7 +335,7 @@ function showContent(value) {
         $mapSolutionBars.find('#resbarversorgung .progress-bar > div').css('width', siteContentMap['STD'+value].resbarversorgung + "%");
         $mapSolutionBars.find('#resbarhandlungsfaehigkeit .progress-bar > div').css('width', siteContentMap['STD'+value].resbarhandlungsfaehigkeit + "%");
         $mapSolutionBars.find('#resbarsozialerzusammenhalt .progress-bar > div').css('width', siteContentMap['STD'+value].resbarsozialerzusammenhalt + "%");
-    
+
     // House view
     } else if (currentView == 'house-view') {
 
@@ -344,7 +344,7 @@ function showContent(value) {
                             .html(getFloorProfileContent(currentFloor))
 
         if (oldFloor != '' && currentFloor != oldFloor) {
-            
+
             $floorProfileContent.animate({opacity: 1}, 250);
         }
 
@@ -375,7 +375,7 @@ function updateContent(value) {
 /////////////////////////////
 
 function getFloorProfileContent(floor) {
-    
+
     var content = '';
 
     if (floor == 'floor-1') {
@@ -390,7 +390,7 @@ function getFloorProfileContent(floor) {
 }
 
 function getFloorProblemsContent(floor, time) {
-    
+
     var content = '';
 
     if (floor == 'floor-1') {
@@ -405,12 +405,12 @@ function getFloorProblemsContent(floor, time) {
 }
 
 function getFloorStatusValue(factor, floor, time) {
-    
+
     var value = 0;
     console.log("factor: " + factor + ", floor: " + floor + ", time:" + time);
 
     if (floor == 'floor-1') {
-        
+
         if (factor == "nahrungsbedarf") value = siteContentHouseStatus['STD'+time].susinahrungsbedarf;
         if (factor == "wasserbedarf") value = siteContentHouseStatus['STD'+time].susiwasserbedarf;
         if (factor == "angst") value = siteContentHouseStatus['STD'+time].susiangst;
@@ -419,16 +419,16 @@ function getFloorStatusValue(factor, floor, time) {
         if (factor == "handlungsfaehigkeit") value = siteContentHouseStatus['STD'+time].susihandlungsfaehigkeit;
 
     } else if (floor == 'floor-2') {
-        
+
         if (factor == "nahrungsbedarf") value = siteContentHouseStatus['STD'+time].altedamenahrungsbedarf;
         if (factor == "wasserbedarf") value = siteContentHouseStatus['STD'+time].altedamewasserbedarf;
         if (factor == "angst") value = siteContentHouseStatus['STD'+time].altedameangst;
         if (factor == "koerper") value = siteContentHouseStatus['STD'+time].altedamekoerper;
         if (factor == "geistigeVerfassung") value = siteContentHouseStatus['STD'+time].altedamegeistigeVerfassung;
         if (factor == "handlungsfaehigkeit") value = siteContentHouseStatus['STD'+time].altedamehandlungsfaehigkeit;
-    
+
     } else if (floor == 'floor-3') {
-        
+
         if (factor == "nahrungsbedarf") value = siteContentHouseStatus['STD'+time].wgnahrungsbedarf;
         if (factor == "wasserbedarf") value = siteContentHouseStatus['STD'+time].wgwasserbedarf;
         if (factor == "angst") value = siteContentHouseStatus['STD'+time].wgangst;
@@ -452,9 +452,9 @@ function showContentWrap() {
 }
 
 function hideContentWrap() {
-    
+
     $contentWrap.addClass('hidden');
-    
+
     // $contentWrap.css({top: $contentWrap.outerHeight() + $timeline.outerHeight() + $footer.outerHeight() + $slider.find('.ui-slider-handle').outerHeight()});
 }
 
@@ -487,8 +487,8 @@ function onLoad() {
 
     initViewNavigation();
     initTimeline();
-    
-    // Load site data (view content + markers)    
+
+    // Load site data (view content + markers)
     loadData();
 }
 
@@ -556,6 +556,28 @@ $(document).ready(function () {
         $(document).bind("contextmenu",function(e){
             return false;
         });
+
+        // Remove dragging
+        $('*').on('dragstart', function(event) { event.preventDefault(); });
+
+        // Remove mouse cursor
+        $('body, *').css('cursor', 'none');
+
+        // Remove hover effects
+        try { // prevent crash on browsers not supporting DOM styleSheets properly
+          for (var si in document.styleSheets) {
+              var styleSheet = document.styleSheets[si];
+              if (!styleSheet.rules) continue;
+
+              for (var ri = styleSheet.rules.length - 1; ri >= 0; ri--) {
+                  if (!styleSheet.rules[ri].selectorText) continue;
+
+                  if (styleSheet.rules[ri].selectorText.match(':hover')) {
+                      stylesheet.deleteRule(ri);
+                  }
+              }
+          }
+        } catch (ex) {}
     }
 });
 
@@ -576,7 +598,7 @@ function mapInRange(value, min, max, a, b) {
 // _mouseCapture function copied from jQuery UI v1.10.3
 $.widget("ui.slider", $.ui.slider, {
     _mouseCapture: function (event) {
-        
+
         var position, normValue, distance, closestHandle, index, allowed, offset, mouseOverHandle,
         that = this,
             o = this.options;
