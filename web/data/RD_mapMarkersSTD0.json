@@ -4,8 +4,9 @@
     {
       "type": "Feature",
       "properties": {
+        "markerTitle": "Verkehrsunfall",
         "markerIcon": "markerIcon_carCrash",
-        "markerText": "example text blablabla"
+        "markerText": "Aufgrund der ausgefallenen Ampeln kommt es besonders an Kreuzungen zu schweren Unfällen mit vielen Verletzten."
       },
       "geometry": {
         "type": "Point",
@@ -18,8 +19,9 @@
     {
       "type": "Feature",
       "properties": {
+        "markerTitle": "Verkehrsunfall",        
         "markerIcon": "markerIcon_carCrash",
-        "markerText": "example text blablabla"
+        "markerText": "Aufgrund der ausgefallenen Ampeln kommt es besonders an Kreuzungen zu schweren Unfällen mit vielen Verletzten."
       },
       "geometry": {
         "type": "Point",
@@ -32,8 +34,9 @@
     {
       "type": "Feature",
       "properties": {
+        "markerTitle": "Verkehrsstau",        
         "markerIcon": "markerIcon_trafficJam",
-        "markerText": "example text blablabla"
+        "markerText": "Durch die vielen Unfallstellen ist der Verkehr besonders auf Hauptstraßen und an Kreuzungen blockiert."
       },
       "geometry": {
         "type": "Point",
@@ -46,8 +49,9 @@
     {
       "type": "Feature",
       "properties": {
+        "markerTitle": "Feststeckende Personen",        
         "markerIcon": "markerIcon_stuckPeople",
-        "markerText": "example text blablabla"
+        "markerText": "Alle elektronisch betriebenen Beförderungsmittel, wie Aufzüge, S und U-Bahnen o.Ä. bleiben stehen. Die Fahrgäste stecken fest und können sich oftmals nicht eigenständig befreien. "
       },
       "geometry": {
         "type": "Point",
@@ -60,8 +64,9 @@
     {
       "type": "Feature",
       "properties": {
+        "markerTitle": "Verkehrsstau",    
         "markerIcon": "markerIcon_trafficJam",
-        "markerText": "example text blablabla"
+        "markerText": "Durch die vielen Unfallstellen ist der Verkehr besonders auf Hauptstraßen und an Kreuzungen blockiert."
       },
       "geometry": {
         "type": "Point",

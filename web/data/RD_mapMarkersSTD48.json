@@ -4,8 +4,9 @@
     {
       "type": "Feature",
       "properties": {
-        "markerIcon": "markerIcon_looting",
-        "markerText": "example text blablabla"
+        "markerTitle":"Plünderung",
+        "markerIcon":"markerIcon_looting",
+        "markerText": "Nach fortgeschrittenem Katastrophenverlauf gehen die Vorräte vieler Bürger zuneige. Supermärkte und Geschäfte haben geschlossen, so dass es aus Not, vermehrt zu Einbrüchen in Lebensmittelgeschäfte kommt."
       },
       "geometry": {
         "type": "Point",
@@ -18,8 +19,9 @@
     {
       "type": "Feature",
       "properties": {
+        "markerTitle": "Anlaufstelle",
         "markerIcon": "markerIcon_contactPoint",
-        "markerText": "example text blablabla"
+        "markerText": "Eine Anlaufstelle ermöglicht Bürgern die Orientierung, gibt Informationen aus und hält Kontakt zu den Behörden und Rettungskräften. Die vor Ort zuständige Kontaktperson ist für den Notfall geschult."
       },
       "geometry": {
         "type": "Point",
@@ -32,8 +34,9 @@
     {
       "type": "Feature",
       "properties": {
+        "markerTitle": "Anlaufstelle",
         "markerIcon": "markerIcon_contactPoint",
-        "markerText": "example text blablabla"
+        "markerText": "Eine Anlaufstelle ermöglicht Bürgern die Orientierung, gibt Informationen aus und hält Kontakt zu den Behörden und Rettungskräften. Die vor Ort zuständige Kontaktperson ist für den Notfall geschult."
       },
       "geometry": {
         "type": "Point",
@@ -46,8 +49,9 @@
     {
       "type": "Feature",
       "properties": {
+        "markerTitle": "Schlüsselperson",   
         "markerIcon": "markerIcon_keyPerson",
-        "markerText": "example text blablabla"
+        "markerText": "Schlüsselpersonen sind in ihrer Umgebung stark vernetzte Bürger, die im Notfall leicht identifizierbare Ansprechpersonen sind."
       },
       "geometry": {
         "type": "Point",
@@ -60,8 +64,9 @@
     {
       "type": "Feature",
       "properties": {
+        "markerTitle": "Schlüsselperson",   
         "markerIcon": "markerIcon_keyPerson",
-        "markerText": "example text blablabla"
+        "markerText": "Schlüsselpersonen sind in ihrer Umgebung stark vernetzte Bürger, die im Notfall leicht identifizierbare Ansprechpersonen sind."
       },
       "geometry": {
         "type": "Point",
@@ -74,8 +79,9 @@
     {
       "type": "Feature",
       "properties": {
+        "markerTitle": "Schlüsselperson",   
         "markerIcon": "markerIcon_keyPerson",
-        "markerText": "example text blablabla"
+        "markerText": "Schlüsselpersonen sind in ihrer Umgebung stark vernetzte Bürger, die im Notfall leicht identifizierbare Ansprechpersonen sind."
       },
       "geometry": {
         "type": "Point",
@@ -88,8 +94,9 @@
     {
       "type": "Feature",
       "properties": {
+        "markerTitle": "Kriminalität", 
         "markerIcon": "markerIcon_crime",
-        "markerText": "example text blablabla"
+        "markerText": "Nicht nur Geschäfte, sondern auch Privathaushalte sind leichte Ziele für Einbrecher. Auf den Straßen herrscht erhöhtes Risiko Opfer eines Übergriffs zu werden."
       },
       "geometry": {
         "type": "Point",
@@ -102,8 +109,9 @@
     {
       "type": "Feature",
       "properties": {
+        "markerTitle": "Freiwillige Helfer",   
         "markerIcon": "markerIcon_naturalBornHelper",
-        "markerText": "example text blablabla"
+        "markerText":  "Freiwillige Helfer werden eingesetzt, um Informationen zu sammeln bzw. zu übermitteln, Konflikte anzunehmen oder Ersthilfe zu leisten."
       },
       "geometry": {
         "type": "Point",
@@ -116,8 +124,9 @@
     {
       "type": "Feature",
       "properties": {
+        "markerTitle": "Kriminalität", 
         "markerIcon": "markerIcon_crime",
-        "markerText": "example text blablabla"
+        "markerText": "Nicht nur Geschäfte, sondern auch Privathaushalte sind leichte Ziele für Einbrecher. Auf den Straßen herrscht erhöhtes Risiko Opfer eines Übergriffs zu werden."
       },
       "geometry": {
         "type": "Point",
@@ -130,8 +139,9 @@
     {
       "type": "Feature",
       "properties": {
+        "markerTitle": "Kinderbetreuung", 
         "markerIcon": "markerIcon_childCare",
-        "markerText": "example text blablabla"
+        "markerText": "Um die Betreuung von Kinder und Jugendlichen, während des Notfalls, zu gewährleisten wurde ein Notfallplan erstellt, der die Betreuungszeiten regelt."
       },
       "geometry": {
         "type": "Point",
@@ -144,8 +154,9 @@
     {
       "type": "Feature",
       "properties": {
+        "markerTitle": "Kinderbetreuung", 
         "markerIcon": "markerIcon_childCare",
-        "markerText": "example text blablabla"
+        "markerText": "Um die Betreuung von Kinder und Jugendlichen, während des Notfalls, zu gewährleisten wurde ein Notfallplan erstellt, der die Betreuungszeiten regelt."
       },
       "geometry": {
         "type": "Point",
@@ -158,8 +169,9 @@
     {
       "type": "Feature",
       "properties": {
+        "markerTitle": "Notversorgungszentrum",   
         "markerIcon": "markerIcon_supplyStation",
-        "markerText": "example text blablabla"
+        "markerText":  "Nach einiger Zeit ist es notwendig geworden die Bürger mit lebensnotwendigen Ressourcen, wie Nahrung, Trinkwasser und Hygieneprodukten zu versorgen."
       },
       "geometry": {
         "type": "Point",
@@ -172,8 +184,9 @@
     {
       "type": "Feature",
       "properties": {
+        "markerTitle": "Freiwillige Helfer",   
         "markerIcon": "markerIcon_naturalBornHelper",
-        "markerText": "example text blablabla"
+        "markerText":  "Freiwillige Helfer werden eingesetzt, um Informationen zu sammeln bzw. zu übermitteln, Konflikte anzunehmen oder Ersthilfe zu leisten."
       },
       "geometry": {
         "type": "Point",
@@ -186,8 +199,9 @@
     {
       "type": "Feature",
       "properties": {
+        "markerTitle": "Freiwillige Helfer",   
         "markerIcon": "markerIcon_naturalBornHelper",
-        "markerText": "example text blablabla"
+        "markerText":  "Freiwillige Helfer werden eingesetzt, um Informationen zu sammeln bzw. zu übermitteln, Konflikte anzunehmen oder Ersthilfe zu leisten."
       },
       "geometry": {
         "type": "Point",
@@ -200,8 +214,9 @@
     {
       "type": "Feature",
       "properties": {
+        "markerTitle": "Freiwillige Helfer",   
         "markerIcon": "markerIcon_naturalBornHelper",
-        "markerText": "example text blablabla"
+        "markerText":  "Freiwillige Helfer werden eingesetzt, um Informationen zu sammeln bzw. zu übermitteln, Konflikte anzunehmen oder Ersthilfe zu leisten."
       },
       "geometry": {
         "type": "Point",
@@ -215,7 +230,7 @@
       "type": "Feature",
       "properties": {
         "markerIcon": "markerIcon_shelter",
-        "markerText": "example text blablabla"
+        "markerText": "In freien Gebäuden sind Notunterkünfte für evakuierte, verloren gegangene und pflegebedürftige Bürger eingerichtet worden. Hier finden sie Schutz, Nahrung und Obdach."
       },
       "geometry": {
         "type": "Point",
@@ -228,8 +243,9 @@
     {
       "type": "Feature",
       "properties": {
+        "markerTitle":"Notunterkunft",
         "markerIcon": "markerIcon_shelter",
-        "markerText": "example text blablabla"
+        "markerText": "In freien Gebäuden sind Notunterkünfte für evakuierte, verloren gegangene und pflegebedürftige Bürger eingerichtet worden. Hier finden sie Schutz, Nahrung und Obdach."
       },
       "geometry": {
         "type": "Point",
@@ -242,8 +258,9 @@
     {
       "type": "Feature",
       "properties": {
+        "markerTitle": "Notversorgungszentrum",   
         "markerIcon": "markerIcon_supplyStation",
-        "markerText": "example text blablabla"
+        "markerText":  "Nach einiger Zeit ist es notwendig geworden die Bürger mit lebensnotwendigen Ressourcen, wie Nahrung, Trinkwasser und Hygieneprodukten zu versorgen."
       },
       "geometry": {
         "type": "Point",

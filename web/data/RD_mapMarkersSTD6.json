@@ -4,8 +4,9 @@
     {
       "type": "Feature",
       "properties": {
+        "markerTitle": "Verkehrsstau",        
         "markerIcon": "markerIcon_trafficJam",
-        "markerText": "example text blablabla"
+        "markerText": "Durch die vielen Unfallstellen ist der Verkehr besonders auf Hauptstraßen und an Kreuzungen blockiert."
       },
       "geometry": {
         "type": "Point",
@@ -18,8 +19,9 @@
     {
       "type": "Feature",
       "properties": {
+        "markerTitle": "Verkehrsstau",        
         "markerIcon": "markerIcon_trafficJam",
-        "markerText": "example text blablabla"
+        "markerText": "Durch die vielen Unfallstellen ist der Verkehr besonders auf Hauptstraßen und an Kreuzungen blockiert."
       },
       "geometry": {
         "type": "Point",
@@ -60,8 +62,9 @@
     {
       "type": "Feature",
       "properties": {
+        "markerTitle": "Anlaufstelle",
         "markerIcon": "markerIcon_contactPoint",
-        "markerText": "example text blablabla"
+        "markerText": "Eine Anlaufstelle ermöglicht Bürgern die Orientierung, gibt Informationen aus und hält Kontakt zu den Behörden und Rettungskräften. Die vor Ort zuständige Kontaktperson ist für den Notfall geschult."
       },
       "geometry": {
         "type": "Point",
@@ -74,8 +77,9 @@
     {
       "type": "Feature",
       "properties": {
+        "markerTitle": "Anlaufstelle",
         "markerIcon": "markerIcon_contactPoint",
-        "markerText": "example text blablabla"
+        "markerText": "Eine Anlaufstelle ermöglicht Bürgern die Orientierung, gibt Informationen aus und hält Kontakt zu den Behörden und Rettungskräften. Die vor Ort zuständige Kontaktperson ist für den Notfall geschult."
       },
       "geometry": {
         "type": "Point",
@@ -88,8 +92,9 @@
     {
       "type": "Feature",
       "properties": {
+        "markerTitle": "Verkehrsstau",        
         "markerIcon": "markerIcon_trafficJam",
-        "markerText": "example text blablabla"
+        "markerText": "Durch die vielen Unfallstellen ist der Verkehr besonders auf Hauptstraßen und an Kreuzungen blockiert."
       },
       "geometry": {
         "type": "Point",
@@ -102,8 +107,9 @@
     {
       "type": "Feature",
       "properties": {
+        "markerTitle": "Schlüsselperson",   
         "markerIcon": "markerIcon_keyPerson",
-        "markerText": "example text blablabla"
+        "markerText": "Schlüsselpersonen sind in ihrer Umgebung stark vernetzte Bürger, die im Notfall leicht identifizierbare Ansprechpersonen sind."
       },
       "geometry": {
         "type": "Point",
@@ -116,8 +122,9 @@
     {
       "type": "Feature",
       "properties": {
+        "markerTitle": "Schlüsselperson",   
         "markerIcon": "markerIcon_keyPerson",
-        "markerText": "example text blablabla"
+        "markerText": "Schlüsselpersonen sind in ihrer Umgebung stark vernetzte Bürger, die im Notfall leicht identifizierbare Ansprechpersonen sind."
       },
       "geometry": {
         "type": "Point",
@@ -130,8 +137,9 @@
     {
       "type": "Feature",
       "properties": {
+        "markerTitle": "Schlüsselperson",   
         "markerIcon": "markerIcon_keyPerson",
-        "markerText": "example text blablabla"
+        "markerText": "Schlüsselpersonen sind in ihrer Umgebung stark vernetzte Bürger, die im Notfall leicht identifizierbare Ansprechpersonen sind."
       },
       "geometry": {
         "type": "Point",
@@ -144,8 +152,9 @@
     {
       "type": "Feature",
       "properties": {
+        "markerTitle": "Freiwillige Helfer",   
         "markerIcon": "markerIcon_naturalBornHelper",
-        "markerText": "example text blablabla"
+        "markerText":  "Freiwillige Helfer werden eingesetzt, um Informationen zu sammeln bzw. zu übermitteln, Konflikte anzunehmen oder Ersthilfe zu leisten."
       },
       "geometry": {
         "type": "Point",
@@ -158,8 +167,9 @@
     {
       "type": "Feature",
       "properties": {
+        "markerTitle": "Freiwillige Helfer",   
         "markerIcon": "markerIcon_naturalBornHelper",
-        "markerText": "example text blablabla"
+        "markerText":  "Freiwillige Helfer werden eingesetzt, um Informationen zu sammeln bzw. zu übermitteln, Konflikte anzunehmen oder Ersthilfe zu leisten."
       },
       "geometry": {
         "type": "Point",
