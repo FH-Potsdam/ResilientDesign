@@ -192,7 +192,7 @@ function showMarkers(value) {
 function getMarkerIcon(markerIconName) {
 
   var icon = L.icon({
-      iconUrl: 'images/icons/RD_' + markerIconName + '.png',
+      iconUrl: 'images/icons/' + markerIconName + '.png',
       //shadowUrl: 'leaf-shadow.png',
 
       iconSize:     [40, 40], // size of the icon
