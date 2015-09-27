@@ -112,7 +112,7 @@ map = L.map('map').setView([52.4548, 13.3815], 16);
 
 // Add tile layer
 L.tileLayer('http://{s}.tiles.mapbox.com/v3/jorditost.2116a83e/{z}/{x}/{y}.png', {
-//L.tileLayer('http://{s}.tiles.mapbox.com/v3/cmuench.lehj4pcp/{z}/{x}/{y}.png', {
+// L.tileLayer('http://{s}.tiles.mapbox.com/v3/cmuench.lehj4pcp/{z}/{x}/{y}.png', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery &copy; <a href="http://mapbox.com">Mapbox</a>',
     //attributionControl: false,
     zoomControl: false,
@@ -175,7 +175,7 @@ function showMarkers(value) {
             //console.log("lat: " + markerObj.geometry.coordinates[1] + ", lng: " + markerObj.geometry.coordinates[0] + ", title: " + markerObj.properties.title);
 
             // Add marker
-            var marker = new L.marker([markerObj.geometry.coordinates[1], markerObj.geometry.coordinates[0]]);
+            var marker = new L.marker([markerObj.geometry.coordinates[1], markerObj.geometry.coordinates[0]], {icon: getMarkerIcon(markerObj.properties.markerIcon)});
             marker.addTo(map);
 
             mapMarkersArray.push(marker);
@@ -187,6 +187,22 @@ function showMarkers(value) {
             marker.bindPopup(popup);
         }
     }
+}
+
+function getMarkerIcon(markerIconName) {
+
+  var icon = L.icon({
+      iconUrl: 'images/icons/RD_' + markerIconName + '.png',
+      //shadowUrl: 'leaf-shadow.png',
+
+      iconSize:     [40, 40], // size of the icon
+      //shadowSize:   [50, 64], // size of the shadow
+      iconAnchor:   [20, 40], // point of the icon which will correspond to marker's location
+      //shadowAnchor: [4, 62],  // the same for the shadow
+      popupAnchor:  [0, -80] // point from which the popup should open relative to the iconAnchor
+  });
+
+  return icon;
 }
 
 function removeOldMarkers() {

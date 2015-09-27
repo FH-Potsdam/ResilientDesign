@@ -184,6 +184,9 @@ function initHitAreas() {
 
 		// Remove old popups
 		$popupPane.html('');
+		
+		e.preventDefault();
+		return false;
 	});
 
 	// // Solutions

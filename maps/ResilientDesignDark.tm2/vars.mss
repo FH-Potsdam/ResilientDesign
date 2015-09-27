@@ -45,8 +45,8 @@
 @snow:              @land; //#EDE5DD;
 
 @building:          #2e3852;//darken(@land, 8);
-@hospital:          mix(#cd3d2e, @land, 20); //#e8d4d9; //@land; //#F2E3E1;
-@school:            mix(#f19e0f, @land, 40); //#cec2ad; //@land; //#F2EAB8;
+@hospital:          @building; //mix(#cd3d2e, @land, 20); //#e8d4d9; //@land; //#F2E3E1;
+@school:            mix(@water, @land, 80); //mix(#f19e0f, @land, 40); //#cec2ad; //@land; //#F2EAB8;
 @pitch:             @grass; //#CAE6A9;
 @sports:            @park;
 

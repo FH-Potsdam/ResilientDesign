@@ -4,7 +4,6 @@
 		<title>Resilient Design | FHP</title>
 		<script type="text/javascript" src="lib/jquery-2.1.1.min.js"></script>
 		
-		
 		<!-- Leaflet -->
 		<script type="text/javascript" src="lib/leaflet.js"></script>
 		<script type="text/javascript" src="lib/leaflet.mask.js"></script>
@@ -19,14 +18,9 @@
 		<!-- Snap.svg -->
 		<script type="text/javascript" src="lib/snap.svg-min.js"></script>
 		<script type="text/javascript" src="lib/snap.svg.utils.js"></script>
-
-		<!-- Google Fonts -->
-		<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,900' rel='stylesheet' type='text/css'>
 		
 		<!-- Styles -->
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
-		<!-- <link rel="stylesheet" type="text/css" href="css/style-source.css"/> -->
-		<!-- <link rel="stylesheet" type="text/css" href="css/style-old.css"/> -->
 
 		<meta charset="UTF-8">
 	</head>
@@ -144,6 +138,13 @@
 				
 				<div id="content">
 					<div id="content-map">
+						<div id="map-legend">
+							<!-- <h4>Legende</h4> -->
+							<ul>
+								<li>Probleme und Konflikte</li>
+								<li>Ressourcen und Intervention</li>
+							</ul>
+						</div>
 						<article id="problems-content"></article>
 						<aside>
 							<div id="map-problem-bars" class="problem-bars">
@@ -174,7 +175,7 @@
 							</div>
 							<div id="map-solution-bars" class="solution-bars">
 								<div id="resbarkommunikation">
-									<h3>Kommunikation</h3>
+									<h3>Elekt. Kommunikation</h3>
 									<div class="progress-bar">
 										<div style="width: 0%;"></div>
 									</div>

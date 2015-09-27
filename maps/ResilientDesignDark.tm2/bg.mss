@@ -94,7 +94,7 @@ Map {
   }
   [class='school'] {
     polygon-fill: @school;
-    polygon-opacity: 0.5;
+    polygon-opacity: 0.6;
   }
   [class='cemetery'] {
     polygon-fill: @cemetery;
@@ -211,7 +211,12 @@ Map {
 #building[zoom>12] {
   // We ease buildings in, making them less intense at lower zooms.
   // Outlines are added for the higher zoom levels only.
-  [zoom=13] {  
+  polygon-fill: @building;
+  line-width: 0;
+  line-dasharray: 0, 0;
+  line-color: @building;
+  
+/*  [zoom=13] {  
     polygon-fill:darken(@building,1);
   }
   [zoom=14] {
@@ -219,24 +224,26 @@ Map {
   }
   [zoom=15] {
     polygon-fill:@building;//lighten(@building,1);
+    //line-color: @building;
     line-color:darken(@building,8);
     line-width:0.15;
   }
   [zoom>15] {
     polygon-fill:@building;
-    line-color:darken(@building,12);
-    line-width:0.3;
+    line-width: 0;
+    //line-color:darken(@building,12);
+    //line-width:0.3;
   }
   [zoom>=16] {
     building-fill: @building;
-    //building-fill-opacity:0.9;
-    building-height:3;
+    building-fill-opacity:0.9;
+    building-height:0;
   }
   [zoom>=17] {
     building-fill: @building;
     //building-fill-opacity:0.9;
-    building-height:20;
-  }
+   // building-height:20;
+  }*/
 }
 
 // =====================================================================
