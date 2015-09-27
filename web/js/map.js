@@ -110,17 +110,23 @@ var tempelhof = {
 
 map = L.map('map').setView([52.4548, 13.3815], 16);
 
-// Add tile layer
-L.tileLayer('http://{s}.tiles.mapbox.com/v3/jorditost.2116a83e/{z}/{x}/{y}.png', {
-// L.tileLayer('http://{s}.tiles.mapbox.com/v3/cmuench.lehj4pcp/{z}/{x}/{y}.png', {
-    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery &copy; <a href="http://mapbox.com">Mapbox</a>',
-    //attributionControl: false,
-    zoomControl: false,
-    maxZoom: 16,
-    minZoom: 16
-    //maxZoom: 18
-}).addTo(map);
+// // Add tile layer
+// L.tileLayer('http://{s}.tiles.mapbox.com/v3/jorditost.2116a83e/{z}/{x}/{y}.png', {
+// // L.tileLayer('http://{s}.tiles.mapbox.com/v3/cmuench.lehj4pcp/{z}/{x}/{y}.png', {
+//     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery &copy; <a href="http://mapbox.com">Mapbox</a>',
+//     //attributionControl: false,
+//     zoomControl: false,
+//     maxZoom: 16,
+//     minZoom: 16
+//     //maxZoom: 18
+// }).addTo(map);
 
+//map.setMaxBounds(new L.LatLngBounds([0,500], [500,0]));
+
+var imageUrl = 'map/map-150.png'
+var imageBounds = [[52.4422, 13.3699], [52.4674, 13.3931]]; // southWest, northEast
+
+L.imageOverlay(imageUrl, imageBounds).addTo(map);
 
 ////////////
 // Events

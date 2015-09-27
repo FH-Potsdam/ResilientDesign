@@ -1168,15 +1168,15 @@ footer {
 #content article b {
   font-family: 'gotham-book', Helmet, Freesans, sans-serif;
 }
-#content article:first-child h2,
-#content article:first-child strong {
+#content article.problems-content h2,
+#content article.problems-content strong {
   color: #ffa400;
 }
-#content article:last-child {
+#content article.solutions-content {
   margin-right: 0;
 }
-#content article:last-child h2,
-#content article:last-child strong {
+#content article.solutions-content h2,
+#content article.solutions-content strong {
   color: #26c281;
 }
 #content article .boldG {
@@ -1314,7 +1314,7 @@ footer {
   transition: color 0.2s ease-out;
 }
 #guides > div span {
-  width: 40px;
+  width: 45px;
   display: block;
   margin-top: 5px;
   margin-left: 8px;
