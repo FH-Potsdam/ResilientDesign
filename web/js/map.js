@@ -164,35 +164,40 @@ var layerProblems,
 
 function showMarkers(value) {
 
-    // Remove old markers
-    removeOldMarkers();
+    $markersPane.fadeOut(125, function() {
 
-    console.log("Show markers for time: " + currentTime);
-    value = (value < 10) ? "0" + value : value;
+        // Remove old markers
+        removeOldMarkers();
 
-    for (var i=0; i<markersData['STD'+value].length; i++) {
+        console.log("Show markers for time: " + currentTime);
+        value = (value < 10) ? "0" + value : value;
 
-        var markerObj = markersData['STD'+value][i];
+        for (var i=0; i<markersData['STD'+value].length; i++) {
 
-        // Point
-        if (markerObj.geometry.type == "Point") {
+            var markerObj = markersData['STD'+value][i];
 
-            //console.log(markerObj);
-            //console.log("lat: " + markerObj.geometry.coordinates[1] + ", lng: " + markerObj.geometry.coordinates[0] + ", title: " + markerObj.properties.title);
+            // Point
+            if (markerObj.geometry.type == "Point") {
 
-            // Add marker
-            var marker = new L.marker([markerObj.geometry.coordinates[1], markerObj.geometry.coordinates[0]], {icon: getMarkerIcon(markerObj.properties.markerIcon)});
-            marker.addTo(map);
+                //console.log(markerObj);
+                //console.log("lat: " + markerObj.geometry.coordinates[1] + ", lng: " + markerObj.geometry.coordinates[0] + ", title: " + markerObj.properties.title);
 
-            mapMarkersArray.push(marker);
+                // Add marker
+                var marker = new L.marker([markerObj.geometry.coordinates[1], markerObj.geometry.coordinates[0]], {icon: getMarkerIcon(markerObj.properties.markerIcon)});
+                marker.addTo(map);
 
-            // Add popup
-            var popup = new L.Popup();
-            //popup.setContent('<h4>'+markerObj.properties.title+'</h4><p>'+markerObj.properties.markerText+'</p>');
-            popup.setContent('<h4 class="'+getPopupClass(markerObj.properties.markerIcon)+'">'+markerObj.properties.markerTitle+'</h4><p>'+markerObj.properties.markerText+'</p>');
-            marker.bindPopup(popup);
+                mapMarkersArray.push(marker);
+
+                // Add popup
+                var popup = new L.Popup();
+                //popup.setContent('<h4>'+markerObj.properties.title+'</h4><p>'+markerObj.properties.markerText+'</p>');
+                popup.setContent('<h4 class="'+getPopupClass(markerObj.properties.markerIcon)+'">'+markerObj.properties.markerTitle+'</h4><p>'+markerObj.properties.markerText+'</p>');
+                marker.bindPopup(popup);
+            }
         }
-    }
+
+        $markersPane.fadeIn(125);
+    });
 }
 
 function getPopupClass(markerIconName) {
@@ -284,9 +289,12 @@ function removeOldMarkers() {
     // marker.bindPopup("This is our house.");
 }*/
 
-var markersData = [];
+var $markersPane,
+    markersData = [];
 
 $(document).ready(function (){
+
+    $markersPane = $('#map .leaflet-marker-pane').hide();
 
     //$.getJSON("data/RD_mapMarkersSTD0.json", function(data) {
     $.when(

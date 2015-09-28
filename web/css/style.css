@@ -669,15 +669,12 @@ footer {
 #map-legend {
   position: absolute;
   right: 0px;
-  bottom: 710px;
+  bottom: 695px;
   z-index: 9999;
 }
 #map-legend h4 {
   font-family: 'gotham-book', Helmet, Freesans, sans-serif;
   margin-bottom: 5px;
-}
-#map-legend ul li {
-  margin-bottom: 3px;
 }
 #map-legend ul li:before {
   content: "";
@@ -1354,7 +1351,7 @@ footer {
 #clock {
   position: absolute;
   left: 60px;
-  top: 320px;
+  top: 290px;
   z-index: 9;
   font-size: 24px;
   font-family: 'gotham-book', Helmet, Freesans, sans-serif;
