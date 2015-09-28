@@ -668,7 +668,7 @@ footer {
 }
 #map-legend {
   position: absolute;
-  right: 0px;
+  right: -3px;
   bottom: 695px;
   z-index: 9999;
 }
