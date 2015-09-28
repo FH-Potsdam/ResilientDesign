@@ -189,10 +189,34 @@ function showMarkers(value) {
             // Add popup
             var popup = new L.Popup();
             //popup.setContent('<h4>'+markerObj.properties.title+'</h4><p>'+markerObj.properties.markerText+'</p>');
-            popup.setContent('<h4>'+markerObj.properties.markerTitle+'</h4><p>'+markerObj.properties.markerText+'</p>');
+            popup.setContent('<h4 class="'+getPopupClass(markerObj.properties.markerIcon)+'">'+markerObj.properties.markerTitle+'</h4><p>'+markerObj.properties.markerText+'</p>');
             marker.bindPopup(popup);
         }
     }
+}
+
+function getPopupClass(markerIconName) {
+
+  if (markerIconName == "markerIcon_carCrash" ||
+      markerIconName == "markerIcon_chaos" ||
+      markerIconName == "markerIcon_crime" ||
+      markerIconName == "markerIcon_looting" ||
+      markerIconName == "markerIcon_stuckPeople" ||
+      markerIconName == "markerIcon_trafficJam") {
+
+    return "orange";
+  }
+
+  if (markerIconName == "markerIcon_childCare" ||
+      markerIconName == "markerIcon_contactPoint" ||
+      markerIconName == "markerIcon_firstAid" ||
+      markerIconName == "markerIcon_keyPerson" ||
+      markerIconName == "markerIcon_naturalBornHelper" ||
+      markerIconName == "markerIcon_shelter" ||
+      markerIconName == "markerIcon_supplyStation") {
+
+    return "green";
+  }
 }
 
 function getMarkerIcon(markerIconName) {

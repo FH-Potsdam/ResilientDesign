@@ -229,6 +229,7 @@
     {
       "type": "Feature",
       "properties": {
+        "markerTitle": "Notunterkunft",  
         "markerIcon": "markerIcon_shelter",
         "markerText": "In freien Gebäuden sind Notunterkünfte für evakuierte, verloren gegangene und pflegebedürftige Bürger eingerichtet worden. Hier finden sie Schutz, Nahrung und Obdach."
       },
