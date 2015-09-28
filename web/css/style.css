@@ -1165,12 +1165,13 @@ footer {
   min-height: 20px;
 }
 #content article h2 {
-  margin-bottom: 6px;
+  margin-top: -3px;
+  margin-bottom: 8px;
   line-height: 1.4;
   padding: 1px 0 2px;
 }
 #content article p {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 #content article strong,
 #content article b {
