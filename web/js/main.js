@@ -33,7 +33,7 @@ var $window,
 
     $footer,
 
-    initView = 'map-view',
+    initView = 'house-view',
     currentView = '',
     oldView = '',
 
@@ -42,11 +42,13 @@ var $window,
 
 var siteContentMap   = [],
     siteContentHouse = [],
-    siteContentHouseStatus = [];
+    siteContentHouseStatus = [],
+    siteContentHouseMarkers = [];
 
 var siteContentMapFile         = "data/RD_contentTableMap_export01.json",
     siteContentHouseFile       = "data/RD_contentTablePersona_export01.json";
     siteContentHouseStatusFile = "data/RD_contentTablePersonaStatus_export01.json";
+    siteContentHouseMarkersFile = "data/RD_houseMarkers.json";
 
 var initTime    = 0,
     currentTime = initTime,
@@ -64,12 +66,14 @@ function loadData() {
     $.when(
         $.getJSON(siteContentMapFile),
         $.getJSON(siteContentHouseFile),
-        $.getJSON(siteContentHouseStatusFile)
-    ).done(function(mapResponse, houseResponse, houseStatusResponse) {
+        $.getJSON(siteContentHouseStatusFile),
+        $.getJSON(siteContentHouseMarkersFile)
+    ).done(function(mapResponse, houseResponse, houseStatusResponse, houseMarkersResponse) {
 
         var mapData = $.parseJSON(mapResponse[2].responseText),
             houseData = $.parseJSON(houseResponse[2].responseText),
-            houseStatusData = $.parseJSON(houseStatusResponse[2].responseText);
+            houseStatusData = $.parseJSON(houseStatusResponse[2].responseText),
+            houseMarkersData = $.parseJSON(houseMarkersResponse[2].responseText);
 
         console.log(mapData);
         console.log(houseData);
@@ -88,7 +92,13 @@ function loadData() {
             siteContentHouseStatus[item.id] = item;
         });
 
+        $.each( houseMarkersData, function( key, item ) {
+            siteContentHouseMarkers[item.id] = item;
+        });
+
         console.log(">>> Site content successfully loaded!");
+
+        console.log(siteContentHouseMarkers);
 
         onSiteDataLoaded();
     });
@@ -483,7 +493,7 @@ function getFloorProblemsContent(floor, time) {
 function getFloorStatusValue(factor, floor, time) {
 
     var value = 0;
-    console.log("factor: " + factor + ", floor: " + floor + ", time:" + time);
+    //console.log("factor: " + factor + ", floor: " + floor + ", time:" + time);
 
     if (floor == 'floor-1') {
 

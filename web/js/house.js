@@ -225,17 +225,36 @@ function deactivateActiveGraphics() {
 
 function showPopup($area) {
 
+	var hash = $area.get(0).hash,
+		id = hash.replace('#','');
+
 	// Add popup in this position
 	var x = $area.position().left + 0.42*$area.width(),
 		y = $area.position().top;
 
-	console.log("show popup for area: " + $area.attr('id') + ", x: " + x + ", y: " + y);
+	var extraClass = id;
+	if (id == "Sink_x5F_3" ||
+		id == "First_x5F_Aid_x5F_2" ||
+		id == "Sink_x5F_2" ||
+		id == "First_x5F_Aid_x5F_2" ||
+		id == "First_x5F_aid_x5F_1" ||
+		id == "WC_x5F_3" ||
+		id == "XMLID_61_" ||
+		id == "Sink_x5F_1") {
+
+		extraClass = extraClass + " right";
+
+		x -= 260;
+	}
+
+	//console.log("show popup for area: " + id + ", x: " + x + ", y: " + y);
+	//console.log("text: " + siteContentHouseMarkers[id].text);
 
 	// Remove old popups
 	removePopups();
 
 	// Create new popup
-	var $popup = $('<div class="leaflet-popup leaflet-zoom-animated" style="transform: translate3d('+x+'px, '+y+'px, 0px); bottom: 27px; left: -82px;"><a class="leaflet-popup-close-button" href="#close">×</a><div class="leaflet-popup-content-wrapper"><div class="leaflet-popup-content" style="width: 133px;"><h4>House</h4><p>This is our house!</p></div></div><div class="leaflet-popup-tip-container"><div class="leaflet-popup-tip"></div></div></div>');
+	var $popup = $('<div class="leaflet-popup leaflet-zoom-animated '+extraClass+'" style="transform: translate3d('+x+'px, '+y+'px, 0px); bottom: 27px; left: -82px;"><a class="leaflet-popup-close-button" href="#close">×</a><div class="leaflet-popup-content-wrapper"><div class="leaflet-popup-content" style="width: 260px;"><p>'+siteContentHouseMarkers[id].text+'</p></div></div><div class="leaflet-popup-tip-container"><div class="leaflet-popup-tip"></div></div></div>');
 	$popupPane.html($popup);
 
 	$popup.find(".close").click(function(e){

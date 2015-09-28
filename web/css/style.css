@@ -774,6 +774,16 @@ footer {
   bottom: 0px !important;
   opacity: 0;
 }
+#house-view .leaflet-popup .leaflet-popup-content {
+  padding-top: 10px;
+  padding-right: 23px;
+}
+#house-view .leaflet-popup.right .leaflet-popup-tip {
+  right: 16px;
+  box-shadow: none;
+  right: -16px;
+  float: right;
+}
 #house-slider {
   position: relative;
   margin-top: 290px;

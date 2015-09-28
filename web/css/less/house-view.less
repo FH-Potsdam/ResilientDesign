@@ -22,6 +22,25 @@
 	.leaflet-popup {
 		bottom: 0px !important;
 		opacity: 0;
+
+		.leaflet-popup-content {
+			padding-top: 10px;
+			padding-right: 23px;
+		}
+
+		&.right {
+
+			.leaflet-popup-tip {
+				@arrow-width: 16px;
+				right: @arrow-width;
+				box-shadow: none;
+				
+				right: -@arrow-width;
+				float: right;
+
+				//.arrow(bottom, @arrow-width, red);
+			}	
+		}
 	}
 }
 
