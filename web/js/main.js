@@ -33,7 +33,7 @@ var $window,
 
     $footer,
 
-    initView = 'house-view',
+    initView = 'map-view',
     currentView = '',
     oldView = '',
 
